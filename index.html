@@ -10,12 +10,13 @@
 
     <style>
         * {
-            outline: 1px solid red;
+            /* outline: 1px solid red; */
         }
     </style>
 </head>
 
-<body class="bg-gray-50">
+<body>
+<div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50">
 
     <!-- Full Page Video Background
     <div class="hero-video-container">
@@ -25,14 +26,32 @@
     -->
 
     <!-- Header - Title -->
-    <div class="header my-8">
-        <h1 class="text-4xl py-4 font-bold text-center font-['Avenir'] font-normal uppercase tracking-wider">Soho Spaces</h1>
+    <div class="header m-4">
+        <h1 class="text-4xl py-4 font-bold font-['Avenir'] font-normal uppercase tracking-wider">Soho Spaces</h1>
+    </div>
+
+
+    <!-- Hero Image -->
+    <div class="hero-image ">
+        <div class="my-8 mx-4">
+            <img class="h-96 w-screen object-cover rounded-lg" src="./media/living.jpg" alt="">
+        </div>
+    </div>
+    <div class="blurb">
+        <div class="my-8 mx-4">
+            <h1 class="text-2xl py-4 font-bold font-['Avenir'] font-bold">
+                Modern Living Room
+            </h1>
+            <p class="font-['Avenir'] font-normal text-md">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p>
+        </div>
     </div>
 
     <!-- Photo Grid (Funky) -->
-    <div class="photo-grid mx-4 my-auto pb-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-            <div class="grid gap-2">
+    <div class="photo-grid flex justify-center mx-4 pb-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
+            <div class="grid gap-2 overflow-auto">
                 <div>
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
                 </div>
@@ -43,7 +62,7 @@
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
                 </div>
             </div>
-            <div class="grid gap-2">
+            <div class="grid gap-2 ">
                 <div>
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
                 </div>
@@ -54,38 +73,34 @@
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
                 </div>
             </div>
-            <div class="grid gap-2">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-2">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
-                </div>
-            </div>
+        </div>
+    </div>
+
+    <div class="blurb">
+        <div class="my-8 mx-4">
+            <p class="font-['Avenir'] font-normal text-md">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p>
         </div>
     </div>
 
     <!-- Footer (icons: https://tw-elements.com/docs/standard/components/social-buttons/) -->
-    <div class="footer">
-        <div class="h-auto text-center block mb-12">
+    <div class="footer m-6">
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    
+        <!-- Copyright -->
+        <div class="text-center mb-4">
+            <p class="font-['Avenir'] text-2xl text-gray-700 dark:text-gray-400">
+                &copy; 2019 Soho Spaces
+            </p>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="text-center m-auto pb-8">
 
             <!-- Instagram -->
-            <div class="social-icon inline p-1">
-                <a class="h-8 w-8 rounded-full outline-none focus:outline-none" type="button" href="https://www.instagram.com/">
+            <div class="social-icon inline p-2 h-4 w-4">
+                <a class=" rounded-full outline-none focus:outline-none" type="button" href="https://www.instagram.com/">
                     <svg
                         class="fill-current transition duration-700 ease-in-out h-8 w-8 text-gray-700 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-600"
                         role="img" viewBox="0 0 24 24"
@@ -97,8 +112,8 @@
             </div>
 
             <!-- Pinterest -->
-            <div class="social-icon inline p-1">
-                <a class="h-8 w-8 rounded-full outline-none focus:outline-none" type="button" href="https://www.pinterest.com/">
+            <div class="social-icon inline p-2 h-4 w-4">
+                <a class="rounded-full outline-none focus:outline-none" type="button" href="https://www.pinterest.com/">
                     <svg
                         class="fill-current transition duration-700 ease-in-out h-8 w-8 text-gray-700 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-600"
                         role="img" viewBox="0 0 24 24"
@@ -110,8 +125,8 @@
             </div>
 
             <!-- Youtube -->
-            <div class="social-icon inline p-1">
-                <a class="h-8 w-8 rounded-full outline-none focus:outline-none" type="button" href="https://www.youtube.com/">
+            <div class="social-icon inline p-2 h-4 w-4">
+                <a class="rounded-full outline-none focus:outline-none" type="button" href="https://www.youtube.com/">
                     <svg
                         class="fill-current transition duration-700 ease-in-out h-8 w-8 text-gray-700 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-600"
                         role="img" viewBox="0 0 24 24"
@@ -123,8 +138,8 @@
             </div>  
 
             <!-- TikTok -->
-            <div class="social-icon inline p-1">
-                <a class="h-8 w-8 rounded-full outline-none focus:outline-none" type="button" href="https://www.tiktok.com/">
+            <div class="social-icon inline p-2 h-4 w-4">
+                <a class="rounded-full outline-none focus:outline-none" type="button" href="https://www.tiktok.com/">
                     <svg
                         class="fill-current transition duration-700 ease-in-out h-8 w-8 text-gray-700 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-600"
                         role="img" viewBox="0 0 448 512"
@@ -138,8 +153,8 @@
             </div>
 
             <!-- Facebook -->
-            <div class="social-icon inline p-1">
-                <a class="h-8 w-8 rounded-full outline-none focus:outline-none" type="button" href="https://www.facebook.com/">
+            <div class="social-icon inline p-2 h-4 w-4">
+                <a class="rounded-full outline-none focus:outline-none" type="button" href="https://www.facebook.com/">
                     <svg
                         class="fill-current transition duration-700 ease-in-out h-8 w-8 text-gray-700 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-600"
                         role="img" viewBox="0 0 24 24"
@@ -151,8 +166,8 @@
             </div>  
 
             <!-- Twitter / X -->
-            <div class="social-icon inline p-1">
-                <a class="h-8 w-8 rounded-full outline-none focus:outline-none" type="button" href="https://www.x.com/">
+            <div class="social-icon inline p-2 h-4 w-4">
+                <a class="rounded-full outline-none focus:outline-none" type="button" href="https://www.x.com/">
                     <svg
                         class="fill-current transition duration-700 ease-in-out h-8 w-8 text-gray-700 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-600"
                         role="img" viewBox="0 0 24 24"
@@ -194,7 +209,7 @@
     </div>
     -->
 
-
+</div>
 </body>
 
 </html>
