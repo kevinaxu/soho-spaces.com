@@ -7,15 +7,109 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            /* outline: 1px solid red; */ 
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-gray-50">
 
-    <!-- Full Page Video Background -->
-        <div class="hero-video-container">
-            <video id="hero-video" autoplay muted loop class="object-cover absolute w-screen h-full left-0 right-0 bottom-0">
-                <source src="media/nate.mp4" type="video/mp4">
+    <!-- Full Page Video Background
+    <div class="hero-video-container">
+        <video id="hero-video" autoplay muted loop class="object-cover absolute w-screen h-full left-0 right-0 bottom-0">
+            <source src="media/nate.mp4" type="video/mp4">
+    </div>
+    -->
+
+
+    <!-- Header - Title -->
+    <div class="header my-4 block">
+        <h1 class="text-3xl font-bold text-center font-mono uppercase tracking-wider">Soho Spaces</h1>
+    </div>
+
+
+    <!-- Photo Grid (Funky) -->
+    <div class="photo-grid mx-4 my-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 pb-4">
+            <div class="grid gap-2">
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid gap-2">
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid gap-2">
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid gap-2">
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Portfolio Layout -->
+    <!-- Option 1) Mobile view - 1 column -->
+    <!-- 
+    <div class="">
+        <div class="mx-auto max-w-xl px-4 py-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <div class="mt-10 space-y-12 grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
+                <a href="#" class="group block">
+                  <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
+                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-01.jpg" class="h-full w-full object-cover object-center" />
+                  </div>
+                  <h3 class="mt-4 text-base font-semibold text-gray-900">Cozy Living Room</h3>
+                </a>
+                <a href="#" class="group block">
+                  <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
+                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-02.jpg" class="h-full w-full object-cover object-center" />
+                  </div>
+                  <h3 class="mt-4 text-base font-semibold text-gray-900">Green Space</h3>
+                </a>
+                <a href="#" class="group block">
+                  <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
+                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-03.jpg" class="h-full w-full object-cover object-center" />
+                  </div>
+                  <h3 class="mt-4 text-base font-semibold text-gray-900">Modern Focus</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    -->
+
 
 </body>
 
