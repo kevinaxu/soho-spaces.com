@@ -1,0 +1,17 @@
+{
+  "name": "soho-spaces.com",
+  "version": "0.1.0",
+  "description": "Portfolio site for Soho Spaces Interior Designs",
+  "main": "index.html",
+  "dependencies": {
+    "heic-convert": "^2.1.0",
+    "jimp": "^0.22.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinaxu/soho-spaces.com.git"
+  },
+  "author": "Kevin Xu",
+  "license": "ISC",
+  "homepage": "https://github.com/kevinaxu/soho-spaces.com#readme"
+}
