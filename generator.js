@@ -34,20 +34,46 @@ function thumbnails(photos) {
     <div class="thumbnails mx-4">
         <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
             <div>
-                <img class="h-20 w-28 max-w-full rounded-lg" src="${photos[0]}" alt="">
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
             </div>
             <div>
-                <img class="h-20 w-28 max-w-full rounded-lg" src="${photos[1]}" alt="">
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
             </div>
             <div>
-                <img class="h-20 w-28 max-w-full rounded-lg" src="${photos[2]}" alt="">
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
             </div>
         </div>
     </div>
     `;
 }
 
-function productGrid(photos) {
+function photoGrid4(photos) {
+    return `
+    <div class="photo-grid flex justify-center m-4 pb-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
+            <div class="grid gap-2 overflow-auto">
+                <div>
+                    <img class="h-56 w-44 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
+                </div>
+                <div>
+                    <img class="h-36 w-44 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
+                </div>
+            </div>
+            <div class="grid gap-2 ">
+                <div>
+                    <img class="h-44 w-44 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
+                </div>
+                <div>
+                    <img class="h-48 w-44 max-w-full rounded-lg object-cover" src="${photos[3]}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+
+function photoGrid6(photos) {
     return `
     <div class="photo-grid flex justify-center m-4 pb-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
@@ -90,7 +116,7 @@ function footer() {
                 &copy; 2019 Soho Spaces
             </p>
             <p class="text-md text-gray-700 dark:text-gray-400">
-                <a href = "mailto: soho-spaces@gmail.com">soho-spaces@gmail.com</a>
+                <a href = "mailto: sohospacesatl@gmail.com">sohospacesatl@gmail.com</a>
             </p>
         </div>
 
