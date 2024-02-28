@@ -12,8 +12,8 @@ function paragraph(heading, description) {
     return `
     <div class="paragraph">
         <div class="my-8 mx-4">
-            <h1 class="text-2xl py-4">${heading}</h1>
-            <p class="font-normal text-md">${description}</p>
+            <h1 class="text-2xl py-2">${heading}</h1>
+            <!-- <p class="font-normal text-md">${description}</p> -->  
         </div>
     </div>
     `;
@@ -25,6 +25,14 @@ function heroVideo(video_url) {
         <video id="hero-video" autoplay loop muted playsinline class="object-cover object-center h-full w-full lg:max-w-screen-lg rounded-lg">
             <source src="${video_url}" type="video/mp4">
         </video>
+    </div>
+    `;
+}
+
+function heroImage(image_url) {
+    return `
+    <div class="hero-image-container h-96 m-4 rounded-lg">
+        <img class="object-cover object-center h-full w-full" src="${image_url}" alt="">
     </div>
     `;
 }
