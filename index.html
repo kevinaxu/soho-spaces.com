@@ -15,7 +15,7 @@
     </style>
 </head>
 
-<body>
+<body class="font-['Avenir']">
 <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50">
 
     <!-- Full Page Video Background
@@ -27,22 +27,22 @@
 
     <!-- Header - Title -->
     <div class="header m-4">
-        <h1 class="text-4xl py-4 font-bold font-['Avenir'] font-normal uppercase tracking-wider">Soho Spaces</h1>
+        <h1 class="text-4xl py-4 font-bold font-normal uppercase tracking-wider">Soho Spaces</h1>
     </div>
 
 
     <!-- Hero Image -->
-    <div class="hero-image ">
-        <div class="my-8 mx-4">
-            <img class="h-96 w-screen object-cover rounded-lg" src="./media/living.jpg" alt="">
+    <div class="hero-image">
+        <div class="my-4 mx-4 md:h-vh md:max-w-screen-md lg:h-vh lg:max-w-screen-lg ">
+            <img class="h-96 w-screen md:h-3/5 lg:h-4/5 object-cover rounded-lg" src="./media/living.jpg" alt="">
         </div>
     </div>
     <div class="blurb">
         <div class="my-8 mx-4">
-            <h1 class="text-2xl py-4 font-bold font-['Avenir'] font-bold">
+            <h1 class="text-2xl py-4 ">
                 Modern Living Room
             </h1>
-            <p class="font-['Avenir'] font-normal text-md">
+            <p class="font-normal text-md">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
         </div>
@@ -78,7 +78,7 @@
 
     <div class="blurb">
         <div class="my-8 mx-4">
-            <p class="font-['Avenir'] font-normal text-md">
+            <p class="font-normal text-md">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
         </div>
@@ -87,10 +87,10 @@
     <!-- Thumbnails -->
     <div class="blurb">
         <div class="my-8 mx-4">
-            <h1 class="text-2xl py-4 font-bold font-['Avenir'] font-bold">
+            <h1 class="text-2xl py-4 font-bold font-bold">
                 Design Inspiration
             </h1>
-            <p class="font-['Avenir'] font-normal text-md">
+            <p class="font-normal text-md">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
         </div>
@@ -114,17 +114,18 @@
     <div class="footer m-6">
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
     
-        <!-- Copyright -->
+        <!-- Copyright / Email -->
         <div class="text-center mb-4">
-            <p class="font-['Avenir'] text-2xl text-gray-700 dark:text-gray-400">
+            <p class="text-2xl text-gray-700 dark:text-gray-400">
                 &copy; 2019 Soho Spaces
+            </p>
+            <p class="text-md text-gray-700 dark:text-gray-400">
+                soho-spaces@gmail.com
             </p>
         </div>
 
         <!-- Social Icons -->
         <div class="flex flex-row justify-center m-auto pb-8">
-
-            <!-- Instagram -->
             <div class="p-2">
                 <a class="h-4 w-4 rounded-full outline-none focus:outline-none" type="button" href="https://www.instagram.com/">
                     <svg
@@ -136,8 +137,6 @@
                     </svg>
                 </a>
             </div>
-
-            <!-- Pinterest -->
             <div class="p-2">
                 <a class="h-4 w-4 rounded-full outline-none focus:outline-none" type="button" href="https://www.pinterest.com/">
                 <svg
@@ -149,8 +148,6 @@
                 </svg>
                 </a>
             </div>
-
-            <!-- Youtube -->
             <div class="p-2">
                 <a class="h-4 w-4 rounded-full outline-none focus:outline-none" type="button" href="https://www.youtube.com/">
                 <svg
@@ -162,9 +159,6 @@
                 </svg>
                 </a>
             </div>
-
-
-            <!-- TikTok -->
             <div class="p-2">
                 <a class="h-4 w-4 rounded-full outline-none focus:outline-none" type="button" href="https://www.tiktok.com/">
                 <svg
@@ -178,9 +172,6 @@
                 </svg>
                 </a>
             </div>
-
-
-            <!-- Facebook -->
             <div class="p-2">
                 <a class="h-4 w-4 rounded-full outline-none focus:outline-none" type="button" href="https://www.facebook.com/">
                 <svg
@@ -192,9 +183,6 @@
                 </svg>
                 </a>  
             </div>
-  
-
-            <!-- Twitter / X -->
             <div class="p-2">
                 <a class="h-4 w-4 rounded-full outline-none focus:outline-none" type="button" href="https://www.x.com/">
                 <svg
@@ -210,34 +198,6 @@
         </div>
     </div>
 
-    <!-- Portfolio Layout -->
-    <!-- Option 1) Mobile view - 1 column -->
-    <!-- 
-    <div class="">
-        <div class="mx-auto max-w-xl px-4 py-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-            <div class="mt-10 space-y-12 grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-                <a href="#" class="group block">
-                  <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-01.jpg" class="h-full w-full object-cover object-center" />
-                  </div>
-                  <h3 class="mt-4 text-base font-semibold text-gray-900">Cozy Living Room</h3>
-                </a>
-                <a href="#" class="group block">
-                  <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-02.jpg" class="h-full w-full object-cover object-center" />
-                  </div>
-                  <h3 class="mt-4 text-base font-semibold text-gray-900">Green Space</h3>
-                </a>
-                <a href="#" class="group block">
-                  <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-collection-03.jpg" class="h-full w-full object-cover object-center" />
-                  </div>
-                  <h3 class="mt-4 text-base font-semibold text-gray-900">Modern Focus</h3>
-                </a>
-            </div>
-        </div>
-    </div>
-    -->
 
 </div>
 </body>
