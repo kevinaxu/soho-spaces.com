@@ -21,7 +21,7 @@ function paragraph(heading, description) {
 
 function heroVideo(video_url) {
     return `
-    <div class="hero-video-container h-96 aspect-video m-4 rounded-lg">
+    <div class="hero-video-container h-96 m-4 rounded-lg">
         <video id="hero-video" autoplay="" muted="" loop="" class="object-cover object-center h-full w-full lg:max-w-screen-lg rounded-lg">
             <source src="${video_url}" type="video/mp4">
         </video>
