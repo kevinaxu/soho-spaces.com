@@ -1,96 +1,86 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Soho Spaces</title>
-
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * {
-            /* outline: 1px solid red; */
-        }
-    </style>
-</head>
-
-<body class="font-['Avenir']">
-
-<div class="flex flex-col justify-center">
-
-    <!-- Header - Title -->
+function header() {
+    return `
     <div class="header m-4">
         <h1 class="text-4xl py-4 font-bold font-normal uppercase tracking-wider">
-            <a href="./index.html">Soho Spaces</a>
+            <a href="../index.html" class="hover:overline">Soho Spaces</a>
         </h1>
     </div>
+    `;
+}
 
-    <!-- Hero Video -->
-    <div class="hero-video-container h-96 aspect-video m-4 rounded-lg">
-        <video id="hero-video" autoplay muted loop class="object-cover object-center h-full w-full lg:max-w-screen-lg rounded-lg">
-            <source src="../assets/powder_room/powder.mov" type="video/mp4">
-
-    </div>
-
-    <div class="blurb">
+function paragraph(heading, description) {
+    return `
+    <div class="paragraph">
         <div class="my-8 mx-4">
-            <h1 class="text-2xl py-4 ">
-                Modern Living Room
-            </h1>
-            <p class="font-normal text-md">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            </p>
+            <h1 class="text-2xl py-4">${heading}</h1>
+            <p class="font-normal text-md">${description}</p>
         </div>
     </div>
+    `;
+}
 
-    <!-- Photo Grid (Funky) -->
-    <div class="photo-grid flex justify-center mx-4 pb-4">
+function heroVideo(video_url) {
+    return `
+    <div class="hero-video-container h-96 aspect-video m-4 rounded-lg">
+        <video id="hero-video" autoplay="" muted="" loop="" class="object-cover object-center h-full w-full lg:max-w-screen-lg rounded-lg">
+            <source src="${video_url}" type="video/mp4">
+        </video>
+    </div>
+    `;
+}
+
+function thumbnails(photos) {
+    return `
+    <div class="thumbnails mx-4">
+        <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
+            <div>
+                <img class="h-20 w-28 max-w-full rounded-lg" src="${photos[0]}" alt="">
+            </div>
+            <div>
+                <img class="h-20 w-28 max-w-full rounded-lg" src="${photos[1]}" alt="">
+            </div>
+            <div>
+                <img class="h-20 w-28 max-w-full rounded-lg" src="${photos[2]}" alt="">
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+function productGrid(photos) {
+    return `
+    <div class="photo-grid flex justify-center m-4 pb-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
             <div class="grid gap-2 overflow-auto">
                 <div>
-                    <img class="h-56 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/powder_1.jpeg" alt="">
+                    <img class="h-56 w-44 max-w-full rounded-lg object-cover" src="${photos[0]}">
                 </div>
                 <div>
-                    <img class="h-36 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/featured.jpeg" alt="">
+                    <img class="h-36 w-44 max-w-full rounded-lg object-cover" src="${photos[1]}">
+                </div>
+                <div>
+                    <img class="h-40 w-44 max-w-full rounded-lg object-cover" src="${photos[2]}">
                 </div>
             </div>
             <div class="grid gap-2 ">
                 <div>
-                    <img class="h-44 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/shelf_1.jpeg" alt="">
+                    <img class="h-44 w-44 max-w-full rounded-lg object-cover" src="${photos[3]}">
                 </div>
                 <div>
-                    <img class="h-48 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/vanity.jpeg" alt="">
+                    <img class="h-60 w-44 max-w-full rounded-lg object-cover" src="${photos[4]}">
+                </div>
+                <div>
+                    <img class="h-28 w-44 max-w-full rounded-lg object-cover" src="${photos[5]}">
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Thumbnails -->
-    <div class="blurb">
-        <div class="my-8 mx-4">
-            <h1 class="text-2xl py-4 font-bold font-bold">
-                Design Inspiration
-            </h1>
-            <p class="font-normal text-md">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            </p>
-        </div>
-    </div>
-    <div class="thumbnails mx-4">
-        <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
-            <div>
-                <img class="h-20 w-28 max-w-full rounded-lg" src="./assets/powder_room/powder_1.jpeg" alt="">
-            </div>
-            <div>
-                <img class="h-20 w-28 max-w-full rounded-lg" src="./assets/powder_room/powder_2.jpeg" alt="">
-            </div>
-            <div>
-                <img class="h-20 w-28 max-w-full rounded-lg" src="./assets/powder_room/shelf_1.jpeg" alt="">
-            </div>
-        </div>
-    </div>
+    `;
+}
 
 
-    <!-- Footer (icons: https://tw-elements.com/docs/standard/components/social-buttons/) -->
+function footer() {
+    return `
     <div class="footer m-6">
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
     
@@ -100,7 +90,7 @@
                 &copy; 2019 Soho Spaces
             </p>
             <p class="text-md text-gray-700 dark:text-gray-400">
-                soho-spaces@gmail.com
+                <a href = "mailto: soho-spaces@gmail.com">soho-spaces@gmail.com</a>
             </p>
         </div>
 
@@ -172,14 +162,10 @@
                     <title>Twitter</title>         
                     <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                 </svg>
-                 </a>
+                </a>
             </div>
 
         </div>
     </div>
-
-
-    </div>  
-</body>
-
-</html>
+    `;
+}
