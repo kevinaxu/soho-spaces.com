@@ -17,8 +17,8 @@ const jimp = require('jimp');
 const convert = require('heic-convert');
 
 // TODO: update these to the correct directories whenever photos get added!
-const INPUT_DIR = "./media/map";
-const OUTPUT_DIR = "./assets/map"; 
+const INPUT_DIR = "./media";
+const OUTPUT_DIR = "./assets"; 
 processImages(INPUT_DIR, OUTPUT_DIR);
 
 async function processImages(inFileDir, outFileDir) {
