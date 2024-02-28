@@ -16,23 +16,20 @@
 </head>
 
 <body class="font-['Avenir']">
-<div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50">
 
-    <!-- Full Page Video Background
-    <div class="hero-video-container">
-        <video id="hero-video" autoplay muted loop class="object-cover absolute w-screen h-full left-0 right-0 bottom-0">
-            <source src="media/nate.mp4" type="video/mp4">
-    </div>
-    -->
+<div class="relative flex flex-col justify-center overflow-hidden">
 
     <!-- Header - Title -->
-
-    <!-- Hero Image -->
-    <div class="hero-image">
-        <div class="my-4 mx-4 md:h-vh md:max-w-screen-md lg:h-vh lg:max-w-screen-lg ">
-            <img class="h-96 w-screen md:h-3/5 lg:h-4/5 object-cover rounded-lg" src="./media/living.jpg" alt="">
-        </div>
+    <div class="header m-4">
+        <h1 class="text-4xl py-4 font-bold font-normal uppercase tracking-wider">Soho Spaces</h1>
     </div>
+
+    <!-- Hero Video -->
+    <div class="hero-video-container h-96 aspect-video m-4 rounded-lg">
+        <video id="hero-video" autoplay muted loop class="object-cover object-center p-2 h-full w-full lg:max-w-screen-lg rounded-lg">
+            <source src="../assets/emily_bedroom.mov" type="video/mp4">
+    </div>
+
     <div class="blurb">
         <div class="my-8 mx-4">
             <h1 class="text-2xl py-4 ">
@@ -94,13 +91,13 @@
     <div class="thumbnails mx-4">
         <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
             <div>
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+                <img class="h-20 w-28 max-w-full rounded-lg" src="./assets/powder_1.jpeg" alt="">
             </div>
             <div>
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+                <img class="h-20 w-28 max-w-full rounded-lg" src="./assets/powder_2.jpeg" alt="">
             </div>
             <div>
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+                <img class="h-20 w-28 max-w-full rounded-lg" src="./assets/powder_3.jpeg" alt="">
             </div>
         </div>
     </div>
@@ -195,7 +192,7 @@
     </div>
 
 
-</div>
+    </div>  
 </body>
 
 </html>
