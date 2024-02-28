@@ -31,7 +31,7 @@ function heroVideo(video_url) {
 
 function thumbnails(photos) {
     return `
-    <div class="thumbnails mx-4">
+    <div id="thumbnails" class="mx-4">
         <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
             <div>
                 <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
@@ -49,7 +49,7 @@ function thumbnails(photos) {
 
 function photoGrid4(photos) {
     return `
-    <div class="photo-grid flex justify-center m-4 pb-4">
+    <div id="photo-grid-4" class="flex justify-center m-4 pb-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
             <div class="grid gap-2 overflow-auto">
                 <div>
@@ -75,7 +75,7 @@ function photoGrid4(photos) {
 
 function photoGrid6(photos) {
     return `
-    <div class="photo-grid flex justify-center m-4 pb-4">
+    <div id="photo-grid-4" class="flex justify-center m-4 pb-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
             <div class="grid gap-2 overflow-auto">
                 <div>
