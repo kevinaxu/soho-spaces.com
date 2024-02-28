@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Soho Spaces: Accent Wall</title>
+
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../generator.js" type="text/javascript"></script> 
+    <style>
+        * {
+            /* outline: 1px solid red; */
+        }
+    </style>
+</head>
+
+<body class="font-['Avenir'] flex flex-col justify-center">
+    
+    <script>
+
+        // Definitions ("Front Matter");
+        const HERO_VIDEO = '../assets/accent_wall/accent_480p.mov';
+        const PHOTO_GRID = [
+            '../assets/accent_wall/featured.jpeg',
+            '../assets/accent_wall/console_center.jpeg',
+            '../assets/accent_wall/console_left.jpeg',
+            '../assets/accent_wall/phoenix.jpeg',
+        ];
+        const THUMBNAILS = [
+            '../assets/accent_wall/console_right.jpeg',
+            '../assets/accent_wall/umbrella.jpeg',
+            '../assets/accent_wall/tiger.jpeg',
+        ];
+        const HEADING_1 = 'Accent Wall';
+        const DESC_1 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+
+        var body = document.body;
+
+        body.innerHTML += header();
+        body.innerHTML += heroVideo(HERO_VIDEO);
+        body.innerHTML += thumbnails(THUMBNAILS);
+        body.innerHTML += paragraph(HEADING_1, DESC_1);      
+        body.innerHTML += photoGrid4(PHOTO_GRID);
+        body.innerHTML += footer();
+
+    </script>
+</body>
