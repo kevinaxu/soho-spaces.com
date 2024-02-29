@@ -58,48 +58,19 @@
             <div class="portfolio-grid">
                 <div class="mx-auto max-w-lg px-4 py-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                     <div class="mt-4 space-y-12 grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-                        
-                        <a href="${PAGES[0].page_path}" class="group block">
-                        <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                            <img src="${PAGES[0].featured_image_src}" class="h-64 w-full rounded-lg object-cover object-center" />
-                        </div>
-                        <h3 class="text-2xl py-2">${PAGES[0].name}</h3>
-                        </a>
-
-                        <a href="${PAGES[1].page_path}" class="group block">
-                        <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                            <img src="${PAGES[1].featured_image_src}" class="h-64 w-full rounded-lg object-cover object-center" />
-                        </div>
-                        <h3 class="text-2xl py-2">${PAGES[1].name}</h3>
-                        </a>
-                        
-                        <a href="${PAGES[2].page_path}" class="group block">
-                        <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                            <img src="${PAGES[2].featured_image_src}" class="h-64 w-full rounded-lg object-cover object-center" />
-                        </div>
-                        <h3 class="text-2xl py-2">${PAGES[2].name}</h3>
-                        </a>
-
-                        <a href="${PAGES[3].page_path}" class="group block">
-                        <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                            <img src="${PAGES[3].featured_image_src}" class="h-64 w-full rounded-lg object-cover object-center" />
-                        </div>
-                        <h3 class="text-2xl py-2">${PAGES[3].name}</h3>
-                        </a>
-
-                        <a href="${PAGES[4].page_path}" class="group block">
-                        <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                            <img src="${PAGES[4].featured_image_src}" class="h-64 w-full rounded-lg object-cover object-center" />
-                        </div>
-                        <h3 class="text-2xl py-2">${PAGES[4].name}</h3>
-                        </a>
-
-                        <a href="${PAGES[5].page_path}" class="group block">
-                        <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                            <img src="${PAGES[5].featured_image_src}" class="h-64 w-full rounded-lg object-cover object-center" />
-                        </div>
-                        <h3 class="text-2xl py-2">${PAGES[5].name}</h3>
-                        </a>
+                        ` + 
+                        // Add card for each portfolio page
+                        PAGES.map((page) => {
+                            return `
+                                <a href="${page.page_path}" class="group block">
+                                    <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
+                                        <img src="${page.featured_image_src}" class="h-64 w-full rounded-lg object-cover object-center" />
+                                    </div>
+                                    <h3 class="text-2xl py-2">${page.name}</h3>
+                                </a>
+                            `;
+                        }).join('') +
+                        `
                     </div>
                 </div>
             </div>
