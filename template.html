@@ -90,6 +90,29 @@
         </div>
     </div>
 
+    <!-- Carousel Modal -->
+    <div id="modal" class="hidden absolute top-0 left-0 w-screen max-h-screen h-svh flex justify-center bg-gray-500 bg-opacity-75">
+        <img id="modal-image" class="w-4/5 h-3/5 mt-4 rounded-lg object-cover" src="" alt="">
+    </div>
+
+
+    <script>
+        // Add event listener for all elements with class "carousel"
+        var grid = document.getElementById('photo-grid-4').addEventListener('click', function(e) {
+            console.log("clicked on image");
+            var modal = document.getElementById('modal');
+            var modalImage = document.getElementById('modal-image');
+            modalImage.src = e.target.src;            
+            modal.classList.remove('hidden');
+        });
+
+        // Add event listener to single time click on modal container 
+        var modal = document.getElementById('modal').addEventListener('click', function(e) {
+            console.log("clicked on modal");
+            var modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+        });
+    </script>
 
     <!-- Footer (icons: https://tw-elements.com/docs/standard/components/social-buttons/) -->
     <div class="footer m-6">
