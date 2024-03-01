@@ -8,6 +8,7 @@ function header() {
     `;
 }
 
+// TODO: add back description once blurbs are complete
 function paragraph(heading, description) {
     return `
     <div class="paragraph">
@@ -79,7 +80,6 @@ function photoGrid4(photos) {
     </div>
     `;
 }
-
 
 function photoGrid6(photos) {
     return `
