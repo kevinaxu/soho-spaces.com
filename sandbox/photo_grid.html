@@ -16,9 +16,15 @@
 </head>
     
 <body class="font-['Avenir'] h-vh">
+
+    <!-- Main modal -->
+    <div id="modal" class="hidden absolute top-0 left-0 w-screen max-h-screen h-svh flex justify-center bg-gray-500 bg-opacity-75">
+        <img id="modal-image" class="w-4/5 h-3/5 mt-4 rounded-lg object-cover" src="" alt="">
+    </div>
+
     <!-- Photo Grid -->
     <h1 class="m-4 text-bold">4-Photo Layout</h1>
-    <div id="photo-grid-4" class="flex justify-center m-4 pb-4">
+    <div id="photo-grid-4" class="image-carousel flex justify-center m-4 pb-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
             <div class="grid gap-2 overflow-auto">
                 <div>
@@ -38,41 +44,55 @@
             </div>
         </div>
     </div>
-  
-    <!-- Main modal -->
-    <div id="modal" class="hidden absolute top-0 left-0 w-screen max-h-screen h-svh flex justify-center bg-gray-500 bg-opacity-75">
-        <img id="modal-image" class="w-4/5 h-3/5 mt-4 rounded-lg object-cover" src="" alt="">
-    </div>
 
-    <!-- <h1 class="m-4 text-bold">6-Photo Layout</h1>
-    <div class="photo-grid flex justify-center m-4 pb-4">
+    <h1 class="m-4 text-bold">6-Photo Layout</h1>
+    <div class="image-carousel photo-grid flex justify-center m-4 pb-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
             <div class="grid gap-2 overflow-auto">
                 <div>
-                    <img class="h-56 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_1.jpeg" alt="">
+                    <img class="h-56 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/powder_1.jpeg" alt="">
                 </div>
                 <div>
-                    <img class="h-36 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_2.jpeg" alt="">
+                    <img class="h-36 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/powder_2.jpeg" alt="">
                 </div>
                 <div>
-                    <img class="h-40 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_3.jpeg" alt="">
+                    <img class="h-40 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/mirror_1.jpeg" alt="">
                 </div>
             </div>
             <div class="grid gap-2 ">
                 <div>
-                    <img class="h-44 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_3.jpeg" alt="">
+                    <img class="h-44 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/mirror_1.jpeg" alt="">
                 </div>
                 <div>
-                    <img class="h-60 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_1.jpeg" alt="">
+                    <img class="h-60 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/powder_1.jpeg" alt="">
                 </div>
                 <div>
-                    <img class="h-28 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_2.jpeg" alt="">
+                    <img class="h-28 w-44 max-w-full rounded-lg object-cover" src="../assets/powder_room/powder_2.jpeg" alt="">
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
+
 
     <script>
+        document.querySelectorAll('.photo-grid img').forEach(function(img) {
+            img.addEventListener('click', function(e) {
+                var modal = document.getElementById('modal');
+                var modalImage = document.getElementById('modal-image');
+                modalImage.src = e.target.src;
+                console.log("modal image", modalImage.src);
+                modal.classList.remove('hidden');
+            });
+        });
+        // Add event listener to single time click on modal container 
+        var modal = document.getElementById('modal').addEventListener('click', function(e) {
+            console.log("clicked on modal");
+            var modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+        });
+
+        /*
+        // Add event listener for all elements with class "carousel"
         var grid = document.getElementById('photo-grid-4').addEventListener('click', function(e) {
             console.log("clicked on image");
             var modal = document.getElementById('modal');
@@ -80,20 +100,8 @@
             modalImage.src = e.target.src;            
             modal.classList.remove('hidden');
         });
-
-        var modal = document.getElementById('modal').addEventListener('click', function(e) {
-            console.log("clicked on modal");
-            var modal = document.getElementById('modal');
-            modal.classList.add('hidden');
-        });
-
-        // display = "none
-
-        // get the image class
-        // onclick
-        // attach a popup modal full screen 
+        */
 
     </script>
-
 </body>
 </html> 
