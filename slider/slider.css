@@ -1,95 +1,80 @@
-/* * {
-    box-sizing:border-box
-  }
-  
-  body {
-    background: #f4f4f4;
-  }
-  
-  h1 {
-    color: white;
-    text-align:center;
-    font-family: 'Roboto', sans-serif;
-    margin-bottom:0;
-  }
-   */
+.line {
+    width: 100px;
+    height: 1px;
+    margin: 20px auto 40px auto;
+    border-bottom: 1px solid rgb(190, 101, 101);
+}
 
-
-  .line {
-    width:100px;
-    height:1px;
-    margin:20px auto 40px auto;
-    border-bottom:1px solid rgb(190, 101, 101);
-  }
-  
-  .slider-image {
-    width:100%;
+.slider-image {
+    width: 100%;
     max-width: none;
-    display:block;
-  }
-  
-  #image-container {
-    width:80%;
-    display:block;
-    margin:30px auto
-  }
-  @media (max-width:767px) {
+    /* Remove max-width default set by Tailwind */
+    display: block;
+}
+
+#image-container {
+    width: 80%;
+    display: block;
+    margin: 30px auto
+}
+
+@media (max-width:767px) {
     #image-container {
-      width:100%;
-      padding:0 20px
+        width: 100%;
+        padding: 0 20px
     }
-  }
-  
-  #before-after-slider {
+}
+
+#before-after-slider {
     /* height: 400px; */
-    width:100%;
-    position:relative;
-    overflow:hidden;
-    border:3px solid white;
-  }
-  
-  #after-image {
-    display:block
-  }
-  
-  #before-image {
-    position:absolute;
-    height:100%;
-    width:50%;
-    top:0;
-    left:0;
-    overflow:hidden;
-    z-index:2;
-  }
-  
-  #resizer {
-    position:absolute;
-    display:flex;
-    align-items:center;
-    z-index:5;
-    top:0;
-    left:50%;
-    height:100%;
-    width:4px;
-    background:white;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid white;
+}
+
+#after-image {
+    display: block
+}
+
+#before-image {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#resizer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 4px;
+    background: white;
     /*Stop vertical scrolling on touch*/
     -ms-touch-action: pan-y;
-      touch-action: pan-y;
-  }
-  
-  #resizer:after {
+    touch-action: pan-y;
+}
+
+#resizer:after {
     background: white;
     font-family: "Font Awesome 5 Free";
-    content:'\f337';
-    font-weight:900;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:gray;
-    position:absolute;
+    content: '\f337';
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    position: absolute;
     margin: 0 0 0 -8px;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    border:3px solid white;
-  }
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
