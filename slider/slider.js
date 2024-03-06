@@ -1,48 +1,13 @@
-
-window.onload = function () {
-    console.log("slider.js: setting slider element HTML...");
-
-    var imgBefore = "../assets/accent_wall/console_center.jpeg";
-    var imgAfter = "../assets/accent_wall/console_left.jpeg";
-
-    // create a new div element with id="slider" with the following HTML string
-    var sliderElement = document.getElementById('slider-container');
-    var sliderHTML = `
-      <div id="image-container">
-        <div id="before-after-slider">
-            <div id="before-image">
-              <img class="slider-image"  src=${imgBefore} alt="before"/>
-            </div>
-            <div id="after-image">
-              <img class="slider-image" src=${imgAfter} alt="After"/>
-            </div>
-            <div id="resizer"></div>
-        </div>
-      </div>`;
-    sliderElement.innerHTML = sliderHTML;
-
-    initSlider();
-}
-
 function initSlider() {
-    console.log("slider.js: initSlider()...");
-    
-    const imageContainer = document.getElementById('image-container');
-    console.log("image container width", imageContainer.width);
-
     const slider = document.getElementById('before-after-slider');
     const before = document.getElementById('before-image');
     const beforeImage = before.getElementsByTagName('img')[0];
-    console.log("before image src", beforeImage.src);
     const resizer = document.getElementById('resizer');
 
     let active = false;
 
     //Sort overflow out for Overlay Image
     let width = slider.offsetWidth;
-    console.log("slider.offsetWidth", width);
-
-    console.log("DOMContentLoaded: width", width);
     beforeImage.style.width = width + 'px';
 
     //Adjust width of image on resize 
