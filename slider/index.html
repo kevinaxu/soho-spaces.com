@@ -18,5 +18,28 @@
     
 <body>
     <div id="slider-container"></div>
+
+    <script>
+        var IMG_BEFORE = "../assets/accent_wall/console_center.jpeg";
+        var IMG_AFTER = "../assets/accent_wall/console_left.jpeg";
+
+
+    function slider(imgBefore, imgAfter) {
+        return `
+        <div id="slider-container">
+            <div id="image-container">
+                <div id="before-after-slider">
+                    <div id="before-image">
+                        <img class="slider-image" src=${imgBefore} alt="before"/>
+                    </div>
+                    <div id="after-image">
+                        <img class="slider-image" src=${imgAfter} alt="After"/>
+                    </div>
+                    <div id="resizer"></div>
+                </div>
+            </div>
+        </div>`;
+    };
+    </script>
 </body>
 </html>
