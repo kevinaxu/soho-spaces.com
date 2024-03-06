@@ -8,15 +8,19 @@
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../generator.js" type="text/javascript"></script> 
+
+    <script src="../slider/slider.js"></script>
+    <link rel="stylesheet" type="text/css" href="../slider/slider.css">
+    <link rel="stylesheet" type="text/css" href="../font-awesome.css"  />
+
     <style>
         * {
-            /* outline: 1px solid red; */
+            outline: 1px solid red;
         }
     </style>
 </head>
 
 <body class="font-['Avenir'] flex flex-col justify-center">
-    
     <script>
 
         // Definitions ("Front Matter");
@@ -25,9 +29,7 @@
             '../assets/powder_room/birdcage.jpeg',
             '../assets/powder_room/mirror_1.jpeg',
             '../assets/powder_room/powder_1.jpeg',
-            '../assets/powder_room/shelf_1.jpeg',
-            '../assets/powder_room/vanity.jpeg',
-            '../assets/powder_room/mirror_2.jpeg'
+            '../assets/powder_room/shelf_1.jpeg'
         ];
         const THUMBNAILS = [
             '../assets/powder_room/featured.jpeg',
@@ -40,16 +42,23 @@
         const HEADING_2 = "Design Inspiration"
         const DESC_2 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
 
+        var IMG_BEFORE = "../assets/accent_wall/console_center.jpeg";
+        var IMG_AFTER = "../assets/accent_wall/console_left.jpeg";
 
+        // Layout and Components
         var body = document.body;
-
         body.innerHTML += header();
         body.innerHTML += heroVideo(HERO_VIDEO);
         body.innerHTML += paragraph(HEADING_1, DESC_1);      
-        body.innerHTML += photoGrid6(PHOTO_GRID);
+        body.innerHTML += photoGrid4(PHOTO_GRID);
         body.innerHTML += paragraph(HEADING_2, DESC_2);
         body.innerHTML += thumbnails(THUMBNAILS);
+        body.innerHTML += paragraph(HEADING_2, DESC_2);
+        body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
         body.innerHTML += footer();
 
+        initSlider();
+
     </script>
+
 </body>
