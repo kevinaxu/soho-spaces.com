@@ -12,20 +12,20 @@
     display: block;
 }
 
-#image-container {
+.image-container {
     width: 80%;
     display: block;
     margin: 30px auto
 }
 
 @media (max-width:767px) {
-    #image-container {
+    .image-container {
         width: 100%;
         padding: 0 20px
     }
 }
 
-#before-after-slider {
+.before-after-slider {
     /* height: 400px; */
     width: 100%;
     position: relative;
@@ -33,11 +33,11 @@
     border: 3px solid white;
 }
 
-#after-image {
+.after-image {
     display: block
 }
 
-#before-image {
+.before-image {
     position: absolute;
     height: 100%;
     width: 50%;
@@ -47,7 +47,7 @@
     z-index: 2;
 }
 
-#resizer {
+.resizer {
     position: absolute;
     display: flex;
     align-items: center;
@@ -62,7 +62,7 @@
     touch-action: pan-y;
 }
 
-#resizer:after {
+.resizer:after {
     background: white;
     font-family: "Font Awesome 5 Free";
     content: '\f337';

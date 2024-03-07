@@ -111,19 +111,18 @@ function photoGrid6(photos) {
     </div>
     `;
 }
-
 function slider(imgBefore, imgAfter) {
     return `
-    <div id="slider-container">
-        <div id="image-container">
-            <div id="before-after-slider">
-                <div id="before-image">
+    <div class="slider-container">
+        <div class="image-container">
+            <div class="before-after-slider">
+                <div class="before-image">
                     <img class="slider-image" src=${imgBefore} alt="before"/>
                 </div>
-                <div id="after-image">
+                <div class="after-image">
                     <img class="slider-image" src=${imgAfter} alt="After"/>
                 </div>
-                <div id="resizer"></div>
+                <div class="resizer"></div>
             </div>
         </div>
     </div>`;

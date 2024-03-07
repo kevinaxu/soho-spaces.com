@@ -1,8 +1,16 @@
-function initSlider() {
-    const slider = document.getElementById('before-after-slider');
-    const before = document.getElementById('before-image');
+function initSliders() {
+    const sliderContainers = document.getElementsByClassName('slider-container');
+    for (let i = 0; i < sliderContainers.length; i++) {
+        const slider    = sliderContainers[i].getElementsByClassName('before-after-slider')[0];
+        const before    = sliderContainers[i].getElementsByClassName('before-image')[0];
+        const resizer   = sliderContainers[i].getElementsByClassName('resizer')[0];
+        addSliderEventListeners(slider, before, resizer);
+    }
+}
+
+function addSliderEventListeners(slider, before, resizer) {
+
     const beforeImage = before.getElementsByTagName('img')[0];
-    const resizer = document.getElementById('resizer');
 
     let active = false;
 
@@ -59,12 +67,10 @@ function initSlider() {
     slider.addEventListener('touchmove', function (e) {
         if (!active) return;
         let x;
-
         let i;
         for (i = 0; i < e.changedTouches.length; i++) {
             x = e.changedTouches[i].pageX;
         }
-
         x -= slider.getBoundingClientRect().left;
         slideIt(x);
         pauseEvent(e);

@@ -19,6 +19,8 @@
             /* outline: 1px solid red; */
         }
     </style>
+
+    
 </head>
 
 <body class="font-['Avenir'] flex flex-col justify-center">
@@ -56,9 +58,11 @@
         body.innerHTML += thumbnails(THUMBNAILS);
         body.innerHTML += paragraph(HEADING_2, DESC_2);
         body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
+        body.innerHTML += paragraph(HEADING_2, DESC_2);
+        body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
         body.innerHTML += footer();
 
-        initSlider();
+        initSliders();
 
     </script>
 
