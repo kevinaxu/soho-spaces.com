@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="../assets/favicon.png">
 
     <script type="text/javascript" src="../scripts/generator.js" ></script> 
-    <script type="text/javascript" src="../scripts/slider.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
         
     <link rel="stylesheet" type="text/css" href="../styles/slider.css">
@@ -43,12 +42,14 @@
         var body = document.body;
 
         body.innerHTML += header();
+        body.innerHTML += genModal();
         body.innerHTML += heroVideo(HERO_VIDEO);
         body.innerHTML += thumbnails(THUMBNAILS);
-
         body.innerHTML += paragraph(HEADING_1, DESC_1);      
         body.innerHTML += photoGrid4(PHOTO_GRID);
         body.innerHTML += footer();
 
     </script>
+    <script type="text/javascript" src="../scripts/slider.js"></script>
+    <script type="text/javascript" src="../scripts/modal.js"></script>
 </body>

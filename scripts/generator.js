@@ -8,6 +8,18 @@ function header() {
     `;
 }
 
+function genModal() {
+    return `
+    <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+        <div class="modal-overlay absolute w-full h-full bg-stone-900"></div>
+        <div class="modal-container fixed w-full h-full z-50 top-0 overflow-y-hidden ">
+            <div id="modal-content" class="h-screen w-full">
+                <img id="modal-image" class="object-contain" src="" alt="">
+            </div>
+        </div>
+    </div>`;
+}
+
 // TODO: add back description once blurbs are complete
 function paragraph(heading, description) {
     return `
@@ -40,7 +52,7 @@ function heroImage(image_url) {
 
 function thumbnails(photos) {
     return `
-    <div id="thumbnails" class="mx-4">
+    <div class="thumbnails modal-open mx-4">
         <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
             <div>
                 <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
