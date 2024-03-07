@@ -236,6 +236,7 @@
             modal.classList.toggle('pointer-events-none')
             body.classList.toggle('modal-active')
 
+            if (!event) return;
 
             if (event.target.nodeName === "IMG") {
                 // console.log("toggleModal(): clicked on image:", event.target.src);
@@ -248,7 +249,7 @@
 
                 } else {// portrait, or square
                     console.log("portrait");
-                    modalImage.style.marginTop = "8px";
+                    modalImage.style.marginTop = "16px";
                 }
 
                 // determine the image width / height 
@@ -275,8 +276,14 @@
 
             const threshold = 50;
 
-            if (touchendY < touchstartY && distY > threshold) alert('swiped up!')
-            if (touchendY > touchstartY && distY > threshold) alert('swiped down!')
+            if (touchendY < touchstartY && distY > threshold) {
+                toggleModal();
+            }
+            if (touchendY > touchstartY && distY > threshold) {
+                toggleModal();
+            }
+
+
             if (touchendX < touchstartX && distX > threshold) alert('swiped left!')
             if (touchendX > touchstartX && distX > threshold) alert('swiped right!')
         }
