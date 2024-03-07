@@ -73,7 +73,7 @@
     <!--Modal-->
     <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
         <div class="modal-overlay absolute w-full h-full bg-stone-900"></div>
-        <div class="modal-container fixed w-full h-full z-50 overflow-y-auto ">
+        <div class="modal-container fixed w-full h-full z-50 top-0 overflow-y-hidden ">
             
             <div
                 class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-black text-sm z-50">
@@ -85,7 +85,8 @@
                 </svg>
             </div>
 
-            <div id="modal-content" class="h-screen w-full flex justify-center items-center">
+            <!-- <div id="modal-content" class="h-screen w-full flex justify-center items-center"> -->
+            <div id="modal-content" class="h-screen w-full mt-16">
                 <img id="modal-image" class="object-contain" src="" alt="">
             </div>
 
@@ -93,6 +94,13 @@
     </div>
 
     <script>
+
+        let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+        console.log("viewport width:", window.innerWidth);
+        console.log("viewport height:", window.innerHeight);
+
+
         var openmodal = document.querySelectorAll('.modal-open')
         for (var i = 0; i < openmodal.length; i++) {
             openmodal[i].addEventListener('click', function (event) {
