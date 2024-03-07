@@ -99,7 +99,7 @@ function checkDirection() {
 
     const modalImage = document.getElementById('modal-image');
 
-    const threshold = 50;
+    const threshold = 25;
 
     if (touchendY < touchstartY && distY > threshold) {
         toggleModal();
