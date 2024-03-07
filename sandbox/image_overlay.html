@@ -185,8 +185,6 @@
         </div>
     </div>
 
-
-
     <script>
 
         var openmodal = document.querySelectorAll('.modal-open')
@@ -200,10 +198,10 @@
         const overlay = document.querySelector('.modal-overlay')
         overlay.addEventListener('click', toggleModal)
 
-        var closemodal = document.querySelectorAll('.modal-close')
-        for (var i = 0; i < closemodal.length; i++) {
-            closemodal[i].addEventListener('click', toggleModal)
-        }
+        // var closemodal = document.querySelectorAll('.modal-close')
+        // for (var i = 0; i < closemodal.length; i++) {
+        //     closemodal[i].addEventListener('click', toggleModal)
+        // }
 
         document.onkeydown = function (evt) {
             evt = evt || window.event
@@ -218,35 +216,58 @@
             }
         };
 
-        function toggleModal(event) {
 
+        function getThumbnailImages(event) {
+            var images = [];
+            var parent = event.target.parentElement.parentElement;
+            for (var i = 0; i < parent.children.length; i++) {
+                var child = parent.children[i].children[0];
+                if (child.nodeName === "IMG") {
+                    images.push(child.src);
+                }
+            }
+            return images;
+        }
+
+        let modalImages = [];
+        let modalPosition = 0;
+
+        function toggleModal(event) {
             const body = document.querySelector('body')
             const modal = document.querySelector('.modal')
             modal.classList.toggle('opacity-0')
             modal.classList.toggle('pointer-events-none')
             body.classList.toggle('modal-active')
 
-            if (!event) return;
+            if (!event) {
+                modalImages = [];
+                modalPosition = 0;
+                return;     // modal is being closed
+            }
 
             if (event.target.nodeName === "IMG") {
+
+                // load all images from thumbnails 
+                modalImages = getThumbnailImages(event);
+                console.log("images:", modalImages);
+
+                // get current position of carousel
+                modalPosition = modalImages.indexOf(event.target.src);
+                console.log("position:", modalPosition);
+
                 // console.log("toggleModal(): clicked on image:", event.target.src);
                 const modalImage = document.getElementById('modal-image');
                 modalImage.src = event.target.src;  
+                modalImage.style.marginTop = calculateMarginTop(modalImage);
 
-                if (modalImage.width > modalImage.height){      // landscape
-                    console.log("landscape");
-                    modalImage.style.marginTop = "128px";
+            }
+        }
 
-                } else {// portrait, or square
-                    console.log("portrait");
-                    modalImage.style.marginTop = "16px";
-                }
-
-                // determine the image width / height 
-                console.log("toggleModal(): modalImage.width:", modalImage.width);
-
-                // determine whether image is landscape or portrait
-                // if landscape, then set the margin 
+        function calculateMarginTop(image) {
+            if (image.width > image.height) {      // landscape
+                return "128px";
+            } else {                                // portrait, or square
+                return "16px";
             }
         }
 
@@ -264,6 +285,8 @@
             var distX = Math.abs(touchendX - touchstartX);
             var distY = Math.abs(touchendY - touchstartY);
 
+            const modalImage = document.getElementById('modal-image');
+
             const threshold = 50;
 
             if (touchendY < touchstartY && distY > threshold) {
@@ -273,9 +296,23 @@
                 toggleModal();
             }
 
+            if (touchendX < touchstartX && distX > threshold) {         // swipe left 
+                console.log("modalPosition", modalPosition);
 
-            if (touchendX < touchstartX && distX > threshold) alert('swiped left!')
-            if (touchendX > touchstartX && distX > threshold) alert('swiped right!')
+                if (modalPosition < modalImages.length - 1) {
+                    modalPosition++;
+                    modalImage.src = modalImages[modalPosition];
+                    modalImage.style.marginTop = calculateMarginTop(modalImage);
+                }
+            }
+            if (touchendX > touchstartX && distX > threshold) {         // swipe right 
+                console.log("modalPosition", modalPosition);
+                if (modalPosition > 0) {
+                    modalPosition--;
+                    modalImage.src = modalImages[modalPosition];
+                    modalImage.style.marginTop = calculateMarginTop(modalImage);
+                }
+            }
         }
 
         const modal = document.querySelector('.modal')
