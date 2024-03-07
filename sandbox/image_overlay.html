@@ -47,8 +47,8 @@
                 </svg>
             </div>
 
-            <div id="modal-content" class="h-screen w-full flex justify-center items-center">
-            <!-- <div id="modal-content" class="h-screen w-full mt-16"> -->
+            <!-- <div id="modal-content" class="h-screen w-full flex justify-center items-center"> -->
+            <div id="modal-content" class="h-screen w-full">
                 <img id="modal-image" class="object-contain" src="" alt="">
             </div>
 
@@ -197,16 +197,7 @@
 
 
 
-
-
-
     <script>
-
-        let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-        let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-        console.log("viewport width:", window.innerWidth);
-        console.log("viewport height:", window.innerHeight);
-
 
         var openmodal = document.querySelectorAll('.modal-open')
         for (var i = 0; i < openmodal.length; i++) {
@@ -250,7 +241,18 @@
                 // console.log("toggleModal(): clicked on image:", event.target.src);
                 const modalImage = document.getElementById('modal-image');
                 modalImage.src = event.target.src;  
-                modal.scrollIntoView();
+
+                if (modalImage.width() > modalImage.height()){      // landscape
+                    modalImage.classList.add("mt-16");
+                } else {// portrait, or square
+                    modalImage.classList.add("mt-2");
+                }
+
+                // determine the image width / height 
+                console.log("toggleModal(): modalImage.width:", modalImage.width);
+
+                // determine whether image is landscape or portrait
+                // if landscape, then set the margin 
             }
         }
 
