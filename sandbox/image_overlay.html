@@ -19,8 +19,9 @@
             transition: opacity 0.25s ease;
         }
         body.modal-active {
-            overflow-x: hidden;
-            overflow-y: visible !important;
+            overflow: hidden;
+            /* overflow-x: hidden;
+            overflow-y: visible !important; */
         }
         /* .opacity-95 {
             opacity: .95;
@@ -131,16 +132,20 @@
         };
 
         function toggleModal(event) {
-            if (event.target.nodeName === "IMG") {
-                // console.log("toggleModal(): clicked on image:", event.target.src);
-                const modalImage = document.getElementById('modal-image');
-                modalImage.src = event.target.src;  
-            }
+
             const body = document.querySelector('body')
             const modal = document.querySelector('.modal')
             modal.classList.toggle('opacity-0')
             modal.classList.toggle('pointer-events-none')
             body.classList.toggle('modal-active')
+
+
+            if (event.target.nodeName === "IMG") {
+                // console.log("toggleModal(): clicked on image:", event.target.src);
+                const modalImage = document.getElementById('modal-image');
+                modalImage.src = event.target.src;  
+                modal.scrollIntoView();
+            }
         }
 
       </script>
