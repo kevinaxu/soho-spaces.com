@@ -259,6 +259,40 @@
             }
         }
 
+
+        // SWIPE HANDLING
+        let touchstartX = 0;
+        let touchendX = 0;
+        let touchstartY = 0;
+        let touchendY = 0;
+            
+        function checkDirection() {
+            // console.log("X:", touchstartX, touchendX)
+            // console.log("Y:", touchstartY, touchendY)
+
+            var distX = Math.abs(touchendX - touchstartX);
+            var distY = Math.abs(touchendY - touchstartY);
+
+            const threshold = 50;
+
+            if (touchendY < touchstartY && distY > threshold) alert('swiped up!')
+            if (touchendY > touchstartY && distY > threshold) alert('swiped down!')
+            if (touchendX < touchstartX && distX > threshold) alert('swiped left!')
+            if (touchendX > touchstartX && distX > threshold) alert('swiped right!')
+        }
+
+        const modal = document.querySelector('.modal')
+        modal.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX
+            touchstartY = e.changedTouches[0].screenY
+        })
+
+        modal.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX
+            touchendY = e.changedTouches[0].screenY
+            checkDirection()
+        })
+
       </script>
     
 </body>
