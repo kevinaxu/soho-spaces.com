@@ -14,7 +14,7 @@ function paragraph(heading, description) {
     <div class="paragraph">
         <div class="my-8 mx-4">
             <h1 class="text-2xl py-2">${heading}</h1>
-            <p class="font-normal text-md">${description}</p>
+            <!-- <p class="font-normal text-md">${description}</p> -->
         </div>
     </div>
     `;
