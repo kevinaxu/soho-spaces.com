@@ -1,9 +1,9 @@
 function initSliders() {
-    const sliderContainers = document.getElementsByClassName('slider-container');
+    const sliders = document.getElementsByClassName('slider-container');
     for (let i = 0; i < sliderContainers.length; i++) {
-        const slider    = sliderContainers[i].getElementsByClassName('before-after-slider')[0];
-        const before    = sliderContainers[i].getElementsByClassName('before-image')[0];
-        const resizer   = sliderContainers[i].getElementsByClassName('resizer')[0];
+        const slider    = sliders[i].getElementsByClassName('before-after-slider')[0];
+        const before    = sliders[i].getElementsByClassName('before-image')[0];
+        const resizer   = sliders[i].getElementsByClassName('resizer')[0];
         addSliderEventListeners(slider, before, resizer);
     }
 }
