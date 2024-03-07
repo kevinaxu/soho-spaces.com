@@ -242,10 +242,13 @@
                 const modalImage = document.getElementById('modal-image');
                 modalImage.src = event.target.src;  
 
-                if (modalImage.width() > modalImage.height()){      // landscape
-                    modalImage.classList.add("mt-16");
+                if (modalImage.width > modalImage.height){      // landscape
+                    console.log("landscape");
+                    modalImage.style.marginTop = "128px";
+
                 } else {// portrait, or square
-                    modalImage.classList.add("mt-2");
+                    console.log("portrait");
+                    modalImage.style.marginTop = "8px";
                 }
 
                 // determine the image width / height 
