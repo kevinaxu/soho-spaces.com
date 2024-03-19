@@ -1,6 +1,6 @@
 function header() {
     return `
-    <div class="header m-4">
+    <div class="header md:my-4 lg:my-4">
         <h1 class="text-4xl py-4 font-bold font-normal uppercase tracking-wider">
             <a href="../index.html" class="hover:overline">Soho Spaces</a>
         </h1>
@@ -71,21 +71,21 @@ function thumbnails(photos) {
 function photoGrid4(photos) {
     return `
     <div id="photo-grid-4" class="flex justify-center m-4 pb-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
-            <div class="grid gap-2 overflow-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-scroll">
+            <div class="grid gap-4 overflow-auto">
                 <div>
-                    <img class="h-56 w-44 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
+                    <img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
                 </div>
                 <div>
-                    <img class="h-36 w-44 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
+                    <img class="h-36 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
                 </div>
             </div>
-            <div class="grid gap-2 ">
+            <div class="grid gap-4">
                 <div>
-                    <img class="h-44 w-44 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
+                    <img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
                 </div>
                 <div>
-                    <img class="h-48 w-44 max-w-full rounded-lg object-cover" src="${photos[3]}" alt="">
+                    <img class="h-48 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt="">
                 </div>
             </div>
         </div>

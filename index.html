@@ -19,7 +19,7 @@
     </style>
 </head>
 
-<body class="font-['Avenir']">
+<body class="font-['Avenir'] mx-auto max-w-lg px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
     <script>
 
         // Definitions ("Front Matter");
@@ -60,22 +60,20 @@
         body.innerHTML += header();
         body.innerHTML += `
             <div class="portfolio-grid">
-                <div class="mx-auto max-w-lg px-4 py-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                    <div class="mt-4 space-y-12 grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-                        ` + 
-                        // Add card for each portfolio page
-                        PAGES.map((page) => {
-                            return `
-                                <a href="${page.page_path}" class="group block">
-                                    <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                                        <img src="${page.featured_image_src}" class="h-64 w-full rounded-lg object-cover object-center" />
-                                    </div>
-                                    <h3 class="text-2xl py-2">${page.name}</h3>
-                                </a>
-                            `;
-                        }).join('') +
-                        `
-                    </div>
+                <div class="mt-4 space-y-12 grid-cols-2 lg:grid lg:gap-16 lg:space-y-0">
+                    ` + 
+                    // Add card for each portfolio page
+                    PAGES.map((page) => {
+                        return `
+                            <a href="${page.page_path}" class="group block">
+                                <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
+                                    <img src="${page.featured_image_src}" class="h-64 w-full lg:h-96 rounded-lg object-cover object-center" />
+                                </div>
+                                <h3 class="text-2xl py-2">${page.name}</h3>
+                            </a>
+                        `;
+                    }).join('') +
+                    `
                 </div>
             </div>
         `;
