@@ -2,7 +2,7 @@ function header() {
     return `
     <div class="header md:my-4 lg:my-4">
         <h1 class="text-4xl py-4 font-bold font-normal uppercase tracking-wider">
-            <a href="../index.html" class="hover:overline">Soho Spaces</a>
+            <a href="../" class="hover:overline">Soho Spaces</a>
         </h1>
     </div>
     `;

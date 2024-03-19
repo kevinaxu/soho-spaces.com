@@ -2,12 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Soho Spaces: Accent Wall</title>
+    <title>Soho Spaces: Moody Romantic Bedroom</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
 
     <script type="text/javascript" src="../scripts/generator.js" ></script> 
-    <script type="text/javascript" src="../scripts/slider.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
         
     <link rel="stylesheet" type="text/css" href="../styles/slider.css">
@@ -25,24 +24,25 @@
     <script>
 
         // Definitions ("Front Matter");
-        const HERO_VIDEO = '../assets/accent_wall/accent.mp4';
+        const HERO_VIDEO = '../assets/bedroom/bedroom.mp4';
         const PHOTO_GRID = [
-            '../assets/accent_wall/featured.jpeg',
-            '../assets/accent_wall/console_center.jpeg',
-            '../assets/accent_wall/console_left.jpeg',
-            '../assets/accent_wall/phoenix.jpeg',
+            '../assets/bedroom/dresser.jpeg',
+            '../assets/bedroom/bed.jpeg',
+            '../assets/bedroom/bed_3.jpeg',
+            '../assets/bedroom/nook.jpeg',
         ];
         const THUMBNAILS = [
-            '../assets/accent_wall/console_right.jpeg',
-            '../assets/accent_wall/umbrella.jpeg',
-            '../assets/accent_wall/tiger.jpeg',
-        ];
-        const HEADING_1 = 'Accent Wall';
+            '../assets/bedroom/bed_2.jpeg',
+            '../assets/bedroom/mirror.jpeg',
+            '../assets/bedroom/nook_2.jpeg'
+        ]
+        const HEADING_1 = 'Bedroom';
         const DESC_1 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
 
         var body = document.body;
 
         body.innerHTML += header();
+        body.innerHTML += genModal();
         body.innerHTML += heroVideo(HERO_VIDEO);
         body.innerHTML += thumbnails(THUMBNAILS);
         body.innerHTML += paragraph(HEADING_1, DESC_1);      
@@ -50,4 +50,6 @@
         body.innerHTML += footer();
 
     </script>
+    <script type="text/javascript" src="../scripts/slider.js"></script>
+    <script type="text/javascript" src="../scripts/modal.js"></script>
 </body>
