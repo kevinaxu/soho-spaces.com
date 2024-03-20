@@ -25,7 +25,7 @@
                 "name": "Moody Romantic Bedroom",
                 "featured_image_src": "./assets/bedroom/bed_2.jpeg",
                 "page_path": "./portfolio/moody-romantic-bedroom",
-                "position": "bottom"
+                "image_position": "object-bottom"
             },
             {
                 "name": "Oriental Entryway",
@@ -48,28 +48,26 @@
                 "page_path": "./portfolio/turkish-breakfast-nook"
             },
             {
-                "name": "Ginko Aviary Powder Room",
+                "name": "Gingko Aviary Powder Room",
                 "featured_image_src": "./assets/powder_room/featured.jpeg",
                 "page_path": "./portfolio/gingko-aviary-powder-room"
             },
         ];
 
         var body = document.body;
-        body.innerHTML += header();
+        body.innerHTML += logo();
         body.innerHTML += `
-            <div class="mt-2">
-                <hr class="mx-6 h-px border-0 bg-gray-200 dark:bg-gray-700">
-                <h1 class="text-2xl mt-6">Featured Projects</h1>
-            </div>
+            <h1 class="text-2xl mt-6">Featured Projects</h1>
             <div class="portfolio-grid">
                 <div class="mt-4 space-y-6 grid-cols-2 lg:grid lg:gap-16 lg:space-y-0">
                     ` + 
                     // Add card for each portfolio page
                     PAGES.map((page) => {
+                        const imagePosition = (page.image_position ? page.image_position : "object-center");
                         return `
                             <a href="${page.page_path}" class="group block">
                                 <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                                    <img src="${page.featured_image_src}" class="h-64 w-full lg:h-96 rounded-lg object-cover object-center" />
+                                    <img src="${page.featured_image_src}" class="h-64 w-full lg:h-96 rounded-lg object-cover ${imagePosition}" />
                                 </div>
                                 <h3 class="text-xl py-1 lowercase">${page.name}</h3>
                             </a>

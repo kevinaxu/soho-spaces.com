@@ -26,13 +26,14 @@
     <script>
 
         // Definitions ("Front Matter");
-        const HERO_VIDEO = '../assets/bedroom/bedroom_video.mp4';
-        const THUMBNAILS = [
+        const title = 'Moody Romantic Bedroom';
+        const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
+        const thumbnailImages = [
             '../assets/bedroom/bed_2.jpeg',
             '../assets/bedroom/sitting_area.jpeg',
             '../assets/bedroom/night_stand.jpeg'
         ]
-        const PHOTO_GRID = [
+        const photoGridImages = [
             '../assets/bedroom/dresser.jpeg',
             '../assets/bedroom/bed.jpeg',
             '../assets/bedroom/bed_3.jpeg',
@@ -44,23 +45,27 @@
         // TODO: this approach is NOT responsive
         if (isMobile()) {
             var body = document.body;
-            body.innerHTML += header();
+            body.innerHTML += logo();
+            body.innerHTML += header(title);      
+
             // body.innerHTML += genModal();
-            body.innerHTML += heroVideo(HERO_VIDEO);
-            body.innerHTML += thumbnails(THUMBNAILS);
-            body.innerHTML += paragraph('The Details');      
-            body.innerHTML += photoGrid4(PHOTO_GRID);
-            body.innerHTML += paragraph('Before & After');      
+            body.innerHTML += heroVideo(heroVideoUrl);
+            body.innerHTML += thumbnails(thumbnailImages);
+            body.innerHTML += header('The Details');      
+            body.innerHTML += photoGrid4(photoGridImages);
+            body.innerHTML += header('Before & After');      
             body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
             body.innerHTML += footer();
         } else {
             var body = document.body;
-            body.innerHTML += header();
+            body.innerHTML += logo();
+            body.innerHTML += header(title);      
+
             // body.innerHTML += genModal();
-            body.innerHTML += heroVideo(HERO_VIDEO);
-            body.innerHTML += thumbnailsDesktop(THUMBNAILS);
-            body.innerHTML += paragraph('The Details');      
-            body.innerHTML += photoGrid4(PHOTO_GRID);
+            body.innerHTML += heroVideo(heroVideoUrl);
+            body.innerHTML += thumbnailsDesktop(thumbnailImages);
+            body.innerHTML += header('The Details');      
+            body.innerHTML += photoGrid4(photoGridImages);
             body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
             body.innerHTML += footer();
         }

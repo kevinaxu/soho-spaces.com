@@ -25,28 +25,28 @@
     <script>
 
         // Definitions ("Front Matter");
-        const HERO_VIDEO = '../assets/den/den.mp4';
-        const PHOTO_GRID = [
+        const heroVideoUrl = '../assets/den/den.mp4';
+        const photoGridImages = [
             '../assets/den/1.jpeg',
             '../assets/den/2.jpeg',
             '../assets/den/3.jpeg',
             '../assets/den/4.jpeg',
         ];
-        const THUMBNAILS = [
+        const thumbnailImages = [
             '../assets/den/5.jpeg',
             '../assets/den/6.jpeg',
             '../assets/den/7.jpeg'
         ]
-        const HEADING_1 = 'Dark Academia Living Room';
+        const title = 'Dark Academia Living Room';
 
+        
         var body = document.body;
-
-        body.innerHTML += header();
-        body.innerHTML += heroVideo(HERO_VIDEO);
-        body.innerHTML += thumbnails(THUMBNAILS);
-
-        body.innerHTML += paragraph(HEADING_1);      
-        body.innerHTML += photoGrid4(PHOTO_GRID);
+        body.innerHTML += logo();
+        body.innerHTML += header(title);      
+        body.innerHTML += heroVideo(heroVideoUrl);
+        body.innerHTML += thumbnails(thumbnailImages);
+        body.innerHTML += header('The Details');      
+        body.innerHTML += photoGrid4(photoGridImages);
         body.innerHTML += footer();
 
     </script>

@@ -26,26 +26,27 @@
     <script>
 
         // Definitions ("Front Matter");
-        const HERO_IMAGE = '../assets/kitchen/featured.jpeg';
-        const PHOTO_GRID = [
+        const title = 'Modern Gothic Kitchen';
+        const heroImageUrl = '../assets/kitchen/featured.jpeg';
+        const photoGridImages = [
             '../assets/kitchen/range_1.jpeg',
             '../assets/kitchen/staub.jpeg',
             '../assets/kitchen/island.jpeg',
             '../assets/kitchen/range_3.jpeg',
         ];
-        const THUMBNAILS = [
+        const thumbnailImages = [
             '../assets/kitchen/range_2.jpeg',
             '../assets/kitchen/island_2.jpeg',
             '../assets/kitchen/featured.jpeg'
         ]
         var body = document.body;
 
-        body.innerHTML += header();
-        body.innerHTML += heroImage(HERO_IMAGE);
-        body.innerHTML += thumbnails(THUMBNAILS);
-
-        body.innerHTML += paragraph('The Details');      
-        body.innerHTML += photoGrid4(PHOTO_GRID);
+        body.innerHTML += logo();
+        body.innerHTML += header(title);
+        body.innerHTML += heroImage(heroImageUrl);
+        body.innerHTML += thumbnails(thumbnailImages);
+        body.innerHTML += header('The Details');      
+        body.innerHTML += photoGrid4(photoGridImages);
         body.innerHTML += footer();
 
     </script>

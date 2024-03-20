@@ -26,19 +26,19 @@
     <script>
 
         // Definitions ("Front Matter");
-        const HERO_VIDEO = '../assets/dining_room/video.mp4';
-        const THUMBNAILS = [
+        const title = 'Turkish Breakfast Nook';
+        const heroVideoUrl = '../assets/dining_room/video.mp4';
+        const thumbnailImages = [
             '../assets/dining_room/chandelier.jpeg',
             '../assets/dining_room/flowers.jpeg',
             '../assets/dining_room/nighttime.jpeg'
-        ]
-        const HEADING_1 = "Turkish Breakfast Nook";
+        ];
 
         var body = document.body;
-        body.innerHTML += header();
-        body.innerHTML += paragraph(HEADING_1, DESC_1);      
-        body.innerHTML += heroVideo(HERO_VIDEO);
-        body.innerHTML += thumbnails(THUMBNAILS);
+        body.innerHTML += logo();
+        body.innerHTML += header(title);
+        body.innerHTML += heroVideo(heroVideoUrl);
+        body.innerHTML += thumbnails(thumbnailImages);
         body.innerHTML += footer();
 
     </script>

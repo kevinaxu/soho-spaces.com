@@ -26,25 +26,25 @@
     <script>
 
         // Definitions ("Front Matter");
-        const HERO_VIDEO = '../assets/accent_wall/accent.mp4';
-        const PHOTO_GRID = [
+        const heroVideoUrl = '../assets/accent_wall/accent.mp4';
+        const photoGridImages = [
             '../assets/accent_wall/featured.jpeg',
             '../assets/accent_wall/console_center.jpeg',
             '../assets/accent_wall/console_left.jpeg',
             '../assets/accent_wall/phoenix.jpeg',
         ];
-        const THUMBNAILS = [
+        const thumbnailImages = [
             '../assets/accent_wall/console_right.jpeg',
             '../assets/accent_wall/umbrella.jpeg',
             '../assets/accent_wall/tiger.jpeg',
         ];
         var body = document.body;
 
-        body.innerHTML += header();
-        body.innerHTML += heroVideo(HERO_VIDEO);
-        body.innerHTML += thumbnails(THUMBNAILS);
-        body.innerHTML += paragraph('The Details');      
-        body.innerHTML += photoGrid4(PHOTO_GRID);
+        body.innerHTML += logo();
+        body.innerHTML += heroVideo(heroVideoUrl);
+        body.innerHTML += thumbnails(thumbnailImages);
+        body.innerHTML += header('The Details');      
+        body.innerHTML += photoGrid4(photoGridImages);
         body.innerHTML += footer();
 
     </script>
