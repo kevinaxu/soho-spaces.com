@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
     <title>Soho Spaces: Powder Room</title>
 
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
 
@@ -15,15 +15,13 @@
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
 
     <style>
-        * {
-            /* outline: 1px solid red; */
-        }
+        /* * { outline: 1px solid red; }
+        @media (min-width: 640px) { * { outline: 1px solid green; } }
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
     </style>
-
-    
 </head>
 
-<body class="font-['Avenir'] flex flex-col justify-center">
+<body class="font-['Avenir'] mx-auto max-w-lg px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
     <script>
 
         // Definitions ("Front Matter");
@@ -39,27 +37,17 @@
             '../assets/powder_room/powder_2.jpeg',
             '../assets/powder_room/shelf_2.jpeg'
         ]
-        const HEADING_1 = 'Powder Room';
-        const DESC_1 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
-
-        const HEADING_2 = "Design Inspiration"
-        const DESC_2 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
-
-        var IMG_BEFORE = "../assets/accent_wall/console_center.jpeg";
-        var IMG_AFTER = "../assets/accent_wall/console_left.jpeg";
+        var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
+        var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
 
         // Layout and Components
         var body = document.body;
         body.innerHTML += header();
         body.innerHTML += heroVideo(HERO_VIDEO);
         body.innerHTML += thumbnails(THUMBNAILS);
-        body.innerHTML += paragraph(HEADING_1, DESC_1);      
+        body.innerHTML += paragraph('The Details');      
         body.innerHTML += photoGrid4(PHOTO_GRID);
-        body.innerHTML += paragraph(HEADING_2, DESC_2);
-        body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
         body.innerHTML += footer();
-
-        initSliders();
 
     </script>
 

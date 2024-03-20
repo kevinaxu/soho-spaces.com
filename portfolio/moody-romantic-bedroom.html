@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
     <title>Soho Spaces: Moody Romantic Bedroom</title>
+
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
 
     <script type="text/javascript" src="../scripts/generator.js" ></script> 
+    <script type="text/javascript" src="../scripts/slider.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
         
     <link rel="stylesheet" type="text/css" href="../styles/slider.css">
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
 
     <style>
-        * {
-            /* outline: 1px solid red; */
-        }
+        /* * { outline: 1px solid red; }
+        @media (min-width: 640px) { * { outline: 1px solid green; } }
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
     </style>
 </head>
 
-<body class="font-['Avenir'] flex flex-col justify-center">
+<body class="font-['Avenir'] mx-auto max-w-lg px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
     
     <script>
 
         // Definitions ("Front Matter");
-        const HERO_VIDEO = '../assets/bedroom/bedroom.mp4';
+        const HERO_VIDEO = '../assets/bedroom/bedroom_video.mp4';
+        const THUMBNAILS = [
+            '../assets/bedroom/bed_2.jpeg',
+            '../assets/bedroom/sitting_area.jpeg',
+            '../assets/bedroom/night_stand.jpeg'
+        ]
         const PHOTO_GRID = [
             '../assets/bedroom/dresser.jpeg',
             '../assets/bedroom/bed.jpeg',
             '../assets/bedroom/bed_3.jpeg',
             '../assets/bedroom/nook.jpeg',
         ];
-        const THUMBNAILS = [
-            '../assets/bedroom/bed_2.jpeg',
-            '../assets/bedroom/mirror.jpeg',
-            '../assets/bedroom/nook_2.jpeg'
-        ]
-        const HEADING_1 = 'Bedroom';
-        const DESC_1 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+        var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
+        var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
 
-        var body = document.body;
+        // TODO: this approach is NOT responsive
+        if (isMobile()) {
+            var body = document.body;
+            body.innerHTML += header();
+            // body.innerHTML += genModal();
+            body.innerHTML += heroVideo(HERO_VIDEO);
+            body.innerHTML += thumbnails(THUMBNAILS);
+            body.innerHTML += paragraph('The Details');      
+            body.innerHTML += photoGrid4(PHOTO_GRID);
+            body.innerHTML += paragraph('Before & After');      
+            body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
+            body.innerHTML += footer();
+        } else {
+            var body = document.body;
+            body.innerHTML += header();
+            // body.innerHTML += genModal();
+            body.innerHTML += heroVideo(HERO_VIDEO);
+            body.innerHTML += thumbnailsDesktop(THUMBNAILS);
+            body.innerHTML += paragraph('The Details');      
+            body.innerHTML += photoGrid4(PHOTO_GRID);
+            body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
+            body.innerHTML += footer();
+        }
 
-        body.innerHTML += header();
-        body.innerHTML += genModal();
-        body.innerHTML += heroVideo(HERO_VIDEO);
-        body.innerHTML += thumbnails(THUMBNAILS);
-        body.innerHTML += paragraph(HEADING_1, DESC_1);      
-        body.innerHTML += photoGrid4(PHOTO_GRID);
-        body.innerHTML += footer();
-
+        initSliders();
     </script>
-    <script type="text/javascript" src="../scripts/slider.js"></script>
-    <script type="text/javascript" src="../scripts/modal.js"></script>
+    <!-- <script type="text/javascript" src="../scripts/slider.js"></script>
+    <script type="text/javascript" src="../scripts/modal.js"></script> -->
 </body>

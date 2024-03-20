@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
     <title>Soho Spaces: Dark Academia Living Room</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
 
@@ -14,13 +14,13 @@
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
 
     <style>
-        * {
-            /* outline: 1px solid red; */
-        }
+        /* * { outline: 1px solid red; }
+        @media (min-width: 640px) { * { outline: 1px solid green; } }
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
     </style>
 </head>
 
-<body class="font-['Avenir'] flex flex-col justify-center">
+<body class="font-['Avenir'] mx-auto max-w-lg px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
     
     <script>
 
@@ -38,7 +38,6 @@
             '../assets/den/7.jpeg'
         ]
         const HEADING_1 = 'Dark Academia Living Room';
-        const DESC_1 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
 
         var body = document.body;
 
@@ -46,7 +45,7 @@
         body.innerHTML += heroVideo(HERO_VIDEO);
         body.innerHTML += thumbnails(THUMBNAILS);
 
-        body.innerHTML += paragraph(HEADING_1, DESC_1);      
+        body.innerHTML += paragraph(HEADING_1);      
         body.innerHTML += photoGrid4(PHOTO_GRID);
         body.innerHTML += footer();
 

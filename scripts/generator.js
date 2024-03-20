@@ -1,9 +1,19 @@
+function isMobile() {
+    if (window.innerWidth < 640) {
+        console.log("Mobile");
+    } else {
+        console.log("Desktop");
+    }
+    return window.innerWidth < 640;
+}
+
 function header() {
+    // <img class="object-cover object-center h-full w-full" src="../assets/soho_spaces_logo.png" alt="">
     return `
-    <div class="header md:my-4 lg:my-4">
-        <h1 class="text-4xl py-4 font-bold font-normal uppercase tracking-wider">
-            <a href="../" class="hover:overline">Soho Spaces</a>
-        </h1>
+    <div class="header my-4 md:my-4 lg:my-4">
+        <a href="../">
+            <img class="object-center" src="../assets/soho_spaces_logo.png" alt="">
+        </a>
     </div>
     `;
 }
@@ -21,12 +31,11 @@ function genModal() {
 }
 
 // TODO: add back description once blurbs are complete
-function paragraph(heading, description) {
+function paragraph(heading) {
     return `
     <div class="paragraph">
-        <div class="my-8 mx-4">
-            <h1 class="text-2xl py-2">${heading}</h1>
-            <!-- <p class="font-normal text-md">${description}</p> -->
+        <div class="mt-8">
+            <h1 class="text-2xl">${heading}</h1>
         </div>
     </div>
     `;
@@ -34,8 +43,8 @@ function paragraph(heading, description) {
 
 function heroVideo(video_url) {
     return `
-    <div class="hero-video-container h-96 m-4 rounded-lg">
-        <video id="hero-video" autoplay loop muted playsinline class="object-cover object-center h-full w-full lg:max-w-screen-lg rounded-lg">
+    <div class="hero-video-container h-96 lg:h-auto my-4 rounded-lg">
+        <video id="hero-video" autoplay loop muted playsinline class="object-cover object-center h-full w-full rounded-lg" style="object-position:20%">
             <source src="${video_url}" type="video/mp4">
         </video>
     </div>
@@ -44,15 +53,33 @@ function heroVideo(video_url) {
 
 function heroImage(image_url) {
     return `
-    <div class="hero-image-container h-96 m-4 rounded-lg">
+    <div class="hero-image-container h-96 lg:h-auto my-4 rounded-lg">
         <img class="object-cover object-center h-full w-full" src="${image_url}" alt="">
     </div>
     `;
 }
 
+function thumbnailsDesktop(photos) {
+    return `
+    <div class="thumbnails modal-open my-4">
+        <div class="flex">
+            <div class="lg:mr-8">
+                <img class="h-36 w-36 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
+            </div>
+            <div class="lg:mr-8">
+                <img class="h-36 w-36 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
+            </div>
+            <div class="lg:mr-8">
+                <img class="h-36 w-36 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
+            </div>
+        </div>
+    </div>`
+}
+
+
 function thumbnails(photos) {
     return `
-    <div class="thumbnails modal-open mx-4">
+    <div class="thumbnails modal-open my-4">
         <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
             <div>
                 <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
@@ -66,12 +93,13 @@ function thumbnails(photos) {
         </div>
     </div>
     `;
+
 }
 
 function photoGrid4(photos) {
     return `
-    <div id="photo-grid-4" class="flex justify-center m-4 pb-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-scroll">
+    <div id="photo-grid-4" class="flex justify-center my-4 pb-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div class="grid gap-4 overflow-auto">
                 <div>
                     <img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
@@ -147,8 +175,8 @@ function footer() {
     
         <!-- Copyright / Email -->
         <div class="text-center mb-4">
-            <p class="text-2xl text-gray-700 dark:text-gray-400">
-                &copy; 2019 Soho Spaces
+            <p class="text-md text-gray-700 dark:text-gray-400">
+                &copy; 2019 SōHō Spaces 
             </p>
             <p class="text-md text-gray-700 dark:text-gray-400">
                 <a href = "mailto: sohospacesatl@gmail.com">sohospacesatl@gmail.com</a>
