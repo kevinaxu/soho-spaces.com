@@ -27,6 +27,7 @@
     <script>
 
         // Definitions ("Front Matter");
+        const title = 'Oriental Entryway';
         const heroVideoUrl = '../assets/accent_wall/accent.mp4';
         const photoGridImages = [
             '../assets/accent_wall/featured.jpeg',
@@ -42,6 +43,7 @@
         var body = document.body;
 
         body.innerHTML += logo();
+        body.innerHTML += header(title);
         body.innerHTML += heroVideo(heroVideoUrl);
         body.innerHTML += thumbnails(thumbnailImages);
         body.innerHTML += header('The Details');      
