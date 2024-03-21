@@ -24,7 +24,7 @@
             class="relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96"
         >
             <!-- Item 1 -->
-            <div id="carousel-item-1" class="hidden duration-700 ease-in-out">
+            <div data-id="carousel-item-1" class="hidden duration-700 ease-in-out">
                 <img
                     src="../assets/bedroom/comp1_before.jpeg"
                     class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
@@ -32,7 +32,7 @@
                 />
             </div>
             <!-- Item 2 -->
-            <div id="carousel-item-2" class="hidden duration-700 ease-in-out">
+            <div data-id="carousel-item-2" class="hidden duration-700 ease-in-out">
                 <img
                     src="../assets/bedroom/comp1_after.jpeg"
                     class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
@@ -40,7 +40,7 @@
                 />
             </div>
             <!-- Item 3 -->
-            <div id="carousel-item-3" class="hidden duration-700 ease-in-out">
+            <div data-id="carousel-item-3" class="hidden duration-700 ease-in-out">
                 <img
                     src="../assets/bedroom/dresser.jpeg"
                     class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
@@ -48,7 +48,7 @@
                 />
             </div>
             <!-- Item 4 -->
-            <div id="carousel-item-4" class="hidden duration-700 ease-in-out">
+            <div data-id="carousel-item-4" class="hidden duration-700 ease-in-out">
                 <img
                     src="../assets/bedroom/mirror.jpeg"
                     class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
@@ -61,28 +61,28 @@
             class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse"
         >
             <button
-                id="carousel-indicator-1"
+                data-id="carousel-indicator-1"
                 type="button"
                 class="h-3 w-3 rounded-full"
                 aria-current="true"
                 aria-label="Slide 1"
             ></button>
             <button
-                id="carousel-indicator-2"
+                data-id="carousel-indicator-2"
                 type="button"
                 class="h-3 w-3 rounded-full"
                 aria-current="false"
                 aria-label="Slide 2"
             ></button>
             <button
-                id="carousel-indicator-3"
+                data-id="carousel-indicator-3"
                 type="button"
                 class="h-3 w-3 rounded-full"
                 aria-current="false"
                 aria-label="Slide 3"
             ></button>
             <button
-                id="carousel-indicator-4"
+                data-id="carousel-indicator-4"
                 type="button"
                 class="h-3 w-3 rounded-full"
                 aria-current="false"
@@ -91,7 +91,7 @@
         </div>
         <!-- Slider controls -->
         <button
-            id="data-carousel-prev"
+            data-id="data-carousel-prev"
             type="button"
             class="group absolute left-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
         >
@@ -117,7 +117,7 @@
             </span>
         </button>
         <button
-            id="data-carousel-next"
+            data-id="data-carousel-next"
             type="button"
             class="group absolute right-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
         >
@@ -147,24 +147,26 @@
 
 
     <script>
-        const carouselElement = document.getElementById('carousel-example');
+        const CAROUSEL_ID = 'carousel-example';
+
+        const carouselElement = document.getElementById(CAROUSEL_ID);
 
         const items = [
             {
                 position: 0,
-                el: document.getElementById('carousel-item-1'),
+                el: carouselElement.querySelectorAll('[data-id=carousel-item-1]')[0],
             },
             {
                 position: 1,
-                el: document.getElementById('carousel-item-2'),
+                el: carouselElement.querySelectorAll('[data-id=carousel-item-2]')[0],
             },
             {
                 position: 2,
-                el: document.getElementById('carousel-item-3'),
+                el: carouselElement.querySelectorAll('[data-id=carousel-item-3]')[0],
             },
             {
                 position: 3,
-                el: document.getElementById('carousel-item-4'),
+                el: carouselElement.querySelectorAll('[data-id=carousel-item-4]')[0],
             },
         ];
 
@@ -180,21 +182,21 @@
                 items: [
                     {
                         position: 0,
-                        el: document.getElementById('carousel-indicator-1'),
+                        el: carouselElement.querySelectorAll('[data-id=carousel-item-1]')[0],
                     },
                     {
                         position: 1,
-                        el: document.getElementById('carousel-indicator-2'),
+                        el: carouselElement.querySelectorAll('[data-id=carousel-item-2]')[0],
                     },
                     {
                         position: 2,
-                        el: document.getElementById('carousel-indicator-3'),
+                        el: carouselElement.querySelectorAll('[data-id=carousel-item-3]')[0],
                     },
                     {
                         position: 3,
-                        el: document.getElementById('carousel-indicator-4'),
-                    },
-                ],
+                        el: carouselElement.querySelectorAll('[data-id=carousel-item-4]')[0],
+                    }
+                ]
             },
 
             // callback functions
@@ -211,14 +213,14 @@
 
         // instance options object
         const instanceOptions = {
-            id: 'carousel-example',
+            id: CAROUSEL_ID,
             override: true
         };
 
         const carousel = new Carousel(carouselElement, items, options, instanceOptions);
 
-        const $prevButton = document.getElementById('data-carousel-prev');
-        const $nextButton = document.getElementById('data-carousel-next');
+        const $prevButton = carouselElement.querySelectorAll('[data-id=data-carousel-prev]')[0]; 
+        const $nextButton = carouselElement.querySelectorAll('[data-id=data-carousel-next]')[0]; 
 
         $prevButton.addEventListener('click', () => {
             carousel.prev();
