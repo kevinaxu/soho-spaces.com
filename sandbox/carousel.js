@@ -4,14 +4,19 @@ const photos = [
     '../assets/bedroom/sitting_area.jpeg',
     '../assets/bedroom/night_stand.jpeg'
 ];
+
+
 const carouselID2 = 'carousel-example-2';
-document.body.innerHTML += generateCarousel(carouselID2, photos);
+document.body.append(
+    fromHTML(generateCarousel(carouselID2, photos))
+);
 initCarousel(carouselID2, photos);
 
 const carouselID = 'carousel-example';
-document.body.innerHTML += generateCarousel(carouselID, photos);
+document.body.append(
+    fromHTML(generateCarousel(carouselID, photos))
+);
 initCarousel(carouselID, photos);
-
 
 // Step 2: create the options and Carousel instace
 function initCarousel(id, photos) {
@@ -59,6 +64,10 @@ function initCarousel(id, photos) {
 
     const $prevButton = carouselElement.querySelectorAll('[data-id=data-carousel-prev]')[0]; 
     const $nextButton = carouselElement.querySelectorAll('[data-id=data-carousel-next]')[0]; 
+
+    console.log("carousel", carousel);
+    console.log("prevButton", id, $prevButton);
+    console.log("nextButton", id, $nextButton);
 
     $prevButton.addEventListener('click', () => {
         carousel.prev();
@@ -166,4 +175,23 @@ function generateCarousel(id, photos) {
     </div>`;
 }
 
+/**
+ * @param {String} HTML representing a single element.
+ * @param {Boolean} flag representing whether or not to trim input whitespace, defaults to true.
+ * @return {Element | HTMLCollection | null}
+ */
+function fromHTML(html, trim = true) {
+    // Process the HTML string.
+    html = trim ? html.trim() : html;
+    if (!html) return null;
 
+    // Then set up a new template element.
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    const result = template.content.children;
+
+    // Then return either an HTMLElement or HTMLCollection,
+    // based on whether the input HTML had one or more roots.
+    if (result.length === 1) return result[0];
+    return result;
+}
