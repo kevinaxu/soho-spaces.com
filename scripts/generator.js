@@ -9,13 +9,15 @@ function isMobile() {
 
 function logo() {
     return `
-    <div class="header my-4 md:my-4 lg:my-4">
-        <a href="../">
-            <img class="object-center" src="../assets/soho_spaces_logo.png" alt="">
-        </a>
-    </div>
-    <div class="mt-2">
-        <hr class="mx-6 h-px border-0 bg-gray-200 dark:bg-gray-700">
+    <div>
+        <div class="header my-4 md:my-4 lg:my-4">
+            <a href="../">
+                <img class="object-center" src="../assets/soho_spaces_logo.png" alt="">
+            </a>
+        </div>
+        <div class="mt-2">
+            <hr class="mx-6 h-px border-0 bg-gray-200 dark:bg-gray-700">
+        </div>
     </div>
     `;
 }
@@ -55,8 +57,8 @@ function heroVideo(video_url) {
 
 function heroImage(image_url) {
     return `
-    <div class="hero-image-container h-96 lg:h-auto my-4 rounded-lg">
-        <img class="object-cover object-center h-full w-full" src="${image_url}" alt="">
+    <div class="hero-image-container h-96 lg:h-auto my-4">
+        <img class="object-cover object-center h-full w-full rounded-lg" src="${image_url}" alt="">
     </div>
     `;
 }
