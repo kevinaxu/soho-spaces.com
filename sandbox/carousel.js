@@ -4,32 +4,36 @@ const photos = [
     '../assets/bedroom/sitting_area.jpeg',
     '../assets/bedroom/night_stand.jpeg'
 ];
+const photos2 = [
+    '../assets/den/5.jpeg',
+    '../assets/den/6.jpeg',
+    '../assets/den/7.jpeg'
+]
 
+thumbnails(photos);
+thumbnails(photos2);
 
-
-
-var suffix = uuid();
-const thumbnailsID  = `thumbnails-${suffix}`;
-const modalID       = `modal-${suffix}`;
-const carouselID    = `carousel-${suffix}`;
-
-// add thumbnails to the DOM 
-const thumbnails = fromHTML(generateThumbnails(thumbnailsID, photos));
-document.body.append(thumbnails);
-
-// add Modal and Carousel to the DOM 
-// use fromHTML to convert string to DOM element to preserve event listeners
-const carouselElement = generateCarousel(carouselID, photos);
-const modalElement = fromHTML(generateModal(modalID, carouselElement));
-document.body.append(modalElement);
-
-// add event listeners to the thumbnails - on click, modal.show()
-const carousel = initCarousel(carouselID, photos);
-const modal = initModal(modalID);
-initThumbnails(thumbnailsID, modal, carousel);
-
-// TODO: add index to the carousel show the correct image
-
+function thumbnails(photos) {
+    var suffix = uuid();
+    const thumbnailsID  = `thumbnails-${suffix}`;
+    const modalID       = `modal-${suffix}`;
+    const carouselID    = `carousel-${suffix}`;
+    
+    // add thumbnails to the DOM 
+    const thumbnails = fromHTML(generateThumbnails(thumbnailsID, photos));
+    document.body.append(thumbnails);
+    
+    // add Modal and Carousel to the DOM 
+    // use fromHTML to convert string to DOM element to preserve event listeners
+    const carouselElement = generateCarousel(carouselID, photos);
+    const modalElement = fromHTML(generateModal(modalID, carouselElement));
+    document.body.append(modalElement);
+    
+    // add event listeners to the thumbnails - on click, modal.show()
+    const carousel = initCarousel(carouselID, photos);
+    const modal = initModal(modalID);
+    initThumbnails(thumbnailsID, modal, carousel);
+}
 
 function initThumbnails(id, modal, carousel) {
     const thumbnailsElement = document.getElementById(id);
@@ -44,28 +48,18 @@ function initThumbnails(id, modal, carousel) {
     }
 }
 
-
-/*
-const carouselID2 = 'carousel-example-2';
-document.body.append(
-    fromHTML(generateCarousel(carouselID2, photos))
-);
-initCarousel(carouselID2, photos);
-*/
-
-
 function generateThumbnails(id, photos) {
     return `
     <div id="${id}" class="thumbnails my-4">
         <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
             <div>
-                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" data-idx="1" alt="">
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
             </div>
             <div>
-                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[1]}" data-idx="2" alt="">
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
             </div>
             <div>
-                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[2]}" data-idx="3" alt="">
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
             </div>
         </div>
     </div>
@@ -121,28 +115,14 @@ function initCarousel(id, photos) {
         });
     }
 
-    // options with default values
     const options = {
         defaultPosition: 1,
-        interval: 3000,
-
         indicators: {
             activeClasses: 'bg-white dark:bg-gray-800',
             inactiveClasses:
                 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
             items: items,
-        },
-
-        // callback functions
-        onNext: () => {
-            console.log('next slider item is shown');
-        },
-        onPrev: () => {
-            console.log('previous slider item is shown');
-        },
-        onChange: () => {
-            console.log('new slider item has been shown');
-        },
+        }
     };
 
     // instance options object
@@ -155,15 +135,9 @@ function initCarousel(id, photos) {
 
     const $prevButton = carouselElement.querySelectorAll('[data-id=data-carousel-prev]')[0]; 
     const $nextButton = carouselElement.querySelectorAll('[data-id=data-carousel-next]')[0]; 
-
-    console.log("carousel", carousel);
-    console.log("prevButton", id, $prevButton);
-    console.log("nextButton", id, $nextButton);
-
     $prevButton.addEventListener('click', () => {
         carousel.prev();
     });
-
     $nextButton.addEventListener('click', () => {
         carousel.next();
     });
@@ -304,6 +278,10 @@ function fromHTML(html, trim = true) {
     return result;
 }
 
+/**
+ * Generates a unique identifier using a random algorithm.
+ * @returns {String} The generated unique identifier.
+ */
 function uuid() {
     return "10000000".replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
