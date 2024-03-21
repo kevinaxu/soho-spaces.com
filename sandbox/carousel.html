@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script type="text/javascript" src="./carousel.js"></script>
 
     <style>
         /* * { outline: 1px solid red; }
@@ -22,6 +24,21 @@
 
 <body class="mx-auto max-w-lg px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8" style="font-family: 'Raleway'">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script type="text/javascript" src="./carousel.js"></script>
+    <script>
+        const photos = [
+            '../assets/bedroom/bed_2.jpeg',
+            '../assets/bedroom/sitting_area.jpeg',
+            '../assets/bedroom/night_stand.jpeg'
+        ];
+        const photos2 = [
+            '../assets/den/5.jpeg',
+            '../assets/den/6.jpeg',
+            '../assets/den/7.jpeg'
+        ]
+
+        createThumbnailsComponent(photos);
+        createThumbnailsComponent(photos2);
+    </script>
+
+
 </body>

@@ -1,110 +1,118 @@
 
-const photos = [
-    '../assets/bedroom/bed_2.jpeg',
-    '../assets/bedroom/sitting_area.jpeg',
-    '../assets/bedroom/night_stand.jpeg'
-];
-const photos2 = [
-    '../assets/den/5.jpeg',
-    '../assets/den/6.jpeg',
-    '../assets/den/7.jpeg'
-]
+/**********************************************
+ * 
+ * Main Thumbnails Component Creation Method 
+ * 
+ *********************************************/
 
-thumbnails(photos);
-thumbnails(photos2);
+function createThumbnailsComponent(photos) {
+    var uuid = uuidv4();
+    const carouselId    = `carousel-${uuid}`;
+    const modalId       = `modal-${uuid}`;
+    const thumbnailsID  = `thumbnails-${uuid}`;
+    
+    // Step 1: Add thumbnails, carousel, and modal to the DOM
+    const thumbnailsHTML = generateThumbnailsHTML(thumbnailsID, photos);
+    document.body.append(fromHTML(thumbnailsHTML));
+    const carouselHTML   = generateCarouselHTML(carouselId, photos);
+    const modalHTML      = generateModalHTML(modalId, carouselHTML);
+    document.body.append(fromHTML(modalHTML));
 
-function thumbnails(photos) {
-    var suffix = uuid();
-    const thumbnailsID  = `thumbnails-${suffix}`;
-    const modalID       = `modal-${suffix}`;
-    const carouselID    = `carousel-${suffix}`;
-    
-    // add thumbnails to the DOM 
-    const thumbnails = fromHTML(generateThumbnails(thumbnailsID, photos));
-    document.body.append(thumbnails);
-    
-    // add Modal and Carousel to the DOM 
-    // use fromHTML to convert string to DOM element to preserve event listeners
-    const carouselElement = generateCarousel(carouselID, photos);
-    const modalElement = fromHTML(generateModal(modalID, carouselElement));
-    document.body.append(modalElement);
-    
-    // add event listeners to the thumbnails - on click, modal.show()
-    const carousel = initCarousel(carouselID, photos);
-    const modal = initModal(modalID);
-    initThumbnails(thumbnailsID, modal, carousel);
+    // Step 2: Initialize Flowbite components
+    const flowbiteCarousel  = initializeFlowbiteCarousel(carouselId, photos);
+    const flowbiteModal     = initializeFlowbiteModal(modalId);
+
+    // Step 3: Bind event listeners (Carousel <> Flowbite Carousel, Thumbnails <> Flowbite Modal)
+    const carouselElement   = document.getElementById(carouselId);
+    const thumbnailsElement = document.getElementById(thumbnailsID);
+    bindCarouselEventListeners(carouselElement, flowbiteCarousel);
+    bindThumbnailEventListeners(thumbnailsElement, flowbiteModal, flowbiteCarousel);
 }
 
-function initThumbnails(id, modal, carousel) {
-    const thumbnailsElement = document.getElementById(id);
+
+/**********************************************
+ * 
+ * Event Listeners 
+ * 
+ *********************************************/
+
+/**
+ * Binds event listeners to the previous and next buttons of a carousel element.
+ * @param {HTMLElement} carouselElement - The carousel element to bind the event listeners to.
+ * @param {Object} flowbiteCarousel - The Flowbite carousel object.
+ */
+function bindCarouselEventListeners(carouselElement, flowbiteCarousel) {
+    const $prevButton = carouselElement.querySelectorAll('[data-id=data-carousel-prev]')[0]; 
+    const $nextButton = carouselElement.querySelectorAll('[data-id=data-carousel-next]')[0]; 
+    $prevButton.addEventListener('click', () => {
+        flowbiteCarousel.prev();
+    });
+    $nextButton.addEventListener('click', () => {
+        flowbiteCarousel.next();
+    });
+}
+
+/**
+ * Binds event listeners to thumbnail elements.
+ *
+ * @param {Element} thumbnailsElement - The parent element containing the thumbnail elements.
+ * @param {Object} flowbiteModal - The Flowbite modal object.
+ * @param {Object} flowbiteCarousel - The Flowbite carousel object.
+ */
+function bindThumbnailEventListeners(thumbnailsElement, flowbiteModal, flowbiteCarousel) {
     const thumbnails = thumbnailsElement.querySelectorAll('img');
     for (let i = 0; i < thumbnails.length; i++) {
         const thumbnail = thumbnails[i];
         thumbnail.addEventListener('click', function() {
             console.log("thumbnail clicked", thumbnail);
-            carousel.slideTo(i);
-            modal.show();
+            flowbiteCarousel.slideTo(i);
+            flowbiteModal.show();
         });
     }
 }
 
-function generateThumbnails(id, photos) {
-    return `
-    <div id="${id}" class="thumbnails my-4">
-        <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
-            <div>
-                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
-            </div>
-            <div>
-                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
-            </div>
-            <div>
-                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
-            </div>
-        </div>
-    </div>
-    `;
-}
+/**********************************************
+ * 
+ * Flowbite Component Setup
+ * 
+ *********************************************/
 
-// Step 3: initialize Flowbite Modal instance
-function initModal(modalId) {
-    // set the modal menu element
+/**
+ * Initializes a Flowbite modal with the specified modal ID.
+ * @param {string} modalId - The ID of the modal element.
+ * @returns {Modal} The initialized modal instance.
+ */
+function initializeFlowbiteModal(modalId) {
     const $targetEl = document.getElementById(modalId);
 
-    // options with default values
     const options = {
         placement: 'bottom-right',
         backdrop: 'dynamic',
         backdropClasses:
             'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
         closable: true,
-        onHide: () => {
-            console.log('modal is hidden');
-        },
-        onShow: () => {
-            console.log('modal is shown');
-        },
-        onToggle: () => {
-            console.log('modal has been toggled');
-        },
+        // onHide:      () => { console.log('modal is hidden'); },
+        // onShow:      () => { console.log('modal is shown'); },
+        // onToggle:    () => { console.log('modal has been toggled'); },
     };
 
-    // instance options object
     const instanceOptions = {
         id: modalId,
         override: true
     };
-
-    /*
-    * $targetEl: required
-    * options: optional
-    */
     const modal = new Modal($targetEl, options, instanceOptions);
+
     return modal;
 }
 
-// Step 2: create the options and Carousel instace
-function initCarousel(id, photos) {
+/**
+ * Initializes a Flowbite carousel.
+ *
+ * @param {string} id - The ID of the carousel element.
+ * @param {Array} photos - An array of photos for the carousel.
+ * @returns {Carousel} The initialized carousel instance.
+ */
+function initializeFlowbiteCarousel(id, photos) {
     const carouselElement = document.getElementById(id);
 
     var items = [];
@@ -125,44 +133,76 @@ function initCarousel(id, photos) {
         }
     };
 
-    // instance options object
     const instanceOptions = {
         id: id,
         override: false
     };
-
     const carousel = new Carousel(carouselElement, items, options, instanceOptions);
-
-    const $prevButton = carouselElement.querySelectorAll('[data-id=data-carousel-prev]')[0]; 
-    const $nextButton = carouselElement.querySelectorAll('[data-id=data-carousel-next]')[0]; 
-    $prevButton.addEventListener('click', () => {
-        carousel.prev();
-    });
-    $nextButton.addEventListener('click', () => {
-        carousel.next();
-    });
 
     return carousel;
 }
 
-function generateModal(id, modalContentElement) {
 
+/**********************************************
+ * 
+ * HTML Generation Methods
+ * 
+ *********************************************/
+
+/**
+ * Generates the HTML markup for a thumbnail carousel.
+ *
+ * @param {string} id - The ID of the carousel container.
+ * @param {string[]} photos - An array of photo URLs.
+ * @returns {string} The HTML markup for the thumbnail carousel.
+ */
+function generateThumbnailsHTML(id, photos) {
     return `
-    <!-- Main modal -->
-    <div id="${id}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full dark:bg-gray-950">
-        <div class="relative w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white dark:bg-gray-950">
-                ${modalContentElement}
+    <div id="${id}" class="thumbnails my-4">
+        <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
+            <div>
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
+            </div>
+            <div>
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
+            </div>
+            <div>
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
             </div>
         </div>
     </div>
     `;
 }
 
+/**
+ * Generates the HTML for a modal with the given id and content.
+ *
+ * @param {string} id - The id of the modal.
+ * @param {string} modalContent - The content of the modal.
+ * @returns {string} The HTML for the modal.
+ */
+function generateModalHTML(id, modalContent) {
+    return `
+    <!-- Main modal -->
+    <div id="${id}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full dark:bg-gray-950">
+        <div class="relative w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white dark:bg-gray-950">
+                ${modalContent}
+            </div>
+        </div>
+    </div>
+    `;
+}
 
-// Step 1: generate and inject the HTML for the image carousel into the DOM 
-function generateCarousel(id, photos) {
+/**
+ * Generates the HTML markup for a carousel component.
+ *
+ * @param {string} id - The ID of the carousel element.
+ * @param {string[]} photos - An array of photo URLs to be displayed in the carousel.
+ * @returns {string} The generated HTML markup for the carousel.
+ */
+function generateCarouselHTML(id, photos) {
     return `
     <div id="${id}" class="relative w-full">
         <!-- Carousel wrapper -->
@@ -257,9 +297,17 @@ function generateCarousel(id, photos) {
     </div>`;
 }
 
+
+/**********************************************
+ * 
+ * Utility Methods
+ * 
+ *********************************************/
+
+
 /**
- * @param {String} HTML representing a single element.
- * @param {Boolean} flag representing whether or not to trim input whitespace, defaults to true.
+ * @param {string} HTML representing a single element.
+ * @param {boolean} flag representing whether or not to trim input whitespace, defaults to true.
  * @return {Element | HTMLCollection | null}
  */
 function fromHTML(html, trim = true) {
@@ -280,9 +328,9 @@ function fromHTML(html, trim = true) {
 
 /**
  * Generates a unique identifier using a random algorithm.
- * @returns {String} The generated unique identifier.
+ * @returns {string} The generated unique identifier.
  */
-function uuid() {
+function uuidv4() {
     return "10000000".replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
