@@ -27,6 +27,7 @@ function createThumbnailsComponent(photos) {
     const thumbnailsElement = document.getElementById(thumbnailsID);
     bindCarouselEventListeners(carouselElement, flowbiteCarousel);
     bindThumbnailEventListeners(thumbnailsElement, flowbiteModal, flowbiteCarousel);
+    bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel);
 }
 
 
@@ -64,11 +65,36 @@ function bindThumbnailEventListeners(thumbnailsElement, flowbiteModal, flowbiteC
     for (let i = 0; i < thumbnails.length; i++) {
         const thumbnail = thumbnails[i];
         thumbnail.addEventListener('click', function() {
-            console.log("thumbnail clicked", thumbnail);
+            // console.log("thumbnail clicked", thumbnail);
             flowbiteCarousel.slideTo(i);
             flowbiteModal.show();
         });
     }
+}
+
+
+const SWIPE_THRESHOLD = 25;
+let touch = { startX: 0, startY: 0, endX: 0, endY: 0 };
+
+/**
+ * Binds swipe gesture event listeners to the carousel element.
+ *
+ * @param {HTMLElement} carouselElement - The carousel element to bind the event listeners to.
+ * @param {FlowbiteCarousel} flowbiteCarousel - The FlowbiteCarousel instance.
+ */
+function bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel) {
+    carouselElement.addEventListener('touchstart', function(e) {
+        touch.startX = e.changedTouches[0].screenX
+        touch.startY = e.changedTouches[0].screenY
+    });
+    carouselElement.addEventListener('touchend', function(e) {
+        touch.endX = e.changedTouches[0].screenX
+        touch.endY = e.changedTouches[0].screenY
+
+        // if (isSwipeUp() || isSwipeDown())   flowbiteModal.toggle();
+        if (isSwipeRight())     flowbiteCarousel.prev();
+        if (isSwipeLeft())      flowbiteCarousel.next();
+    })
 }
 
 /**********************************************
@@ -92,9 +118,9 @@ function initializeFlowbiteModal(modalId) {
             // 'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
             'fixed inset-0 z-40',
         closable: true,
-        onHide:      () => { console.log('modal is hidden'); },
-        onShow:      () => { console.log('modal is shown'); },
-        onToggle:    () => { console.log('modal has been toggled'); },
+        // onHide:      () => { console.log('modal is hidden'); },
+        // onShow:      () => { console.log('modal is shown'); },
+        // onToggle:    () => { console.log('modal has been toggled'); },
     };
 
     const instanceOptions = {
@@ -134,15 +160,9 @@ function initializeFlowbiteCarousel(id, photos) {
                 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
             items: indicators,
         },
-        onNext: () => {
-            console.log('next slider item is shown');
-        },
-        onPrev: () => {
-            console.log('previous slider item is shown');
-        },
-        onChange: () => {
-            console.log('new slider item has been shown');
-        },    
+        // onNext:     () => { console.log('next slider item is shown'); },
+        // onPrev:     () => { console.log('previous slider item is shown'); },
+        // onChange:   () => { console.log('new slider item has been shown'); },    
     };
 
     const instanceOptions = {
@@ -303,4 +323,26 @@ function uuidv4() {
     return "10000000".replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
+}
+
+/**
+ * Check swipe gesture directions
+ *
+ * @returns {boolean} Returns true if the swipe is up / down / left / right
+ */
+function isSwipeUp() {
+    const distY = Math.abs(touch.endY - touch.startY);
+    return (touch.endY < touch.startY && distY > SWIPE_THRESHOLD);
+}
+function isSwipeDown() {
+    const distY = Math.abs(touch.endY - touch.startY);
+    return (touch.endY > touch.startY && distY > SWIPE_THRESHOLD);
+}
+function isSwipeRight() {
+    const distX = Math.abs(touch.endX - touch.startX);
+    return (touch.endX > touch.startX && distX > SWIPE_THRESHOLD);
+}
+function isSwipeLeft() {
+    const distX = Math.abs(touch.endX - touch.startX);
+    return (touch.endX < touch.startX && distX > SWIPE_THRESHOLD);
 }
