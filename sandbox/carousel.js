@@ -6,17 +6,108 @@ const photos = [
 ];
 
 
+
+
+var suffix = uuid();
+const thumbnailsID  = `thumbnails-${suffix}`;
+const modalID       = `modal-${suffix}`;
+const carouselID    = `carousel-${suffix}`;
+
+// add thumbnails to the DOM 
+const thumbnails = fromHTML(generateThumbnails(thumbnailsID, photos));
+document.body.append(thumbnails);
+
+// add Modal and Carousel to the DOM 
+// use fromHTML to convert string to DOM element to preserve event listeners
+const carouselElement = generateCarousel(carouselID, photos);
+const modalElement = fromHTML(generateModal(modalID, carouselElement));
+document.body.append(modalElement);
+
+// add event listeners to the thumbnails - on click, modal.show()
+const carousel = initCarousel(carouselID, photos);
+const modal = initModal(modalID);
+initThumbnails(thumbnailsID, modal, carousel);
+
+// TODO: add index to the carousel show the correct image
+
+
+function initThumbnails(id, modal, carousel) {
+    const thumbnailsElement = document.getElementById(id);
+    const thumbnails = thumbnailsElement.querySelectorAll('img');
+    for (let i = 0; i < thumbnails.length; i++) {
+        const thumbnail = thumbnails[i];
+        thumbnail.addEventListener('click', function() {
+            console.log("thumbnail clicked", thumbnail);
+            carousel.slideTo(i);
+            modal.show();
+        });
+    }
+}
+
+
+/*
 const carouselID2 = 'carousel-example-2';
 document.body.append(
     fromHTML(generateCarousel(carouselID2, photos))
 );
 initCarousel(carouselID2, photos);
+*/
 
-const carouselID = 'carousel-example';
-document.body.append(
-    fromHTML(generateCarousel(carouselID, photos))
-);
-initCarousel(carouselID, photos);
+
+function generateThumbnails(id, photos) {
+    return `
+    <div id="${id}" class="thumbnails my-4">
+        <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
+            <div>
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[0]}" data-idx="1" alt="">
+            </div>
+            <div>
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[1]}" data-idx="2" alt="">
+            </div>
+            <div>
+                <img class="h-28 w-28 max-w-full rounded-lg object-cover" src="${photos[2]}" data-idx="3" alt="">
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+// Step 3: initialize Flowbite Modal instance
+function initModal(modalId) {
+    // set the modal menu element
+    const $targetEl = document.getElementById(modalId);
+
+    // options with default values
+    const options = {
+        placement: 'bottom-right',
+        backdrop: 'dynamic',
+        backdropClasses:
+            'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
+        closable: true,
+        onHide: () => {
+            console.log('modal is hidden');
+        },
+        onShow: () => {
+            console.log('modal is shown');
+        },
+        onToggle: () => {
+            console.log('modal has been toggled');
+        },
+    };
+
+    // instance options object
+    const instanceOptions = {
+        id: modalId,
+        override: true
+    };
+
+    /*
+    * $targetEl: required
+    * options: optional
+    */
+    const modal = new Modal($targetEl, options, instanceOptions);
+    return modal;
+}
 
 // Step 2: create the options and Carousel instace
 function initCarousel(id, photos) {
@@ -76,6 +167,23 @@ function initCarousel(id, photos) {
     $nextButton.addEventListener('click', () => {
         carousel.next();
     });
+
+    return carousel;
+}
+
+function generateModal(id, modalContentElement) {
+
+    return `
+    <!-- Main modal -->
+    <div id="${id}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full dark:bg-gray-950">
+        <div class="relative w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white dark:bg-gray-950">
+                ${modalContentElement}
+            </div>
+        </div>
+    </div>
+    `;
 }
 
 
@@ -194,4 +302,10 @@ function fromHTML(html, trim = true) {
     // based on whether the input HTML had one or more roots.
     if (result.length === 1) return result[0];
     return result;
+}
+
+function uuid() {
+    return "10000000".replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
 }
