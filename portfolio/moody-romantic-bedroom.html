@@ -50,21 +50,28 @@
 
         // TODO: this approach is NOT responsive
         if (isMobile()) {
-            var test = fromHTML(logo());
-            console.log(test);
-            document.body.append(fromHTML(logo()));
-            document.body.append(fromHTML(header(title)));
-            document.body.append(fromHTML(heroVideo(heroVideoUrl)));
-            createThumbnailsComponent(thumbnailImages);
-            document.body.append(fromHTML(header('The Details')));
-            document.body.append(fromHTML(photoGrid4(photoGridImages)));
-            document.body.append(fromHTML(header('Before & After')));
-            document.body.append(fromHTML(slider(IMG_BEFORE, IMG_AFTER)));
-            document.body.append(fromHTML(footer()));
-
-
-
+            // var test = fromHTML(heroVideo(heroVideoUrl));
+            // console.log(test);
+            // document.body.append(fromHTML(logo()));
+            // document.body.append(fromHTML(header(title)));
+            // document.body.append(fromHTML(heroVideo(heroVideoUrl)));
+            // createThumbnailsComponent(thumbnailImages);
+            // document.body.append(fromHTML(header('The Details')));
+            // document.body.append(fromHTML(photoGrid4(photoGridImages)));
+            // document.body.append(fromHTML(header('Before & After')));
+            // document.body.append(fromHTML(slider(IMG_BEFORE, IMG_AFTER)));
+            // document.body.append(fromHTML(footer()));
             
+            var body = document.body;
+            body.innerHTML += logo();
+            body.innerHTML += header(title);
+            body.innerHTML += heroVideo(heroVideoUrl);
+            body.innerHTML += thumbnails(thumbnailImages);
+            body.innerHTML += header('The Details');
+            body.innerHTML += photoGrid4(photoGridImages);
+            body.innerHTML += header('Before & After');
+            body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
+            body.innerHTML += footer();
         } else {
             var body = document.body;
             body.innerHTML += logo();
