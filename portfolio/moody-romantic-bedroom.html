@@ -6,19 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
-
-    <script type="text/javascript" src="../scripts/generator.js" ></script> 
-    <script type="text/javascript" src="../scripts/slider.js"></script>
+    <script type="text/javascript" src="../scripts/generator.js"></script>
     <script type="text/javascript" src="../scripts/carousel.js"></script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-        
+    <script type="text/javascript" src="../scripts/slider.js"></script>
     <link rel="stylesheet" type="text/css" href="../styles/slider.css">
-    <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         /* * { outline: 1px solid red; }
@@ -50,28 +46,15 @@
 
         // TODO: this approach is NOT responsive
         if (isMobile()) {
-            // var test = fromHTML(heroVideo(heroVideoUrl));
-            // console.log(test);
-            // document.body.append(fromHTML(logo()));
-            // document.body.append(fromHTML(header(title)));
-            // document.body.append(fromHTML(heroVideo(heroVideoUrl)));
-            // createThumbnailsComponent(thumbnailImages);
-            // document.body.append(fromHTML(header('The Details')));
-            // document.body.append(fromHTML(photoGrid4(photoGridImages)));
-            // document.body.append(fromHTML(header('Before & After')));
-            // document.body.append(fromHTML(slider(IMG_BEFORE, IMG_AFTER)));
-            // document.body.append(fromHTML(footer()));
-            
-            var body = document.body;
-            body.innerHTML += logo();
-            body.innerHTML += header(title);
-            body.innerHTML += heroVideo(heroVideoUrl);
-            body.innerHTML += thumbnails(thumbnailImages);
-            body.innerHTML += header('The Details');
-            body.innerHTML += photoGrid4(photoGridImages);
-            body.innerHTML += header('Before & After');
-            body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
-            body.innerHTML += footer();
+            document.body.append(fromHTML(logo()));
+            document.body.append(fromHTML(header(title)));
+            document.body.append(fromHTMLVideo(heroVideo(heroVideoUrl)));
+            createThumbnailsComponent(thumbnailImages);
+            document.body.append(fromHTML(header('The Details')));
+            document.body.append(fromHTML(photoGrid4(photoGridImages)));
+            document.body.append(fromHTML(header('Before & After')));
+            document.body.append(fromHTML(slider(IMG_BEFORE, IMG_AFTER)));
+            document.body.append(fromHTML(footer()));
         } else {
             var body = document.body;
             body.innerHTML += logo();
