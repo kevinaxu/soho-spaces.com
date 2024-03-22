@@ -1,5 +1,4 @@
 
-
 /**********************************************
  * 
  * Before / After Comparison Component
@@ -142,9 +141,11 @@ function createPhotoGrid4Component(photos) {
     // Step 3: Bind event listeners (Carousel <> Flowbite Carousel, Thumbnails <> Flowbite Modal)
     const carouselElement   = document.getElementById(carouselId);
     const photoGridElement = document.getElementById(photoGridId);
+    const modalElement      = document.getElementById(modalId);
     bindCarouselEventListeners(carouselElement, flowbiteCarousel);
     bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel);
     bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel);
+    bindModalCloseEventListeners(modalElement, flowbiteModal);
 }
 
 /**
@@ -217,9 +218,11 @@ function createThumbnailsComponent(photos) {
     // Step 3: Bind event listeners (Carousel <> Flowbite Carousel, Thumbnails <> Flowbite Modal)
     const carouselElement   = document.getElementById(carouselId);
     const thumbnailsElement = document.getElementById(thumbnailsID);
+    const modalElement      = document.getElementById(modalId);
     bindCarouselEventListeners(carouselElement, flowbiteCarousel);
     bindThumbnailEventListeners(thumbnailsElement, flowbiteModal, flowbiteCarousel);
     bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel);
+    bindModalCloseEventListeners(modalElement, flowbiteModal);
 }
 
 
@@ -283,10 +286,18 @@ function bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel) {
         touch.endX = e.changedTouches[0].screenX
         touch.endY = e.changedTouches[0].screenY
 
-        if (isSwipeUp() || isSwipeDown())   flowbiteModal.toggle();
+        // if (isSwipeUp() || isSwipeDown())   flowbiteModal.toggle();
         if (isSwipeRight())     flowbiteCarousel.prev();
         if (isSwipeLeft())      flowbiteCarousel.next();
     })
+}
+
+
+function bindModalCloseEventListeners(modalElement, flowbiteModal) {
+    const $closeButton = modalElement.querySelectorAll('.modal-close')[0];
+    $closeButton.addEventListener('click', () => {
+        flowbiteModal.hide();
+    });
 }
 
 /**********************************************
@@ -410,8 +421,18 @@ function generateModalHTML(id, modalContent) {
     <!-- Main modal -->
     <div id="${id}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full dark:bg-gray-950">
         <div class="relative w-full max-w-2xl max-h-full">
+
             <!-- Modal content -->
             <div class="relative bg-white dark:bg-gray-950">
+
+                <!-- Modal close -->
+                <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-black text-sm z-50">
+                    <svg class="fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+                    </svg>
+                </div>
+
                 ${modalContent}
             </div>
         </div>
