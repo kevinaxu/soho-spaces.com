@@ -367,7 +367,6 @@ function generateCarouselHTML(id, photos) {
  * 
  *********************************************/
 
-
 /**
  * Creates a new element from the given HTML string
  * 
