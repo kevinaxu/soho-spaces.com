@@ -99,22 +99,6 @@ function photoGrid6(photos) {
     </div>
     `;
 }
-function slider(imgBefore, imgAfter) {
-    return `
-    <div class="slider-container">
-        <div class="image-container">
-            <div class="before-after-slider">
-                <div class="before-image">
-                    <img class="slider-image" src=${imgBefore} alt="before"/>
-                </div>
-                <div class="after-image">
-                    <img class="slider-image" src=${imgAfter} alt="After"/>
-                </div>
-                <div class="resizer"></div>
-            </div>
-        </div>
-    </div>`;
-};
 
 function footer() {
     return `
