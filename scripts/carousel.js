@@ -479,7 +479,7 @@ function generateCarouselHTML(id, photos) {
             ` + 
             photos.map((photo, idx) => {
                 return `
-                <div data-id="carousel-item-${idx}" data-carousel-item class="hidden duration-700 ease-in-out">
+                <div data-id="carousel-item-${idx}" data-carousel-item class="hidden duration-700 ease-in-out bg-gray-950">
                     <img
                         src="${photo}"
                         class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
