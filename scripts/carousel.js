@@ -295,6 +295,11 @@ function generateCarouselHTML(id, photos) {
 
 
 /**
+ * Creates a new element from the given HTML string
+ * 
+ * Note: this may cause issues with <td> elements, see:
+ *  https://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro
+ * 
  * @param {string} HTML representing a single element.
  * @param {boolean} flag representing whether or not to trim input whitespace, defaults to true.
  * @return {Element | HTMLCollection | null}
@@ -313,6 +318,11 @@ function fromHTML(html, trim = true) {
     // based on whether the input HTML had one or more roots.
     if (result.length === 1) return result[0];
     return result;
+}
+function fromHTMLVideo(html) {
+    var div = document.createElement('div');
+    div.innerHTML = html.trim();
+    return div.firstChild;
 }
 
 /**

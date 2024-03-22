@@ -41,22 +41,9 @@
 
         document.body.append(fromHTML(logo()));
         document.body.append(fromHTML(header(title)));
-
-        var heroVideoHTMLString = heroVideo(heroVideoUrl);
-        console.log("fromHTML()", fromHTML(heroVideoHTMLString));
-        document.body.append(fromHTML(heroVideoHTMLString));
-        console.log("fromHTML()", createElementFromHTML(heroVideoHTMLString));
-        document.body.append(createElementFromHTML(heroVideoHTMLString));
-
+        document.body.append(fromHTMLVideo(heroVideoHTMLString));
         createThumbnailsComponent(thumbnailImages);
         document.body.append(fromHTML(footer()));
             
-        function createElementFromHTML(htmlString) {
-            var div = document.createElement('div');
-            div.innerHTML = htmlString.trim();
-
-            // Change this to div.childNodes to support multiple top-level nodes.
-            return div.firstChild;
-        }
     </script>
 </body>
