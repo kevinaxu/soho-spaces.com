@@ -91,7 +91,7 @@ function bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel) {
         touch.endX = e.changedTouches[0].screenX
         touch.endY = e.changedTouches[0].screenY
 
-        // if (isSwipeUp() || isSwipeDown())   flowbiteModal.toggle();
+        if (isSwipeUp() || isSwipeDown())   flowbiteModal.toggle();
         if (isSwipeRight())     flowbiteCarousel.prev();
         if (isSwipeLeft())      flowbiteCarousel.next();
     })
