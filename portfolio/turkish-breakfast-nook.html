@@ -10,10 +10,14 @@
 
     <script type="text/javascript" src="../scripts/generator.js" ></script> 
     <script type="text/javascript" src="../scripts/slider.js"></script>
+    <script type="text/javascript" src="../scripts/carousel.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
         
     <link rel="stylesheet" type="text/css" href="../styles/slider.css">
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
     <style>
         /* * { outline: 1px solid red; }
@@ -35,12 +39,11 @@
             '../assets/dining_room/nighttime.jpeg'
         ];
 
-        var body = document.body;
-        body.innerHTML += logo();
-        body.innerHTML += header(title);
-        body.innerHTML += heroVideo(heroVideoUrl);
-        body.innerHTML += thumbnails(thumbnailImages);
-        body.innerHTML += footer();
-
+        document.body.append(fromHTML(logo()));
+        document.body.append(fromHTML(header(title)));
+        document.body.append(fromHTML(heroVideo(heroVideoUrl)));
+        createThumbnailsComponent(thumbnailImages);
+        document.body.append(fromHTML(footer()));
+            
     </script>
 </body>
