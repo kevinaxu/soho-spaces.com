@@ -1,7 +1,81 @@
+/**********************************************
+ * 
+ * Photo Grid (4) - Main Component Creation Method 
+ * 
+ *********************************************/
+
+function createPhotoGrid4Component(photos) {
+    var uuid = uuidv4();
+    const carouselId    = `carousel-${uuid}`;
+    const modalId       = `modal-${uuid}`;
+    const photoGridId   = `photo-grid-${uuid}`;
+    
+    // Step 1: Add thumbnails, carousel, and modal to the DOM
+    const photoGridHTML  = generatePhotoGridHTML(photoGridId, photos);
+    const carouselHTML   = generateCarouselHTML(carouselId, photos);
+    const modalHTML      = generateModalHTML(modalId, carouselHTML);
+    document.body.append(fromHTML(photoGridHTML));
+    document.body.append(fromHTML(modalHTML));
+
+    // Step 2: Initialize Flowbite components
+    const flowbiteCarousel  = initializeFlowbiteCarousel(carouselId, photos);
+    const flowbiteModal     = initializeFlowbiteModal(modalId);
+
+    // Step 3: Bind event listeners (Carousel <> Flowbite Carousel, Thumbnails <> Flowbite Modal)
+    const carouselElement   = document.getElementById(carouselId);
+    const photoGridElement = document.getElementById(photoGridId);
+    bindCarouselEventListeners(carouselElement, flowbiteCarousel);
+    bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel);
+    bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel);
+}
+
+/**
+ * Generates the HTML for a photo grid.
+ *
+ * @param {string} id - The ID of the container element.
+ * @param {string[]} photos - An array of photo URLs.
+ * @returns {string} The generated HTML for the photo grid.
+ */
+function generatePhotoGridHTML(id, photos) {
+    return `
+    <div id="${id}" class="flex justify-center my-4 pb-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid gap-4 overflow-auto">
+                <div>
+                    <img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
+                </div>
+                <div>
+                    <img class="h-36 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
+                </div>
+            </div>
+            <div class="grid gap-4">
+                <div>
+                    <img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
+                </div>
+                <div>
+                    <img class="h-48 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+
+}
+
+function bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel) {
+    const photos = photoGridElement.querySelectorAll('img');
+    for (let i = 0; i < photos.length; i++) {
+        const photo = photos[i];
+        photo.addEventListener('click', function() {
+            flowbiteCarousel.slideTo(i);
+            flowbiteModal.show();
+        });
+    }
+}
 
 /**********************************************
  * 
- * Main Thumbnails Component Creation Method 
+ * Thumbnails - Main Component Creation Method 
  * 
  *********************************************/
 
