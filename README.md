@@ -11,3 +11,5 @@ ffmpeg -i powder.mov -qscale 0 powder.mp4
 
 // ffmpeg -an flag will strip audio 
 // https://superuser.com/questions/268985/remove-audio-from-video-file-with-ffmpeg
+
+3/22: Manual edit to trigger rebuild 
