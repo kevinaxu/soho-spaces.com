@@ -1,6 +1,124 @@
+
+
 /**********************************************
  * 
- * Photo Grid (4) - Main Component Creation Method 
+ * Before / After Comparison Component
+ * 
+ *********************************************/
+
+/**
+ * Creates a before-after component and adds it to the DOM.
+ * 
+ * @param {string} beforeImage - The URL of the before image.
+ * @param {string} afterImage - The URL of the after image.
+ */
+function createBeforeAfterComponent(beforeImage, afterImage) {
+    var uuid = uuidv4();
+    const beforeAfterId   = `before-after-${uuid}`;
+
+    // Step 1: Add to the DOM
+    const beforeAfterHTML  = generateBeforeAfterHTML(beforeAfterId, beforeImage, afterImage);
+    document.body.append(fromHTML(beforeAfterHTML));
+
+    // Step 3: Bind event listeners
+    const beforeAfterElement = document.getElementById(beforeAfterId);
+    bindBeforeAfterEventListeners(beforeAfterElement);
+}
+
+/**
+ * Generates the HTML markup for a before-after image slider.
+ *
+ * @param {string} id - The ID of the slider container.
+ * @param {string} beforeImage - The URL of the before image.
+ * @param {string} afterImage - The URL of the after image.
+ * @returns {string} The HTML markup for the before-after image slider.
+ */
+function generateBeforeAfterHTML(id, beforeImage, afterImage) {
+    return `
+    <div class="slider-container">
+        <div class="image-container">
+            <div id="${id}" class="before-after-slider">
+                <div class="before-image">
+                    <img class="slider-image" src=${beforeImage} alt=""/>
+                </div>
+                <div class="after-image">
+                    <img class="slider-image" src=${afterImage} alt=""/>
+                </div>
+                <div class="resizer"></div>
+            </div>
+        </div>
+    </div>`;
+}
+
+/**
+ * Binds event listeners for a before-after element.
+ * 
+ * @param {HTMLElement} beforeAfterElement - The before-after element to bind event listeners to.
+ */
+function bindBeforeAfterEventListeners(beforeAfterElement) {
+    const beforeImageContainer  = beforeAfterElement.getElementsByClassName('before-image')[0];
+    const beforeImageElement    = beforeImageContainer.getElementsByTagName('img')[0];
+    const resizerElement        = beforeAfterElement.getElementsByClassName('resizer')[0];
+
+    // The active variable is likely used to track whether the slider is currently being interacted with.
+    let active = false;
+
+    // Sort overflow out for Overlay Image
+    let width = beforeAfterElement.offsetWidth;
+    beforeImageElement.style.width = width + 'px';
+
+    // Adjust width of image on resize 
+    window.addEventListener('resize', function () {
+        let width = beforeAfterElement.offsetWidth;
+        beforeImageElement.style.width = width + 'px';
+    })
+
+    resizerElement.addEventListener('mousedown',   () => active = true);
+    resizerElement.addEventListener('touchstart',  () => active = true);
+    beforeAfterElement.addEventListener('mouseup',      () => active = false);
+    beforeAfterElement.addEventListener('mouseleave',   () => active = false);
+    beforeAfterElement.addEventListener('touchend',     () => active = false);
+    beforeAfterElement.addEventListener('touchcancel',  () => active = false);
+    
+    beforeAfterElement.addEventListener('mousemove', function (e) {
+        if (!active) return;
+        let x = e.pageX;
+        x -= beforeAfterElement.getBoundingClientRect().left;
+        sliderDivider(x);
+        pauseEvent(e);
+    });
+
+    // Touch support for mobile devices
+    beforeAfterElement.addEventListener('touchmove', function (e) {
+        if (!active) return;
+        let x;
+        for (let i = 0; i < e.changedTouches.length; i++) {
+            x = e.changedTouches[i].pageX;
+        }
+        x -= beforeAfterElement.getBoundingClientRect().left;
+        sliderDivider(x);
+        pauseEvent(e);
+    });
+
+    function sliderDivider(x) {
+        let transform = Math.max(0, (Math.min(x, beforeAfterElement.offsetWidth)));
+        beforeImageContainer.style.width = transform + "px";
+        resizerElement.style.left = transform - 0 + "px";
+    }
+
+    function pauseEvent(e) {
+        if (e.stopPropagation) e.stopPropagation();
+        if (e.preventDefault) e.preventDefault();
+        e.cancelBubble = true;
+        e.returnValue = false;
+        return false;
+    }
+}
+
+
+/**********************************************
+ * 
+ * Photo Grid (4) Component
  * 
  *********************************************/
 
@@ -75,7 +193,7 @@ function bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCa
 
 /**********************************************
  * 
- * Thumbnails - Main Component Creation Method 
+ * Thumbnails Component
  * 
  *********************************************/
 
