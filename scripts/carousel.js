@@ -115,20 +115,23 @@ function bindBeforeAfterEventListeners(beforeAfterElement) {
 }
 
 
+
 /**********************************************
  * 
- * Photo Grid (4) Component
+ * Photo Grid Component (4 or 6 photos)
  * 
  *********************************************/
 
-function createPhotoGrid4Component(photos) {
+function createPhotoGridComponent(photos) {
     var uuid = uuidv4();
     const carouselId    = `carousel-${uuid}`;
     const modalId       = `modal-${uuid}`;
     const photoGridId   = `photo-grid-${uuid}`;
     
     // Step 1: Add thumbnails, carousel, and modal to the DOM
-    const photoGridHTML  = generatePhotoGridHTML(photoGridId, photos);
+    const photoGridHTML  = (photos.length === 6) ?
+        generatePhotoGrid6HTML(photoGridId, photos) :
+        generatePhotoGrid4HTML(photoGridId, photos);
     const carouselHTML   = generateCarouselHTML(carouselId, photos);
     const modalHTML      = generateModalHTML(modalId, carouselHTML);
     document.body.append(fromHTML(photoGridHTML));
@@ -149,36 +152,53 @@ function createPhotoGrid4Component(photos) {
 }
 
 /**
- * Generates the HTML for a photo grid.
+ * Generates the HTML for a photo grid with 4 photos
  *
  * @param {string} id - The ID of the container element.
  * @param {string[]} photos - An array of photo URLs.
  * @returns {string} The generated HTML for the photo grid.
  */
-function generatePhotoGridHTML(id, photos) {
+function generatePhotoGrid4HTML(id, photos) {
     return `
     <div id="${id}" class="flex justify-center my-4 pb-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div class="grid gap-4 overflow-auto">
-                <div>
-                    <img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
-                </div>
-                <div>
-                    <img class="h-36 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
-                </div>
+                <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt=""></div>
+                <div><img class="h-36 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt=""></div>
             </div>
             <div class="grid gap-4">
-                <div>
-                    <img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
-                </div>
-                <div>
-                    <img class="h-48 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt="">
-                </div>
+                <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt=""></div>
+                <div><img class="h-48 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt=""></div>
             </div>
         </div>
     </div>
     `;
+}
 
+/**
+ * Generates the HTML for a photo grid with 6 photos
+ *
+ * @param {string} id - The ID of the container element.
+ * @param {string[]} photos - An array of photo URLs.
+ * @returns {string} The generated HTML for the photo grid.
+ */
+function generatePhotoGrid6HTML(id, photos) {
+    return `
+    <div id="${id}" class="flex justify-center my-4 pb-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid gap-4 overflow-auto">
+                <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt=""></div>
+                <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt=""></div>
+                <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt=""></div>
+            </div>
+            <div class="grid gap-4">
+                <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt=""></div>
+                <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[4]}" alt=""></div>
+                <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[5]}" alt=""></div>
+            </div>
+        </div>
+    </div>
+    `;
 }
 
 function bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel) {
@@ -267,7 +287,6 @@ function bindThumbnailEventListeners(thumbnailsElement, flowbiteModal, flowbiteC
     }
 }
 
-
 const SWIPE_THRESHOLD = 25;
 let touch = { startX: 0, startY: 0, endX: 0, endY: 0 };
 
@@ -292,7 +311,11 @@ function bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel) {
     })
 }
 
-
+/**
+ * Binds event listeners to the close button of a modal element.
+ * @param {Element} modalElement - The modal element containing the close button.
+ * @param {Object} flowbiteModal - The Flowbite modal object.
+ */
 function bindModalCloseEventListeners(modalElement, flowbiteModal) {
     const $closeButton = modalElement.querySelectorAll('.modal-close')[0];
     $closeButton.addEventListener('click', () => {
@@ -508,9 +531,6 @@ function generateCarouselHTML(id, photos) {
 
 /**
  * Creates a new element from the given HTML string
- * 
- * Note: this may cause issues with <td> elements, see:
- *  https://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro
  * 
  * @param {string} HTML representing a single element.
  * @param {boolean} flag representing whether or not to trim input whitespace, defaults to true.

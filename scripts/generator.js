@@ -69,37 +69,6 @@ function thumbnailsDesktop(photos) {
     </div>`
 }
 
-function photoGrid6(photos) {
-    return `
-    <div id="photo-grid-4" class="flex justify-center m-4 pb-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-scroll">
-            <div class="grid gap-2 overflow-auto">
-                <div>
-                    <img class="h-56 w-44 max-w-full rounded-lg object-cover" src="${photos[0]}">
-                </div>
-                <div>
-                    <img class="h-36 w-44 max-w-full rounded-lg object-cover" src="${photos[1]}">
-                </div>
-                <div>
-                    <img class="h-40 w-44 max-w-full rounded-lg object-cover" src="${photos[2]}">
-                </div>
-            </div>
-            <div class="grid gap-2 ">
-                <div>
-                    <img class="h-44 w-44 max-w-full rounded-lg object-cover" src="${photos[3]}">
-                </div>
-                <div>
-                    <img class="h-60 w-44 max-w-full rounded-lg object-cover" src="${photos[4]}">
-                </div>
-                <div>
-                    <img class="h-28 w-44 max-w-full rounded-lg object-cover" src="${photos[5]}">
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-}
-
 function footer() {
     return `
     <div class="footer m-6">
