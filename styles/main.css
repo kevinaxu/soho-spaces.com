@@ -1,92 +1,108 @@
 
-.container-block {
-	position: relative;	
-	&::before {
-		background-color: rgba(0, 0, 0, .3);
-		bottom: 0;
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
-	&:hover {
-		.inner-block:before,
-		.slider-top-right:after {
-			height: 100%;
-		}
-		.inner-block:after,
-		.slider-top-right:before {
-			width: 100%;
-		}
-	}
-	img {
-		display: block;
-		max-width: 100%;
-	}
-}
+/**********************************************
+ * 
+ * Project Listing Page
+ * 
+ *********************************************/
 
-.block-content {
-	position: absolute;
-	bottom: 10%;
-	left: 10%;
-	padding: 0 1rem;
-}
 
-.slider-top-right:before,
-.inner-block:after {
-	height: 1.5px;
-	transition: width .75s ease;
-	width: 0%;
-}
 
-.slider-top-right:after,
-.inner-block:before {
-	height: 0%;
-	transition: height .75s ease;
-	width: 1.5px;
-}
 
-.inner-block:before,
-.inner-block:after,
-.slider-top-right:before,
-.slider-top-right:after {
-	background-color: #fff;
-	content: '';
-	display: block;
-	position: absolute;
-}
+/**********************************************
+ * 
+ * "Trim" Image Effect on Hover (only on desktop)
+ * 
+ *********************************************/
 
-.inner-block {
-	font-size: 0.5em;
-	width: 95%;
-	height: 95%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	&:before {
-		bottom: 0;
-		left: 0;
-	}
-	&:after {
-		bottom: 0;
-		right: 0;
-	}
-}
-
-.slider-top-right {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	&:before {
-		top: 0;
-		left: 0;
-	}
-	&:after {
-		top: 0;
-		right: 0;
-	}
+ @media (min-width: 1024px) {
+    .container-block {
+        position: relative;	
+        &::before {
+            bottom: 0;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        &:hover {
+            .inner-block:before,
+            .slider-top-right:after {
+                height: 100%;
+            }
+            .inner-block:after,
+            .slider-top-right:before {
+                width: 100%;
+            }
+        }
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+    
+    .block-content {
+        position: absolute;
+        bottom: 10%;
+        left: 10%;
+        padding: 0 1rem;
+    }
+    
+    .slider-top-right:before,
+    .inner-block:after {
+        height: 1.5px;
+        transition: width .75s ease;
+        width: 0%;
+    }
+    
+    .slider-top-right:after,
+    .inner-block:before {
+        height: 0%;
+        transition: height .75s ease;
+        width: 1.5px;
+    }
+    
+    .inner-block:before,
+    .inner-block:after,
+    .slider-top-right:before,
+    .slider-top-right:after {
+        background-color: #fff;
+        content: '';
+        display: block;
+        position: absolute;
+    }
+    
+    .inner-block {
+        font-size: 0.5em;
+        width: 95%;
+        height: 95%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        &:before {
+            bottom: 0;
+            left: 0;
+        }
+        &:after {
+            bottom: 0;
+            right: 0;
+        }
+    }
+    
+    .slider-top-right {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        &:before {
+            top: 0;
+            left: 0;
+        }
+        &:after {
+            top: 0;
+            right: 0;
+        }
+    }
 }
