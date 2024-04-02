@@ -7,12 +7,13 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="scripts/generator.js" type="text/javascript"></script> 
     <style>
-        /* * { outline: 1px solid red; }
+        * { outline: 1px solid red; }
         @media (min-width: 640px) { * { outline: 1px solid green; } }
-        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } }
     </style>
 </head>
 
@@ -22,33 +23,33 @@
         // Definitions ("Front Matter");
         const PAGES = [
             {
-                "name": "Moody Romantic Bedroom",
+                "name": "moody romantic",
                 "featured_image_src": "./assets/bedroom/bed_2.jpeg",
                 "page_path": "./portfolio/moody-romantic-bedroom",
                 "image_position": "object-bottom"
             },
             {
-                "name": "Oriental Entryway",
+                "name": "dark academia",
                 "featured_image_src": "./assets/accent_wall/umbrella.jpeg",
                 "page_path": "./portfolio/oriental-entryway"
             },
             {
-                "name": "Modern Gothic Kitchen",
+                "name": "modern gothic",
                 "featured_image_src": "./assets/kitchen/island.jpeg",
                 "page_path": "./portfolio/modern-gothic-kitchen"
             },
             {
-                "name": "Dark Academia Living Room",
+                "name": "reverse orientalism",
                 "featured_image_src": "./assets/den/4.jpeg",
                 "page_path": "./portfolio/dark-academia-living-room"
             },
             {
-                "name": "Turkish Breakfast Nook",
+                "name": "modern arabic",
                 "featured_image_src": "./assets/dining_room/breakfast_nook.jpeg",
                 "page_path": "./portfolio/turkish-breakfast-nook"
             },
             {
-                "name": "Gingko Aviary Powder Room",
+                "name": "greys and golds",
                 "featured_image_src": "./assets/powder_room/featured.jpeg",
                 "page_path": "./portfolio/gingko-aviary-powder-room"
             },
@@ -59,7 +60,7 @@
         body.innerHTML += `
             <h1 class="text-2xl mt-6">Featured Projects</h1>
             <div class="portfolio-grid">
-                <div class="mt-4 space-y-6 grid-cols-2 lg:grid lg:gap-16 lg:space-y-0">
+                <div class="mt-4 space-y-6 grid-cols-3 lg:grid lg:gap-16 lg:space-y-0">
                     ` + 
                     // Add card for each portfolio page
                     PAGES.map((page) => {
@@ -67,7 +68,13 @@
                         return `
                             <a href="${page.page_path}" class="group block">
                                 <div aria-hidden="true" class="aspect-h-2 aspect-w-3 lg:aspect-h-6 lg:aspect-w-5 overflow-hidden">
-                                    <img src="${page.featured_image_src}" class="h-64 w-full lg:h-96 rounded-lg object-cover ${imagePosition}" />
+
+                                    <div class="container-block">
+                                        <img src="${page.featured_image_src}" class="h-64 w-full lg:h-96 rounded-lg lg:rounded-none object-cover ${imagePosition}" />
+                                        <div class="inner-block">
+                                            <div class="slider-top-right"></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <h3 class="text-xl py-1 lowercase">${page.name}</h3>
                             </a>
