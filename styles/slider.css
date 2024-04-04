@@ -11,6 +11,7 @@
     max-width: none;        /* Remove max-width default set by Tailwind */
     display: block;
     border-radius: 0.5rem;
+    object-fit: cover;
 }
 
 .image-container {
