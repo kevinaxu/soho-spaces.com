@@ -118,7 +118,7 @@ function bindBeforeAfterEventListeners(beforeAfterElement) {
 
 /**********************************************
  * 
- * Photo Grid Component (4 or 6 photos)
+ * Photo Grid Component (supports any mulitple of 4 or 6 photos)
  * 
  *********************************************/
 
@@ -127,11 +127,9 @@ function createPhotoGridComponent(photos) {
     const carouselId    = `carousel-${uuid}`;
     const modalId       = `modal-${uuid}`;
     const photoGridId   = `photo-grid-${uuid}`;
-    
+
     // Step 1: Add thumbnails, carousel, and modal to the DOM
-    const photoGridHTML  = (photos.length === 6) ?
-        generatePhotoGrid6HTML(photoGridId, photos) :
-        generatePhotoGrid4HTML(photoGridId, photos);
+    const photoGridHTML  = generatePhotoGridHTML(photoGridId, photos);
     const carouselHTML   = generateCarouselHTML(carouselId, photos);
     const modalHTML      = generateModalHTML(modalId, carouselHTML);
     document.body.append(fromHTML(photoGridHTML));
@@ -152,52 +150,84 @@ function createPhotoGridComponent(photos) {
 }
 
 /**
- * Generates the HTML for a photo grid with 4 photos
+ * Generates the HTML for a photo grid
+ * Supports any mulitple of 4 or 6 photos
  *
  * @param {string} id - The ID of the container element.
  * @param {string[]} photos - An array of photo URLs.
  * @returns {string} The generated HTML for the photo grid.
  */
-function generatePhotoGrid4HTML(id, photos) {
+function generatePhotoGridHTML(id, photos) {
+    var HTML = "";
+    if (photos.length % 6 === 0) {
+        for (var i = 0; i < (photos.length / 6); i++) {
+            HTML += generatePhotoGrid6HTML(photos.slice(i * 6, i * 6 + 6));
+        }
+        return generatePhotoGridWrapperHTML(id, HTML);
+    } else if (photos.length % 4 === 0) {
+        for (var i = 0; i < (photos.length / 4); i++) {
+            HTML += generatePhotoGrid4HTML(photos.slice(i * 4, i * 4 + 4));
+        }
+        return generatePhotoGridWrapperHTML(id, HTML);
+    } else {
+        alert("Photo Grid supports only multiples of 4 or 6 photos");
+        return "<div></div>";
+    }
+}
+
+/**
+ * Generates the HTML for the carousel wrapper
+ * 
+ * * @param {string} id - id of the carousel
+ * @param {string} HTML - inner HTML for the photo grid
+ * @returns {string} The generated HTML for the photo grid.
+ */
+function generatePhotoGridWrapperHTML(id, innerHTML) {
     return `
     <div id="${id}" class="flex justify-center my-4 pb-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="grid gap-4 overflow-auto">
-                <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt=""></div>
-                <div><img class="h-36 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt=""></div>
-            </div>
-            <div class="grid gap-4">
-                <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt=""></div>
-                <div><img class="h-48 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt=""></div>
-            </div>
+            ${innerHTML}
         </div>
-    </div>
+    </div>`;
+}
+
+/**
+ * Generates the HTML for a photo grid with 4 photos
+ *
+ * @param {string[]} photos - An array of photo URLs.
+ * @returns {string} The generated HTML for the photo grid.
+ */
+function generatePhotoGrid4HTML(photos) {
+    return `
+        <div class="grid gap-4 overflow-auto">
+            <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt=""></div>
+            <div><img class="h-36 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt=""></div>
+        </div>
+        <div class="grid gap-4">
+            <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt=""></div>
+            <div><img class="h-48 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt=""></div>
+        </div>
     `;
 }
 
 /**
  * Generates the HTML for a photo grid with 6 photos
  *
- * @param {string} id - The ID of the container element.
  * @param {string[]} photos - An array of photo URLs.
  * @returns {string} The generated HTML for the photo grid.
  */
-function generatePhotoGrid6HTML(id, photos) {
+function generatePhotoGrid6HTML(photos) {
     return `
-    <div id="${id}" class="flex justify-center my-4 pb-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="grid gap-4 overflow-auto">
-                <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt=""></div>
-                <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt=""></div>
-                <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt=""></div>
-            </div>
-            <div class="grid gap-4">
-                <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt=""></div>
-                <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[4]}" alt=""></div>
-                <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[5]}" alt=""></div>
-            </div>
+        <div class="grid gap-4 overflow-auto">
+            <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt=""></div>
+            <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt=""></div>
+            <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt=""></div>
         </div>
-    </div>
+        <div class="grid gap-4">
+            <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt=""></div>
+            <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[4]}" alt=""></div>
+            <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[5]}" alt=""></div>
+        </div>
     `;
 }
 
