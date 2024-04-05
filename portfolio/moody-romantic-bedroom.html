@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
 <head>
     <title>Soho Spaces: Moody Romantic Bedroom</title>
 
@@ -23,10 +22,8 @@
 </head>
 
 <body class="bg-stone-100" style="font-family: 'Raleway'">
-    
-    <script>
 
-        // Definitions ("Front Matter");
+    <script>
         const title = 'Moody Romantic Bedroom';
         const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
         const photoGridImages = [
@@ -39,8 +36,7 @@
         ];
         var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
         var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
-
-        // document.body.append(fromHTML(navbar()));
+        
         document.body.append(fromHTML(heroVideo(heroVideoUrl)));
         document.body.append(fromHTML(textTitle()));
         document.body.append(fromHTML(textBeforeAfter()));
@@ -48,6 +44,5 @@
         document.body.append(fromHTML(textStory()));
         createPhotoGridComponent(photoGridImages);
         document.body.append(fromHTML(footer()));
-
     </script>
 </body>
