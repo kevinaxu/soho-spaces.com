@@ -128,8 +128,11 @@ function createPhotoGridComponent(photos) {
     const modalId       = `modal-${uuid}`;
     const photoGridId   = `photo-grid-${uuid}`;
 
-    // Step 1: Add thumbnails, carousel, and modal to the DOM
-    const photoGridHTML  = generatePhotoGridHTML(photoGridId, photos);
+    // Step 1: Add photo grid, carousel, and modal to the DOM
+    const photoGridHTML  = isMobile() ? 
+        generatePhotoGridMobileHTML(photoGridId, photos) :
+        generatePhotoGridDesktopHTML(photoGridId, photos);
+    
     const carouselHTML   = generateCarouselHTML(carouselId, photos);
     const modalHTML      = generateModalHTML(modalId, carouselHTML);
     document.body.append(fromHTML(photoGridHTML));
@@ -157,7 +160,7 @@ function createPhotoGridComponent(photos) {
  * @param {string[]} photos - An array of photo URLs.
  * @returns {string} The generated HTML for the photo grid.
  */
-function generatePhotoGridHTML(id, photos) {
+function generatePhotoGridMobileHTML(id, photos) {
     var HTML = "";
     if (photos.length % 6 === 0) {
         for (var i = 0; i < (photos.length / 6); i++) {
@@ -230,6 +233,56 @@ function generatePhotoGrid6HTML(photos) {
         </div>
     `;
 }
+
+
+/**
+ * Generates the HTML for a photo grid on desktop view.
+ * 
+ * @param {string} id - The ID of the container element.
+ * @param {string[]} photos - An array of photo URLs.
+ * @returns {string} The generated HTML.
+ */
+function generatePhotoGridDesktopHTML(id, photos) {
+    return `
+    <div id="${id}">
+
+        <!-- 2 Col with Vertical Photos-->
+        <section class="pb-4 px-4">
+            <div class="flex flex-wrap -mx-4">
+                <div class="md:w-2/5 h-auto pr-4">
+                    <div class="mb-4"><img src="${photos[0]}" alt=""></div>
+                    <div><img src="${photos[1]}" alt=""></div>
+                </div>
+                <div class="hidden md:block md:w-3/5">
+                    <img class="md:h-full md:object-cover" src="${photos[2]}" alt="">                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Two Photo -->
+        <section class="pb-4 px-4">
+            <div class="flex flex-wrap -mx-4 h-full">
+                <div class="md:w-1/2 pr-2 mb-2 md:mb-0 h-full">
+                    <img class="h-full object-cover w-full" src="${photos[3]}" alt="">
+                </div>
+                <div class="md:w-1/2 pl-2 mb-2 md:mb-0 h-full">
+                    <img class="h-full object-cover" src="${photos[4]}" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- Large Photo -->
+        <section class="pb-4 px-4 h-3/4">
+            <div class="flex flex-wrap -mx-4 h-full">
+                <div class="mb-2 md:mb-0 h-full w-full block">
+                    <img class="w-full object-cover h-full" src="${photos[5]}" alt="">
+                </div>
+            </div>
+        </section>
+    </div>
+    `;
+}
+
 
 function bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel) {
     const photos = photoGridElement.querySelectorAll('img');
@@ -411,11 +464,12 @@ function initializeFlowbiteCarousel(id, photos) {
         defaultPosition: 1,
         interval: 3000,
         indicators: {
-            activeClasses: 'bg-gray-950 dark:bg-gray-800',
+            activeClasses: 'bg-gray-950 dark:bg-gray-800 md:dark:bg-gray-500',
             inactiveClasses:
-                'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
+                'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 md:dark:bg-gray-800',
             items: indicators,
         },
+
         // onNext:     () => { console.log('next slider item is shown'); },
         // onPrev:     () => { console.log('previous slider item is shown'); },
         // onChange:   () => { console.log('new slider item has been shown'); },    
@@ -429,7 +483,6 @@ function initializeFlowbiteCarousel(id, photos) {
 
     return carousel;
 }
-
 
 /**********************************************
  * 
@@ -473,14 +526,14 @@ function generateModalHTML(id, modalContent) {
     return `
     <!-- Main modal -->
     <div id="${id}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full dark:bg-gray-950">
-        <div class="relative w-full max-w-2xl max-h-full">
+        <div class="relative w-full max-w-2xl max-h-full md:h-full md:max-w-6xl">
 
             <!-- Modal content -->
             <div class="relative bg-white dark:bg-gray-950">
 
                 <!-- Modal close -->
-                <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center p-4 text-black text-sm z-50">
-                    <svg class="fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center p-4 text-black text-sm z-50 md:p-2">
+                    <svg class="fill-current text-gray-300 w-4 h-4 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
                     </svg>
@@ -502,26 +555,22 @@ function generateModalHTML(id, modalContent) {
  */
 function generateCarouselHTML(id, photos) {
     return `
-    <div id="${id}" class="my-4 relative w-full">
+    <div id="${id}" class="my-4 relative w-full md:px-12 md:top-10 md:my-0">
 
         <!-- Carousel wrapper -->
-        <div class="relative overflow-hidden" style="height: 32rem">
+        <div class="relative overflow-hidden h-[32rem] md:h-5/6 ">
             ` + 
             photos.map((photo, idx) => {
                 return `
                 <div data-id="carousel-item-${idx}" data-carousel-item class="hidden duration-700 ease-in-out bg-gray-950">
-                    <img
-                        src="${photo}"
-                        class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                        alt="..."
-                    />
+                    <img class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:block md:mx-auto" src="${photo}" alt="">
                 </div>
                 `;
             }).join('') +
             `
         </div>
         <!-- Slider indicators -->
-        <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
+        <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse md:-bottom-10">
             ` + 
             photos.map((_, idx)  => {
                 return `
@@ -538,13 +587,13 @@ function generateCarouselHTML(id, photos) {
         </div>
         <!-- Slider controls -->
         <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-id="data-carousel-prev">
-            <svg class="w-4 text-gray-300 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <svg class="w-4 text-gray-300 rtl:rotate-180 md:w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 1 1 5l4 4"/>
             </svg>
             <span class="sr-only">Previous</span>
         </button>
             <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-id="data-carousel-next">
-            <svg class="w-4 text-gray-300 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <svg class="w-4 text-gray-300 rtl:rotate-180 md:w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 9 4-4-4-4"/>
             </svg>
             <span class="sr-only">Next</span>
@@ -618,3 +667,14 @@ function isSwipeLeft() {
     const distX = Math.abs(touch.endX - touch.startX);
     return (touch.endX < touch.startX && distX > SWIPE_THRESHOLD);
 }
+
+
+/**
+ * Check Mobile or Desktop viewport
+ *
+ * @returns {boolean} Returns true if the swipe is up / down / left / right
+ */
+function isMobile() {
+    return window.innerWidth < 640;
+}
+    

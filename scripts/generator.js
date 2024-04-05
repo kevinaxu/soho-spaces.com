@@ -43,14 +43,14 @@ function heroImage(image_url) {
     `;
 }
 
-function isMobile() {
-    if (window.innerWidth < 640) {
-        console.log("Mobile");
-    } else {
-        console.log("Desktop");
-    }
-    return window.innerWidth < 640;
-}
+// function isMobile() {
+//     if (window.innerWidth < 640) {
+//         console.log("Mobile");
+//     } else {
+//         console.log("Desktop");
+//     }
+//     return window.innerWidth < 640;
+// }
 
 function thumbnailsDesktop(photos) {
     return `
