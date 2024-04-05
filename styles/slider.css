@@ -1,4 +1,10 @@
-.line {
+/**********************************************
+ * 
+ * Before / After Images Slider
+ * 
+ *********************************************/
+ 
+ .line {
     width: 100px;
     height: 1px;
     margin: 20px auto 40px auto;
@@ -8,18 +14,19 @@
 .slider-image {
     width: 100%;
     height: 100%;
-    max-width: none;        /* Remove max-width default set by Tailwind */
+    max-width: none;                /* Remove max-width default set by Tailwind */
     display: block;
     border-radius: 0.5rem;
     object-fit: cover;
 }
 
 .image-container {
-    height: 384px;          /* h-96 in tailwind */
+    height: 384px;                  /* h-96 in tailwind */
     width: 100%;
     display: block;
     margin: 30px auto
 }
+
 
 .before-after-slider {
     width: 100%;
@@ -73,4 +80,21 @@
     height: 20px;
     border-radius: 50%;
     border: 3px solid white;
+}
+
+@media (min-width: 1024px) {        /* Desktop changes */ 
+    .slider-image {
+        border-radius: 0;           /* No rounded edges  */ 
+    }
+    .image-container {              /* Larger component size */ 
+        height: 44rem;
+    }
+    .resizer {                      /* Thicker line */ 
+        width: 8px;
+    }
+    .resizer:after {                /* Larger arrow icon */ 
+        margin: 0 0 0 -11px;
+        width: 30px;
+        height: 30px;
+    }    
 }

@@ -14,13 +14,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        * { outline: 1px solid red; }
+        /* * { outline: 1px solid red; }
         @media (min-width: 640px) { * { outline: 1px solid green; } }
-        @media (min-width: 1024px) { * { outline: 1px solid blue; } }
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
     </style>
 </head>
 
 <body class="mx-auto max-w-5xl" style="font-family: 'Raleway'">
+
+    <!-- Before / After component -->
+    <div class="slider-container">
+        <div class="image-container">
+            <div id="id" class="before-after-slider">
+                <div class="before-image">
+                    <img class="slider-image" src="../assets/bedroom/comp1_before.jpeg" alt=""/>
+                </div>
+                <div class="after-image">
+                    <img class="slider-image" src="../assets/bedroom/comp1_after.jpeg" alt=""/>
+                </div>
+                <div class="resizer"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Photo Grid -->
+    <div>
 
         <!-- 2 Col with Vertical Photos-->
         <section class="pb-4 px-4">
@@ -83,6 +102,7 @@
             </div>
         </section>
     
+    </div>
 
 
 </body>
