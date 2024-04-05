@@ -22,52 +22,32 @@
     </style>
 </head>
 
-<body class="sm:px-4" style="font-family: 'Raleway'">
+<body class="bg-stone-100" style="font-family: 'Raleway'">
     
     <script>
 
         // Definitions ("Front Matter");
         const title = 'Moody Romantic Bedroom';
         const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
-        const thumbnailImages = [
-            '../assets/bedroom/bed_2.jpeg',
-            '../assets/bedroom/sitting_area.jpeg',
-            '../assets/bedroom/night_stand.jpeg'
-        ]
         const photoGridImages = [
-            '../assets/bedroom/dresser.jpeg',
-            '../assets/bedroom/bed.jpeg',
-            '../assets/bedroom/bed_3.jpeg',
+            '../assets/bedroom/bed_2.jpeg',
+            '../assets/bedroom/nook_2.jpeg',
+            '../assets/bedroom/sitting_area.jpeg',
             '../assets/bedroom/nook.jpeg',
+            '../assets/bedroom/dresser.jpeg',
+            '../assets/bedroom/bed_3.jpeg',
         ];
         var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
         var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
 
-        // TODO: this approach is NOT responsive
-        if (isMobile()) {
-            document.body.append(fromHTML(logo()));
-            document.body.append(fromHTML(header(title)));
-            document.body.append(fromHTMLVideo(heroVideo(heroVideoUrl)));
-            createThumbnailsComponent(thumbnailImages);
-            document.body.append(fromHTML(header('The Details')));
-            createPhotoGridComponent(photoGridImages);
-            document.body.append(fromHTML(header('Before & After')));
-            createBeforeAfterComponent(IMG_BEFORE, IMG_AFTER);
-            document.body.append(fromHTML(footer()));
+        // document.body.append(fromHTML(navbar()));
+        document.body.append(fromHTML(heroVideo(heroVideoUrl)));
+        document.body.append(fromHTML(textTitle()));
+        document.body.append(fromHTML(textBeforeAfter()));
+        createBeforeAfterComponent(IMG_BEFORE, IMG_AFTER);
+        document.body.append(fromHTML(textStory()));
+        createPhotoGridComponent(photoGridImages);
+        document.body.append(fromHTML(footer()));
 
-
-        } else {
-            var body = document.body;
-            body.innerHTML += logo();
-            body.innerHTML += header(title);      
-
-            // body.innerHTML += genModal();
-            body.innerHTML += heroVideo(heroVideoUrl);
-            body.innerHTML += thumbnailsDesktop(thumbnailImages);
-            body.innerHTML += header('The Details');      
-            body.innerHTML += photoGrid4(photoGridImages);
-            body.innerHTML += slider(IMG_BEFORE, IMG_AFTER);
-            body.innerHTML += footer();
-        }
     </script>
 </body>
