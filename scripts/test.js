@@ -17,13 +17,8 @@ function createPhotoGridComponent(photos) {
     document.body.append(fromHTML(photoGridHTML));
     document.body.append(fromHTML(modalHTML));
 
-
     const flowbiteCarousel  = initializeFlowbiteCarousel(carouselId, photos);
     const flowbiteModal     = initializeFlowbiteModal(modalId);
-
-    flowbiteModal.show();
-
-    // flowbiteCarousel.slideTo(3);
 
     const carouselElement   = document.getElementById(carouselId);
     const photoGridElement = document.getElementById(photoGridId);
@@ -31,34 +26,8 @@ function createPhotoGridComponent(photos) {
     bindCarouselEventListeners(carouselElement, flowbiteCarousel);
     bindModalCloseEventListeners(modalElement, flowbiteModal);
     bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel);
-
-
-    /*
-
-    // Step 1: Add phoot grid, carousel, and modal to the DOM
-    const photoGridHTML  = generatePhotoGridHTML(photoGridId, photos);
-    const carouselHTML   = generateCarouselHTML(carouselId, photos);
-    const modalHTML      = generateModalHTML(modalId, carouselHTML);
-    document.body.append(fromHTML(photoGridHTML));
-    document.body.append(fromHTML(modalHTML));
-
-    // Step 2: Initialize Flowbite components
-    const flowbiteCarousel  = initializeFlowbiteCarousel(carouselId, photos);
-    const flowbiteModal     = initializeFlowbiteModal(modalId);
-
-    // Step 3: Bind event listeners (Carousel <> Flowbite Carousel, Thumbnails <> Flowbite Modal)
-    const carouselElement   = document.getElementById(carouselId);
-    const photoGridElement = document.getElementById(photoGridId);
-    const modalElement      = document.getElementById(modalId);
-    bindCarouselEventListeners(carouselElement, flowbiteCarousel);
     bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel);
-    bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel);
-    bindModalCloseEventListeners(modalElement, flowbiteModal);
-
-    */
 }
-
-
 
 function generatePhotoGridHTML(id, photos) {
     return `
@@ -68,17 +37,11 @@ function generatePhotoGridHTML(id, photos) {
         <section class="pb-4 px-4">
             <div class="flex flex-wrap -mx-4">
                 <div class="md:w-2/5 h-auto pr-4">
-                    <div class="mb-4">
-                        <img class="shadow-md image-2" src="${photos[0]}" alt="">
-                    </div>
-                    <div>
-                        <img class="shadow-md" src="${photos[1]}" alt="">
-                    </div>
+                    <div class="mb-4"><img src="${photos[0]}" alt=""></div>
+                    <div><img src="${photos[1]}" alt=""></div>
                 </div>
                 <div class="hidden md:block md:w-3/5">
-                    <div class="h-full w-full bg-cover shadow-md image-1"
-                        style="background-image: url(${photos[2]})">
-                    </div>
+                    <img class="md:h-full md:object-cover" src="${photos[2]}" alt="">                    
                 </div>
             </div>
         </section>
@@ -88,10 +51,10 @@ function generatePhotoGridHTML(id, photos) {
         <section class="pb-4 px-4">
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="md:w-1/2 pr-2 mb-2 md:mb-0 h-full">
-                    <img class="shadow-md h-full object-cover w-full" src="${photos[3]}" alt="">
+                    <img class="h-full object-cover w-full" src="${photos[3]}" alt="">
                 </div>
                 <div class="md:w-1/2 pl-2 mb-2 md:mb-0 h-full">
-                    <img class="shadow-md h-full object-cover" src="${photos[4]}" alt="">
+                    <img class="h-full object-cover" src="${photos[4]}" alt="">
                 </div>
             </div>
         </section>
@@ -100,15 +63,13 @@ function generatePhotoGridHTML(id, photos) {
         <section class="pb-4 px-4 h-3/4">
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="mb-2 md:mb-0 h-full w-full block">
-                    <img class="shadow-md w-full object-cover h-full" src="${photos[5]}" alt="">
+                    <img class="w-full object-cover h-full" src="${photos[5]}" alt="">
                 </div>
             </div>
         </section>
     </div>
     `;
 }
-
-
 
 /**
  * Generates the HTML for a modal with the given id and content.
@@ -257,17 +218,14 @@ function bindModalCloseEventListeners(modalElement, flowbiteModal) {
 
 
 function bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel) {
-    console.log(photoGridElement);
-
-
-    // const photos = photoGridElement.querySelectorAll('img');
-    // for (let i = 0; i < photos.length; i++) {
-    //     const photo = photos[i];
-    //     photo.addEventListener('click', function() {
-    //         flowbiteCarousel.slideTo(i);
-    //         flowbiteModal.show();
-    //     });
-    // }
+    const photos = photoGridElement.querySelectorAll('img');
+    for (let i = 0; i < photos.length; i++) {
+        const photo = photos[i];
+        photo.addEventListener('click', function() {
+            flowbiteCarousel.slideTo(i);
+            flowbiteModal.show();
+        });
+    }
 }
 
 
