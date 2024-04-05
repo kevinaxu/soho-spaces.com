@@ -21,70 +21,107 @@
     </style>
 </head>
 
-<body class="mx-auto max-w-5xl my-4" style="font-family: 'Raleway'">
-
-
-    <!-- Before / After component -->
-    <!-- <div class="slider-container">
-        <div class="image-container">
-            <div id="id" class="before-after-slider">
-                <div class="before-image">
-                    <img class="slider-image" src="../assets/bedroom/comp1_before.jpeg" alt=""/>
-                </div>
-                <div class="after-image">
-                    <img class="slider-image" src="../assets/bedroom/comp1_after.jpeg" alt=""/>
-                </div>
-                <div class="resizer"></div>
-            </div>
-        </div>
-    </div> -->
+<body style="font-family: 'Raleway'">
 
     <script>
+        const title = 'Moody Romantic Bedroom';
+        const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
+        var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
+        var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
         const photoGridImages = [
             '../assets/bedroom/bed.jpeg',
             '../assets/bedroom/bed.jpeg',
             '../assets/bedroom/bed_3.jpeg',
-            // '../assets/bedroom/nook.jpeg',
-            // '../assets/den/6.jpeg',
-            // '../assets/den/7.jpeg',
+            '../assets/bedroom/nook.jpeg',
+            '../assets/den/6.jpeg',
+            '../assets/den/7.jpeg',
             '../assets/accent_wall/umbrella.jpeg',
             '../assets/accent_wall/console_left.jpeg',
             '../assets/bedroom/bed.jpeg',
-
-            // '../assets/accent_wall/featured.jpeg',
-            // '../assets/accent_wall/phoenix.jpeg',
-            // '../assets/accent_wall/tiger.jpeg',
+            '../assets/accent_wall/featured.jpeg',
+            '../assets/accent_wall/phoenix.jpeg',
+            '../assets/accent_wall/tiger.jpeg',
         ];
 
+        // document.body.append(fromHTML(navbar()));
+        document.body.append(fromHTML(heroImage('../assets/accent_wall/umbrella.jpeg')));
+        document.body.append(fromHTML(textTitle("dark academia", "living room", "A dark and moody living room with a touch of academia. The room features a large bookshelf, a grand piano, and a large window with a view of the garden. The room is furnished with a large sofa, a coffee table, and a Persian rug. The walls are painted in a deep blue color, and the room is lit by a large chandelier.")));
+        document.body.append(fromHTML(textBeforeAfter()));
+        createBeforeAfterComponent(IMG_BEFORE, IMG_AFTER);
+
+        document.body.append(fromHTML(textStory()));
         createPhotoGridComponent(photoGridImages);
+
+        document.body.append(fromHTML(textCTA()));
+
+        document.body.append(fromHTML(footer()));
+
+        function textTitle(title, room, description) {
+            return `
+            <div class="px-4 my-8">
+                <div class="py-4">
+                    <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">${title}</h1>
+                    <span class="text-md uppercase">${room}</span>
+                </div>
+                <div class="py-4">
+                    <p class="leading-relaxed">${description}</p>
+                </div>
+            </div>
+            `;
+        }
+
+        function textBeforeAfter() {
+            return `
+            <div class="px-4 mt-8">
+                <div class="py-4">
+                    <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">before & after</h1>
+                </div>
+                <div class="flex justify-between items-center">
+                    <p class="leading-relaxed">slide to see transformation</p>
+                    <svg class="align-middle" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
+                        <path d="m21.883 12-7.527 6.235L15 19l9-7.521L15 4l-.645.764L21.884 11H0v1h21.883z"/>
+                        <script/>
+                    </svg>
+                </div>
+            </div>
+            `;
+        }
+
+        function textStory() {
+            return `
+            <div class="px-4 my-8">
+                <div class="py-4">
+                    <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">the story / inspiration</h1>
+                </div>
+                <div class="py-4">
+                    <p class="leading-relaxed">This living room draws inspiration from the dark academia aesthetic, a style that is deeply rooted in literature, self-discovery, and a love of learning and knowledge. The room is filled with rich, dark tones, creating a cozy and inviting atmosphere. Antique furniture, a grand bookshelf filled with classic literature, and vintage decor items contribute to the room's old-world charm. The walls are adorned with artwork and memorabilia, adding a personal touch to the space.</p>
+                </div>
+            </div>`;
+        }
+
+
+        function textCTA() {
+            return `
+            <div class="px-4 my-8">
+                <div class="py-4">
+                    <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">project details</h1>
+                </div>
+                <ul class="px-4 list-disc">
+                    <li>Location: New York, NY</li>
+                    <li>Size: 500 sq ft</li>
+                    <li>Style: Dark Academia</li>
+                </ul>
+            </div>`;
+
+        }
+
     </script>
 
 </body>
 
 
 <!-- 
-
 <body class="mx-auto max-w-lg px-4 sm:px-6 sm:py-8 md:max-w-7xl md:px-8" style="font-family: 'Raleway'">
-    <script>
-        const title = 'Moody Romantic Bedroom';
-        const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
-        const photoGridImages = [
-            '../assets/bedroom/dresser.jpeg',
-            '../assets/bedroom/bed.jpeg',
-            '../assets/bedroom/bed_3.jpeg',
-            '../assets/bedroom/nook.jpeg',
-            // '../assets/den/6.jpeg',
-            // '../assets/den/7.jpeg',
-            '../assets/accent_wall/umbrella.jpeg',
-            '../assets/accent_wall/console_left.jpeg',
-            '../assets/accent_wall/console_right.jpeg',
-            // '../assets/accent_wall/featured.jpeg',
-            // '../assets/accent_wall/phoenix.jpeg',
-            // '../assets/accent_wall/tiger.jpeg',
-        ];
-
-        // createPhotoGridComponent(photoGridImages);
-    </script>
 </body>
 
 -->
