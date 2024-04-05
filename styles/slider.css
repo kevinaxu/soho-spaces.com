@@ -24,9 +24,8 @@
     height: 384px;                  /* h-96 in tailwind */
     width: 100%;
     display: block;
-    margin: 30px auto
+    margin: 0 auto
 }
-
 
 .before-after-slider {
     width: 100%;
@@ -87,7 +86,7 @@
         border-radius: 0;           /* No rounded edges  */ 
     }
     .image-container {              /* Larger component size */ 
-        height: 44rem;
+        /* height: 44rem; */
     }
     .resizer {                      /* Thicker line */ 
         width: 8px;

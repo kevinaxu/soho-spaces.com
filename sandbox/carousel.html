@@ -21,7 +21,7 @@
     </style>
 </head>
 
-<body style="font-family: 'Raleway'">
+<body class="bg-stone-100" style="font-family: 'Raleway'">
 
     <script>
         const title = 'Moody Romantic Bedroom';
@@ -52,19 +52,17 @@
         document.body.append(fromHTML(textStory()));
         createPhotoGridComponent(photoGridImages);
 
-        document.body.append(fromHTML(textCTA()));
-
         document.body.append(fromHTML(footer()));
 
         function textTitle(title, room, description) {
             return `
-            <div class="px-4 my-8">
-                <div class="py-4">
-                    <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">${title}</h1>
-                    <span class="text-md uppercase">${room}</span>
+            <div class="px-4 py-8 md:px-0 md:mx-auto md:max-w-5xl">
+                <div class="py-2">
+                    <h1 class="text-3xl md:text-5xl font-bold text-gray-900 italic inline align-bottom pr-2 md:pr-4">${title}</h1>
+                    <span class="text-md md:text-xl uppercase">${room}</span>
                 </div>
-                <div class="py-4">
-                    <p class="leading-relaxed">${description}</p>
+                <div class="py-2">
+                    <p class="leading-relaxed md:text-lg md:leading-loose">${description}</p>
                 </div>
             </div>
             `;
@@ -72,12 +70,12 @@
 
         function textBeforeAfter() {
             return `
-            <div class="px-4 mt-8">
-                <div class="py-4">
-                    <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">before & after</h1>
+            <div class="px-4 py-8 md:px-0 md:mx-auto md:max-w-5xl">
+                <div class="py-2">
+                    <h1 class="text-3xl md:text-5xl font-bold text-gray-900 italic inline align-bottom pr-2">before & after</h1>
                 </div>
                 <div class="flex justify-between items-center">
-                    <p class="leading-relaxed">slide to see transformation</p>
+                    <p class="leading-relaxed md:text-lg">slide to see transformation</p>
                     <svg class="align-middle" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
                         <path d="m21.883 12-7.527 6.235L15 19l9-7.521L15 4l-.645.764L21.884 11H0v1h21.883z"/>
                         <script/>
@@ -89,31 +87,30 @@
 
         function textStory() {
             return `
-            <div class="px-4 my-8">
-                <div class="py-4">
+            <div class="px-4 py-8 md:px-0 md:mx-auto md:max-w-5xl">
+                <div class="py-2">
                     <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">the story / inspiration</h1>
                 </div>
-                <div class="py-4">
-                    <p class="leading-relaxed">This living room draws inspiration from the dark academia aesthetic, a style that is deeply rooted in literature, self-discovery, and a love of learning and knowledge. The room is filled with rich, dark tones, creating a cozy and inviting atmosphere. Antique furniture, a grand bookshelf filled with classic literature, and vintage decor items contribute to the room's old-world charm. The walls are adorned with artwork and memorabilia, adding a personal touch to the space.</p>
+                <div class="py-2">
+                    <p class="leading-relaxed md:text-lg md:leading-loose">This living room draws inspiration from the dark academia aesthetic, a style that is deeply rooted in literature, self-discovery, and a love of learning and knowledge. The room is filled with rich, dark tones, creating a cozy and inviting atmosphere. Antique furniture, a grand bookshelf filled with classic literature, and vintage decor items contribute to the room's old-world charm. The walls are adorned with artwork and memorabilia, adding a personal touch to the space.</p>
                 </div>
             </div>`;
         }
 
-
+        /*
         function textCTA() {
             return `
-            <div class="px-4 my-8">
+            <div class="px-4 mt-8 md:px-0 md:mx-auto md:max-w-5xl">
                 <div class="py-4">
                     <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">project details</h1>
                 </div>
-                <ul class="px-4 list-disc">
-                    <li>Location: New York, NY</li>
-                    <li>Size: 500 sq ft</li>
-                    <li>Style: Dark Academia</li>
+                <ul class="px-8 list-disc">
+                    <li class="lowercase">Location: New York, NY</li>
+                    <li class="lowercase">Size: 500 sq ft</li>
+                    <li class="lowercase">Style: Dark Academia</li>
                 </ul>
             </div>`;
-
-        }
+        }*/
 
     </script>
 

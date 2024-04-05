@@ -34,8 +34,8 @@ function createBeforeAfterComponent(beforeImage, afterImage) {
  */
 function generateBeforeAfterHTML(id, beforeImage, afterImage) {
     return `
-    <div class="slider-container">
-        <div class="image-container">
+    <div class="slider-container px-4 md:px-0 md:mx-auto md:max-w-5xl">
+        <div class="image-container h-1/2 md:h-[44rem]">
             <div id="${id}" class="before-after-slider">
                 <div class="before-image">
                     <img class="slider-image" src=${beforeImage} alt=""/>
@@ -181,13 +181,13 @@ function generatePhotoGridMobileHTML(id, photos) {
 /**
  * Generates the HTML for the carousel wrapper
  * 
- * * @param {string} id - id of the carousel
+ * @param {string} id - id of the carousel
  * @param {string} HTML - inner HTML for the photo grid
  * @returns {string} The generated HTML for the photo grid.
  */
 function generatePhotoGridWrapperHTML(id, innerHTML) {
     return `
-    <div id="${id}" class="flex justify-center my-4 pb-4">
+    <div id="${id}" class="flex justify-center my-4 pb-4 px-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             ${innerHTML}
         </div>
@@ -244,7 +244,7 @@ function generatePhotoGrid6HTML(photos) {
  */
 function generatePhotoGridDesktopHTML(id, photos) {
     return `
-    <div id="${id}">
+    <div id="${id}" class="md:mx-auto md:max-w-5xl">
 
         <!-- 2 Col with Vertical Photos-->
         <section class="pb-4 px-4">
@@ -599,6 +599,25 @@ function generateCarouselHTML(id, photos) {
             <span class="sr-only">Next</span>
         </button>
     </div>`;
+}
+
+
+function heroVideo(video_url) {
+    return `
+    <div class="lg:h-auto">
+        <video id="hero-video" autoplay loop muted playsinline class="object-cover object-center h-full w-full">
+            <source src="${video_url}" type="video/mp4">
+        </video>
+    </div>
+    `;
+}
+
+function heroImage(image_url) {
+    return `
+    <div class="lg:h-auto">
+        <img class="object-cover object-center h-full w-full" src="${image_url}" alt="">
+    </div>
+    `;
 }
 
 

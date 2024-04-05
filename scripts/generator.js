@@ -1,4 +1,6 @@
 
+
+/*
 function logo() {
     return `
     <div>
@@ -25,32 +27,20 @@ function header(heading) {
     `;
 }
 
-function heroVideo(video_url) {
-    return `
-    <div class="hero-video-container h-96 lg:h-auto my-4 rounded-lg">
-        <video id="hero-video" autoplay loop muted playsinline class="object-cover object-center h-full w-full rounded-lg" style="object-position:20%">
-            <source src="${video_url}" type="video/mp4">
-        </video>
-    </div>
-    `;
+function isMobile() {
+    if (window.innerWidth < 640) {
+        console.log("Mobile");
+    } else {
+        console.log("Desktop");
+    }
+    return window.innerWidth < 640;
 }
 
-function heroImage(image_url) {
-    return `
-    <div class="hero-image-container h-96 lg:h-auto my-4">
-        <img class="object-cover object-center h-full w-full rounded-lg" src="${image_url}" alt="">
-    </div>
-    `;
-}
+*/
 
-// function isMobile() {
-//     if (window.innerWidth < 640) {
-//         console.log("Mobile");
-//     } else {
-//         console.log("Desktop");
-//     }
-//     return window.innerWidth < 640;
-// }
+
+
+
 
 function thumbnailsDesktop(photos) {
     return `
@@ -68,6 +58,42 @@ function thumbnailsDesktop(photos) {
         </div>
     </div>`
 }
+
+
+
+function navbar() {
+    return `
+    <div class="fixed w-full z-20 top-0 start-0 bg-transparent px-4 py-2">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+            <div id="navbar-sticky" class="items-center justify-between hidden w-full md:flex md:order-1">
+                <ul
+                    class="flex flex-col justify-between p-4 md:w-full md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 md:text-md md:text-white md:font-semibold ">
+                    <li class="w-full text-right">
+                        <a href="../" class="block py-2 px-3">About</a>
+                    </li>
+                    <li class="w-full text-left">
+                        <a href="../" class="block py-2 px-3">Portfolio</a>
+                    </li>
+                    <li class="w-full text-center text-lg">
+                        <a href="../" class="block py-2 px-3">Soho Spaces</a>
+                        <!-- <a href="../" class="flex">
+                            <img class="object-center h-10" src="../assets/soho_spaces_logo.png" alt="">
+                        </a> -->
+                    </li>
+                    <li class="w-full text-right">
+                        <a href="../" class="block py-2 px-3">Services</a>
+                    </li>
+                    <li class="w-full text-left">
+                        <a href="../" class="block py-2 px-3">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>`;
+}
+
+
+
 
 function footer() {
     return `
