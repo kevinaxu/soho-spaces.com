@@ -5,7 +5,8 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <script type="text/javascript" src="../scripts/generator.js"></script>
-    <script type="text/javascript" src="../scripts/carousel.js"></script>
+    <script type="text/javascript" src="../scripts/test.js"></script>
+    <!-- <script type="text/javascript" src="../scripts/carousel.js"></script> -->
     <link rel="stylesheet" type="text/css" href="../styles/slider.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
@@ -20,10 +21,11 @@
     </style>
 </head>
 
-<body class="mx-auto max-w-5xl" style="font-family: 'Raleway'">
+<body class="mx-auto max-w-5xl my-4" style="font-family: 'Raleway'">
+
 
     <!-- Before / After component -->
-    <div class="slider-container">
+    <!-- <div class="slider-container">
         <div class="image-container">
             <div id="id" class="before-after-slider">
                 <div class="before-image">
@@ -35,13 +37,10 @@
                 <div class="resizer"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
-    <!-- Photo Grid -->
-    <div>
-
-        <!-- 2 Col with Vertical Photos-->
+    <!-- <div>
         <section class="pb-4 px-4">
             <div class="flex flex-wrap -mx-4">
                 <div class="md:w-2/5 h-auto pr-4">
@@ -60,7 +59,6 @@
             </div>
         </section>
 
-        <!-- Two Photo -->
         <section class="pb-4 px-4 h-3/4">
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="md:w-1/2 pr-2 mb-2 md:mb-0">
@@ -72,7 +70,6 @@
             </div>
         </section>
 
-        <!-- Large Photo -->
         <section class="pb-4 px-4 h-3/4">
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="mb-2 md:mb-0">
@@ -80,30 +77,27 @@
                 </div>
             </div>
         </section>
+    </div> -->
 
-        <!-- Two Photo -->
-        <section class="pb-4 px-4 h-1/2">
-            <div class="flex flex-wrap -mx-4 h-full">
-                <div class="md:w-1/2 pr-2 mb-2 md:mb-0">
-                    <img class="shadow-md h-full object-cover" src="https://source.unsplash.com/random/1280x720" alt="">
-                </div>
-                <div class="md:w-1/2 pl-2 mb-2 md:mb-0">
-                    <img class="shadow-md h-full object-cover" src="https://source.unsplash.com/random/1280x720" alt="">
-                </div>
-            </div>
-        </section>
+    <script>
+        const photoGridImages = [
+            '../assets/bedroom/bed.jpeg',
+            '../assets/bedroom/bed.jpeg',
+            '../assets/bedroom/bed_3.jpeg',
+            // '../assets/bedroom/nook.jpeg',
+            // '../assets/den/6.jpeg',
+            // '../assets/den/7.jpeg',
+            '../assets/accent_wall/umbrella.jpeg',
+            '../assets/accent_wall/console_left.jpeg',
+            '../assets/bedroom/bed.jpeg',
 
-        <!-- Large Photo -->
-        <section class="pb-4 px-4 h-3/4">
-            <div class="flex flex-wrap -mx-4 h-full">
-                <div class="mb-2 md:mb-0">
-                    <img class="shadow-md h-full object-cover" src="https://source.unsplash.com/random/1280x720" alt="">
-                </div>
-            </div>
-        </section>
-    
-    </div>
+            // '../assets/accent_wall/featured.jpeg',
+            // '../assets/accent_wall/phoenix.jpeg',
+            // '../assets/accent_wall/tiger.jpeg',
+        ];
 
+        createPhotoGridComponent(photoGridImages);
+    </script>
 
 </body>
 
