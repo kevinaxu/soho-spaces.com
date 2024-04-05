@@ -22,12 +22,16 @@ function createPhotoGridComponent(photos) {
     const flowbiteModal     = initializeFlowbiteModal(modalId);
 
     flowbiteModal.show();
-    flowbiteCarousel.slideTo(1);
 
-    // const carouselElement   = document.getElementById(carouselId);
-    // const photoGridElement = document.getElementById(photoGridId);
-    // const modalElement      = document.getElementById(modalId);
-    // bindCarouselEventListeners(carouselElement, flowbiteCarousel);
+    // flowbiteCarousel.slideTo(3);
+
+    const carouselElement   = document.getElementById(carouselId);
+    const photoGridElement = document.getElementById(photoGridId);
+    const modalElement      = document.getElementById(modalId);
+    bindCarouselEventListeners(carouselElement, flowbiteCarousel);
+    bindModalCloseEventListeners(modalElement, flowbiteModal);
+    bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel);
+
 
     /*
 
@@ -154,7 +158,7 @@ function generateCarouselHTML(id, photos) {
             photos.map((photo, idx) => {
                 return `
                 <div data-id="carousel-item-${idx}" data-carousel-item class="hidden duration-700 ease-in-out bg-gray-950">
-                    <img class="md:h-full md:block md:mx-auto" src="${photo}" alt="">
+                    <img class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 md:h-full md:block md:mx-auto" src="${photo}" alt="">
                 </div>
                 `;
             }).join('') +
@@ -291,9 +295,9 @@ function initializeFlowbiteCarousel(id, photos) {
         defaultPosition: 1,
         interval: 3000,
         indicators: {
-            activeClasses: 'bg-gray-950 dark:bg-gray-800',
+            activeClasses: 'bg-gray-950 dark:bg-gray-800 md:dark:bg-gray-500',
             inactiveClasses:
-                'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
+                'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 md:dark:bg-gray-800',
             items: indicators,
         },
         // onNext:     () => { console.log('next slider item is shown'); },
