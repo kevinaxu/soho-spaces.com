@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/slider.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Poiret+One|Comfortaa|Homemade+Apple" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -20,7 +20,7 @@
     </style>
 </head>
 
-<body class="bg-stone-100" style="font-family: 'Raleway'">
+<body class="bg-stone-100" style="font-family: 'Comfortaa'">
 
     <script>
 
@@ -37,9 +37,9 @@
         var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
         var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
         
-        // document.body.append(fromHTML(navbar()));
+        document.body.append(fromHTML(generateNavbarDesktopHTML()));
         document.body.append(fromHTML(heroVideo(heroVideoUrl)));
-        document.body.append(fromHTML(textTitle()));
+        document.body.append(fromHTML(textTitle("moody romantic", "bedroom")));
         document.body.append(fromHTML(textBeforeAfter()));
         createBeforeAfterComponent(IMG_BEFORE, IMG_AFTER);
         document.body.append(fromHTML(textStory()));

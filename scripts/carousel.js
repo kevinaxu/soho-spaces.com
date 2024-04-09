@@ -621,10 +621,10 @@ function heroImage(image_url) {
 
 function textTitle(t1, t2) {
     return `
-    <div class="px-4 py-8 md:px-0 md:mx-auto md:max-w-4xl md:mt-8">
+    <div class="px-4 py-8 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
             <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2 md:pr-4" style="font-family: 'Homemade Apple'">${t1}</h1>
-            <div class="h-full inline text-md md:text-4xl" style="font-family: 'Comfortaa'">${t2}</div>
+            <div class="text-xl md:text-4xl h-full inline">${t2}</div>
         </div>
         <div class="py-2">
             <p class="leading-relaxed md:text-lg md:leading-loose">
@@ -637,9 +637,10 @@ function textTitle(t1, t2) {
 
 function textBeforeAfter() {
     return `
-    <div class="px-4 py-8 md:px-0 md:mx-auto md:max-w-4xl">
-        <div class="py-2">
-            <h1 class="text-3xl md:text-5xl font-bold text-gray-900 italic inline align-bottom pr-2">before & after</h1>
+    <div class="px-4 py-2 md:px-0 md:mx-auto md:max-w-4xl">
+        <div class="py-2 md:py-4">
+            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2" style="font-family: 'Homemade Apple'">before</h1>
+            <div class="text-xl md:text-4xl h-full inline">+ after</div>
         </div>
         <div class="flex justify-between items-center">
             <p class="leading-relaxed md:text-lg">slide to see transformation</p>
@@ -654,9 +655,10 @@ function textBeforeAfter() {
 
 function textStory() {
     return `
-    <div class="px-4 py-8 md:px-0 md:mx-auto md:max-w-4xl">
+    <div class="px-4 py-8 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
-            <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">the story / inspiration</h1>
+            <div class="text-xl md:text-4xl pr-2 h-full inline">the</div>
+            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2" style="font-family: 'Homemade Apple'">story</h1>
         </div>
         <div class="py-2">
             <p class="leading-relaxed md:text-lg md:leading-loose">This living room draws inspiration from the dark academia aesthetic, a style that is deeply rooted in literature, self-discovery, and a love of learning and knowledge. The room is filled with rich, dark tones, creating a cozy and inviting atmosphere. Antique furniture, a grand bookshelf filled with classic literature, and vintage decor items contribute to the room's old-world charm. The walls are adorned with artwork and memorabilia, adding a personal touch to the space.</p>
@@ -666,13 +668,13 @@ function textStory() {
 
 function generateNavbarDesktopHTML() {
     return `
-    <div class="fixed w-full flex h-12 bg-slate-950 text-slate-100">
+    <div class="fixed z-20 w-full flex h-12 bg-slate-950 text-slate-100">
         <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
             <div class="w-full text-center">
-                <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">ABOUT</a>
+                <a href="../" class="h-full block px-3">ABOUT</a>
             </div>
             <div class="w-full text-center">
-                <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">PORTFOLIO</a>
+                <a href="../" class="h-full block px-3">PORTFOLIO</a>
             </div>
         </div>
         <div class="w-full md:w-1/2 mt-1">
@@ -682,10 +684,10 @@ function generateNavbarDesktopHTML() {
         </div>
         <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
             <div class="w-full text-center">
-                <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">SERVICES</a>
+                <a href="../" class="h-full block px-3">SERVICES</a>
             </div>
             <div class="w-full text-center">
-                <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">CONTACT</a>
+                <a href="../" class="h-full block px-3">CONTACT</a>
             </div>
         </div>
     </div>`;
@@ -694,7 +696,7 @@ function generateNavbarDesktopHTML() {
 
 function footer() {
     return `
-    <div class="footer m-6">
+    <div class="footer mt-8">
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
     
         <!-- Contact Info -->
