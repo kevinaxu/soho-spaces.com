@@ -254,7 +254,7 @@ function generatePhotoGridDesktopHTML(id, photos) {
                     <div><img src="${photos[1]}" alt=""></div>
                 </div>
                 <div class="hidden md:block md:w-3/5">
-                    <img class="md:h-full md:object-cover" src="${photos[2]}" alt="">                    
+                    <img class="md:w-full md:min-h-full md:object-cover" src="${photos[2]}" alt="">
                 </div>
             </div>
         </section>
@@ -605,10 +605,9 @@ function generateCarouselHTML(id, photos) {
 function heroVideo(video_url) {
     return `
     <div class="lg:h-auto">
-        <video id="hero-video" autoplay loop muted playsinline class="h-screen w-full object-cover object-center">
-            <source src="${video_url}" type="video/mp4">
-        </video>
+        <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-center" src="${video_url}" type="video/mp4"></video>
     </div>
+
     `;
 }
 
