@@ -619,12 +619,12 @@ function heroImage(image_url) {
     `;
 }
 
-function textTitle() {
+function textTitle(t1, t2) {
     return `
-    <div class="px-4 py-8 md:px-0 md:mx-auto md:max-w-4xl">
+    <div class="px-4 py-8 md:px-0 md:mx-auto md:max-w-4xl md:mt-8">
         <div class="py-2">
-            <h1 class="text-3xl md:text-5xl font-bold text-gray-900 italic inline align-bottom pr-2 md:pr-4">moody romantic</h1>
-            <span class="text-md md:text-xl uppercase">bedroom</span>
+            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2 md:pr-4" style="font-family: 'Homemade Apple'">${t1}</h1>
+            <div class="h-full inline text-md md:text-4xl" style="font-family: 'Comfortaa'">${t2}</div>
         </div>
         <div class="py-2">
             <p class="leading-relaxed md:text-lg md:leading-loose">
@@ -667,7 +667,7 @@ function textStory() {
 function generateNavbarDesktopHTML() {
     return `
     <div class="fixed w-full flex h-12 bg-slate-950 text-slate-100">
-        <div class="w-1/4 text-xs mt-5 flex">
+        <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
             <div class="w-full text-center">
                 <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">ABOUT</a>
             </div>
@@ -675,12 +675,12 @@ function generateNavbarDesktopHTML() {
                 <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">PORTFOLIO</a>
             </div>
         </div>
-        <div class="w-1/2 mt-1">
+        <div class="w-full md:w-1/2 mt-1">
             <div class="w-full text-center text-3xl">
                 <a href="../" class="h-full block px-3" style="font-family: 'Poiret One'">soho spaces</a>
             </div>
         </div>
-        <div class="w-1/4 text-xs mt-5 flex">
+        <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
             <div class="w-full text-center">
                 <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">SERVICES</a>
             </div>
