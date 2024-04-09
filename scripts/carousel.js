@@ -664,33 +664,28 @@ function textStory() {
     </div>`;
 }
 
-
-function navbar() {
+function generateNavbarDesktopHTML() {
     return `
-    <div class="fixed w-full z-20 top-0 start-0 bg-slate-950 px-4 py-2">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-            <div id="navbar-sticky" class="items-center justify-between hidden w-full md:flex md:order-1">
-                <ul
-                    class="flex flex-col justify-between p-4 md:w-full md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 md:text-md md:text-slate-100 md:font-semibold ">
-                    <li class="w-full text-right">
-                        <a href="../" class="block py-2 px-3">About</a>
-                    </li>
-                    <li class="w-full text-left">
-                        <a href="../" class="block py-2 px-3">Portfolio</a>
-                    </li>
-                    <li class="w-full text-center text-lg">
-                        <a href="../" class="block py-2 px-3">Soho Spaces</a>
-                        <!-- <a href="../" class="flex">
-                            <img class="object-center h-10" src="../assets/soho_spaces_logo.png" alt="">
-                        </a> -->
-                    </li>
-                    <li class="w-full text-right">
-                        <a href="../" class="block py-2 px-3">Services</a>
-                    </li>
-                    <li class="w-full text-left">
-                        <a href="../" class="block py-2 px-3">Contact</a>
-                    </li>
-                </ul>
+    <div class="fixed w-full flex h-12 bg-slate-950 text-slate-100">
+        <div class="w-1/4 text-xs mt-5 flex">
+            <div class="w-full text-center">
+                <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">ABOUT</a>
+            </div>
+            <div class="w-full text-center">
+                <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">PORTFOLIO</a>
+            </div>
+        </div>
+        <div class="w-1/2 mt-1">
+            <div class="w-full text-center text-3xl">
+                <a href="../" class="h-full block px-3" style="font-family: 'Poiret One'">soho spaces</a>
+            </div>
+        </div>
+        <div class="w-1/4 text-xs mt-5 flex">
+            <div class="w-full text-center">
+                <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">SERVICES</a>
+            </div>
+            <div class="w-full text-center">
+                <a href="../" class="h-full block px-3" style="font-family: 'Comfortaa'">CONTACT</a>
             </div>
         </div>
     </div>`;
