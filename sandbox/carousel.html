@@ -23,6 +23,31 @@
 <body class="bg-stone-100" style="font-family: 'Raleway'">
 
     <script>
+
+        const title = 'Moody Romantic Bedroom';
+        const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
+        const photoGridImages = [
+            '../assets/bedroom/bed_2.jpeg',
+            '../assets/bedroom/nook_2.jpeg',
+            '../assets/bedroom/sitting_area.jpeg',
+            '../assets/bedroom/nook.jpeg',
+            '../assets/bedroom/dresser.jpeg',
+            '../assets/bedroom/bed_3.jpeg',
+        ];
+        var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
+        var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
+        
+        // document.body.append(fromHTML(navbar()));
+        document.body.append(fromHTML(heroVideo(heroVideoUrl)));
+        document.body.append(fromHTML(textTitle()));
+        document.body.append(fromHTML(textBeforeAfter()));
+        createBeforeAfterComponent(IMG_BEFORE, IMG_AFTER);
+        document.body.append(fromHTML(textStory()));
+        createPhotoGridComponent(photoGridImages);
+        document.body.append(fromHTML(footer()));
+
+
+        /*
         const title = 'Moody Romantic Bedroom';
         const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
         var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
@@ -42,7 +67,7 @@
             '../assets/accent_wall/tiger.jpeg',
         ];
 
-        document.body.append(fromHTML(navbar()));
+        // document.body.append(fromHTML(navbar()));
         document.body.append(fromHTML(heroImage('../assets/accent_wall/umbrella.jpeg')));
         document.body.append(fromHTML(textTitle()));
         document.body.append(fromHTML(textBeforeAfter()));
@@ -52,6 +77,7 @@
         createPhotoGridComponent(photoGridImages);
 
         document.body.append(fromHTML(footer()));
+        */
 
 
         /*
