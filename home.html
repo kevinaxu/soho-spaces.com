@@ -12,9 +12,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="scripts/generator.js" type="text/javascript"></script>
     <style>
-        /* * { outline: 1px solid red; }
+        * { outline: 1px solid red; }
         @media (min-width: 640px) { * { outline: 1px solid green; } }
-        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } }
     </style>
 </head>
 
@@ -54,9 +54,9 @@
 
     <!-- 2-Column Layout - Mobile Left Section flows UP  -->
     <!-- "your space should tell your story" -->
-    <div class="w-full bg-stone-100 hidden md:block h-12"></div>
+    <div class="w-full bg-stone-100 hidden md:block md:h-20"></div>
     <div class="flex h-3/4 md:h-3/4">
-        <div class="flex flex-col items-center justify-center md:flex-row">
+        <div class="flex flex-col items-center justify-center md:flex-row bg-slate-950">
             <div class="basis-1/2 md:basis-2/3 flex flex-col h-full w-full">
                 <div class="py-24 md:py-0 bg-stone-100 text-black basis-1/2">
                     <div class="md:pl-8 m-8 md:w-3/4">
@@ -71,47 +71,85 @@
                     </div>
                 </div>
                 <div class="py-24 md:py-0 bg-slate-950 text-white basis-1/2">
-                    <div class="md:pl-8 m-8 md:w-3/4 text-4xl/relaxed">
-                        <div class="md:pr-4">your space should tell your</div>
-                        <div class="" style="font-family: 'Homemade Apple'">story</div>
+                    <div class="md:pl-8 m-8 md:w-3/4 text-6xl/relaxed">
+                        <div class="inline md:pr-4">your space should tell your</div>
+                        <div class="inline" style="font-family: 'Homemade Apple'">story</div>
                     </div>
                 </div>
             </div>
-            <div class="basis-1/2 md:basis-1/3 md:h-full">
-                <img class="md:h-full object-cover" src="../assets/accent_wall/umbrella.jpeg" alt="">
+            <div class="basis-1/2 md:basis-1/3 md:h-full mx-8 my-16 md:m-0 w-3/4 mx-auto">
+                <div class="container-block">
+                    <img class="md:h-full object-cover" src="../assets/accent_wall/umbrella.jpeg" alt="">
+                    <div class="inner-block">
+                        <div class="slider-top-right"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="w-full bg-slate-950 hidden md:block h-12"></div>
+    <div class="w-full bg-slate-950 hidden md:block md:h-20"></div>
 
 
     <!-- 2-Column Layout - Mobile Left Section flows DOWN  -->
     <!-- "meet the sohail sisters" -->
-    <div class="flex w-full h-screen">
-        <div class="flex w-full flex-col-reverse items-center justify-center md:flex-row md:my-12">
-            <div class="basis-1/2 md:basis-2/5 flex flex-col h-full w-full">
-                <img class="md:h-full object-cover" src="../assets/sohail_sisters.jpg" alt="">
-            </div>
-            <div class="basis-1/2 md:basis-3/5 w-full mx-16">
-                <div class="md:w-3/4 md:float-end">
-                    <div class="inline text-4xl md:pr-2" style="font-family: 'Homemade Apple'">meet the</div>
-                    <div class="inline text-4xl">sohail sisters</div>
-                    <p class="text-lg m-auto md:mt-4">One of Atlanta’s most sought-after design firms, Soho Spaces
-                        specializes in luxury residential and commercial interiors for discerning clientele. Our interiors exude
-                        luxurious sophistication while seamlessly integrating modern amenities. From edgy downtown lofts to
-                        spacious estates, our interiors create high-performance spaces without compromising on style</p>
-    
+    <div class="flex h-3/4 md:h-3/4 md:my-16">
+        <div class="flex flex-col-reverse items-center justify-center md:flex-row">
+            <div class="basis-1/2 md:basis-2/5 flex flex-col h-full w-3/4 md:w-full ">
+                <div class="container-block">
+                    <img class="md:h-full object-cover" src="../assets/sohail_sisters.jpg" alt="">
+                    <div class="inner-block">
+                        <div class="slider-top-right"></div>
+                    </div>
                 </div>
-
+            </div>
+            <div class="basis-1/2 md:basis-3/5 w-full mx-16 py-24">
+                <div class="m-8 md:w-3/4 md:float-end">
+                    <div class="md:inline text-4xl md:pr-2" style="font-family: 'Homemade Apple'">meet the</div>
+                    <div class="md:inline text-4xl">sohail sisters</div>
+                    <p class="text-2xl m-auto my-8">One of Atlanta’s most sought-after design firms, Soho Spaces
+                        specializes in luxury residential and commercial interiors for discerning clientele. Our interiors exude
+                        luxurious sophistication while seamlessly integrating modern amenities.</p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- 2-Column Layout - Mobile Left Section flows UP  -->
     <!-- "Our Services" -->
+    <div class="flex h-3/4 md:h-3/4 md:my-16">
+        <div class="flex flex-col items-center justify-center md:flex-row">
+            <div class="basis-1/2 md:basis-3/5 w-full mx-16 py-24">
+                <div class="m-8 md:w-3/4 md:float-start">
+                    <div class="inline text-4xl md:pr-2">our</div>
+                    <div class="inline text-4xl" style="font-family: 'Homemade Apple'">services</div>
+
+                    <p class="text-2xl m-auto my-8">We specialize in large-scale home renovations, crafting expansive, modern spaces that 
+                        uniquely tell your story. Our dedicated team seamlessly collaborates to bring your vision to life, integrating
+                        cutting-edge design with functionality.</p>
+                </div>
+            </div>
+            <div class="basis-1/2 md:basis-2/5 flex flex-col h-full w-3/4 md:w-full ">
+                <div class="container-block">
+                    <img class="md:h-full object-cover" src="../assets/services.png" alt="">
+                    <div class="inner-block">
+                        <div class="slider-top-right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+    /*
     <div class="flex w-full h-screen">
         <div class="flex w-full flex-col items-center justify-center md:flex-row md:my-12">
-
             <div class="basis-1/2 md:basis-3/5 w-full mx-16">
                 <div class="md:w-3/4">
                     <div class="inline text-4xl md:pr-2">our</div>
@@ -130,9 +168,7 @@
     </div>
 
 
-    <script>
 
-    /*
     <!-- 2-Column Layout w/ Grid - doesn't work with fixed grid child size  -->
     <div class="grid grid-flow-row md:grid-flow-col">
         <div class="h-full flex justify-center border-2 border-gray-300 bg-gray-100 text-4xl order-1 md:order-1">
