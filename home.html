@@ -12,20 +12,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="scripts/generator.js" type="text/javascript"></script>
     <style>
-        /* * { outline: 1px solid red; }
+        * { outline: 1px solid red; }
         @media (min-width: 640px) { * { outline: 1px solid green; } }
-        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } }
     </style>
 </head>
 
 <body class="bg-stone-100" style="font-family: 'Comfortaa'">
 
-
     <!-- Nav Bar -->
     <div class="fixed z-20 w-full flex h-12 bg-slate-950 text-slate-100">
         <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
             <div class="w-full text-center">
-                <a href="../" class="h-full block px-3">ABOUT</a>
+                <a href="#section-about-us" class="h-full block px-3">ABOUT</a>
             </div>
             <div class="w-full text-center">
                 <a href="../" class="h-full block px-3">PORTFOLIO</a>
@@ -38,10 +37,10 @@
         </div>
         <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
             <div class="w-full text-center">
-                <a href="../" class="h-full block px-3">SERVICES</a>
+                <a href="#section-our-services" class="h-full block px-3">SERVICES</a>
             </div>
             <div class="w-full text-center">
-                <a href="../" class="h-full block px-3">CONTACT</a>
+                <a href="#section-contact-us" class="h-full block px-3">CONTACT</a>
             </div>
         </div>
     </div>
@@ -55,7 +54,7 @@
     <!-- 2-Column Layout - Mobile Left Section flows UP  -->
     <!-- "your space should tell your story" -->
     <div class="w-full bg-stone-100 hidden md:block md:h-20"></div>
-    <div class="flex h-3/4 md:h-3/4">
+    <div class="flex h-3/4">
         <div class="flex flex-col items-center justify-center md:flex-row bg-slate-950">
             <div class="basis-1/2 md:basis-2/3 flex flex-col h-full w-full">
                 <div class="py-24 md:py-0 bg-stone-100 text-black basis-1/2">
@@ -92,7 +91,7 @@
 
     <!-- 2-Column Layout - Mobile Left Section flows DOWN  -->
     <!-- "meet the sohail sisters" -->
-    <div class="flex h-3/4 md:h-3/4 md:my-16">
+    <div id="section-about-us" class="flex h-3/4 md:my-16">
         <div class="flex flex-col-reverse items-center justify-center md:flex-row">
             <div class="basis-1/2 md:basis-2/5 flex flex-col h-full w-3/4 md:w-full ">
                 <div class="container-block">
@@ -116,13 +115,12 @@
 
     <!-- 2-Column Layout - Mobile Left Section flows UP  -->
     <!-- "Our Services" -->
-    <div class="flex h-3/4 md:h-3/4 md:my-16">
+    <div id="section-our-services" class="flex h-3/4 md:h-3/4 md:my-16">
         <div class="flex flex-col items-center justify-center md:flex-row">
             <div class="basis-1/2 md:basis-3/5 w-full mx-16 py-24">
                 <div class="m-8 md:w-3/4 md:float-start">
                     <div class="inline text-4xl md:pr-2">our</div>
                     <div class="inline text-4xl" style="font-family: 'Homemade Apple'">services</div>
-
                     <p class="text-2xl m-auto my-8">We specialize in large-scale home renovations, crafting expansive, modern spaces that 
                         uniquely tell your story. Our dedicated team seamlessly collaborates to bring your vision to life, integrating
                         cutting-edge design with functionality.</p>
@@ -139,11 +137,75 @@
         </div>
     </div>
 
+    <!-- 2-Column Layout - Mobile Left Section flows UP  -->
+    <!-- "Contact Us" -->
+    <div id="section-contact-us" class="md:mt-12">
+        <div class="wrap w-full">
+            <div class="grid grid-cols-10 ">
+                <div class="h-96 md:h-[36rem] row-span-full col-start-1 col-span-6 self-center bg-slate-950">
+                </div>
+                <div class="row-span-full col-span-6 col-end-11 self-center p-8 bg-stone-100">
+                    <div class="md:pl-8 md:w-3/4 text-4xl/relaxed">
+                        <div class="md:pr-4" style="font-family: 'Homemade Apple'">every grand vision</div>
+                        <div class="">begins with a simple idea</div>
+                    </div>
 
+                    <a href="mailto: sohospacesatl@gmail.com">
+                        <div class="flex items-center md:pl-8 md:w-3/4 text-md md:mt-4">
+                            <div class="inline underline md:pr-4">let's discover yours</div>
+                            <div class="inline">                                        
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
+                                    <path d="m21.883 12-7.527 6.235L15 19l9-7.521L15 4l-.645.764L21.884 11H0v1h21.883z"/>
+                                    <script/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Footer -->
+    <div class="footer md:my-12">
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    
+        <!-- Contact Info -->
+        <div class="text-center my-2">
+            <p class="text-sm text-gray-700 dark:text-gray-400 hover:underline">
+                <a href="mailto: sohospacesatl@gmail.com">hello@soho-spaces.com</a>
+            </p>
+            <p class="text-sm text-gray-700 dark:text-gray-400 hover:underline">
+                <a href="tel:404-566-5796">404.566.5796</a>
+            </p>
+        </div>
 
+        <!-- Social Icons -->
+        <div class="flex flex-row justify-center space-x-4">
+            <a href="https://www.pinterest.com/">
+                <svg class="opacity-75" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16px" height="16px">
+                    <path d="M448 80v352c0 26.5-21.5 48-48 48H154.4c9.8-16.4 22.4-40 27.4-59.3 3-11.5 15.3-58.4 15.3-58.4 8 15.3 31.4 28.2 56.3 28.2 74.1 0 127.4-68.1 127.4-152.7 0-81.1-66.2-141.8-151.4-141.8-106 0-162.2 71.1-162.2 148.6 0 36 19.2 80.8 49.8 95.1 4.7 2.2 7.1 1.2 8.2-3.3.8-3.4 5-20.1 6.8-27.8.6-2.5.3-4.6-1.7-7-10.1-12.3-18.3-34.9-18.3-56 0-54.2 41-106.6 110.9-106.6 60.3 0 102.6 41.1 102.6 99.9 0 66.4-33.5 112.4-77.2 112.4-24.1 0-42.1-19.9-36.4-44.4 6.9-29.2 20.3-60.7 20.3-81.8 0-53-75.5-45.7-75.5 25 0 21.7 7.3 36.5 7.3 36.5-31.4 132.8-36.1 134.5-29.6 192.6l2.2.8H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48z" />
+                </svg>
+            </a>
+            <a href="https://www.facebook.com/">
+                <svg class="opacity-75" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16px" height="16px">
+                    <path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h98.2V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H255V480h129c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z" />
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/">
+                <svg class="opacity-75" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16px" height="16px">
+                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+            </a>
+        </div>
 
-
+        <!-- Copyright -->
+        <div class="text-center my-2">
+            <p class="text-sm text-gray-700 dark:text-gray-400">
+                &copy; 2019 Soho Spaces / All Rights Reserved
+            </p>
+        </div>
+    </div>
 
     <script>
 
@@ -204,19 +266,14 @@
         </div>
     </div>
 
-    <!-- Quote overlaid on Image -->
-    <div class="lg:my-12">
-        <div class="wrap w-5/6">
-            <div class="grid grid-cols-10 ">
-                <div class="row-span-full col-start-1 col-span-6 self-center">
-                    <img class="object-cover" src="../assets/bedroom/bed.jpeg" alt="">
-                </div>
-                <div class="row-span-full col-span-6 col-end-11 self-center p-4 bg-white">
-                    <h1 class="text-2xl font-bold mt-0">Every grand vision begins with a simple idea</h1>
-                    <p class="my-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Our
-                        interiors
-                        exude luxurious sophistication while seamlessly integrating modern amenities</p>
-                </div>
+
+    <!-- 2-Column Layout - Mobile Left Section flows UP  -->
+    <!-- "Contact Us" -->
+    <div class="flex h-3/4 md:h-3/4 md:my-16">
+        <div class="flex flex-col h-full w-full items-center justify-center md:flex-row">
+            <div class="basis-1/2 h-96 md:h-[30rem] bg-slate-950">
+            </div>
+            <div class="basis-1/2 h-96 md:h-[30rem] bg-stone-100">
             </div>
         </div>
     </div>
