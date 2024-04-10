@@ -46,5 +46,13 @@
         document.body.append(fromHTML(textStory()));
         createPhotoGridComponent(photoGridImages);
         document.body.append(fromHTML(footer()));
+
+        const isNavbarTransparent = true;
+        if (isNavbarTransparent) {
+            document.body.append(fromHTML(
+                `<div id="top-of-site-pixel-anchor" class="absolute w-px h-px top-[44rem] left-0"></div>`
+            ));
+            initHeader();
+        }
     </script>
 </body>

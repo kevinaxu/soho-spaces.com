@@ -668,7 +668,7 @@ function textStory() {
 
 function generateNavbarDesktopHTML() {
     return `
-    <div class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
+    <div id="navbar" class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
         <div class="mt-5 hidden text-xs md:flex md:w-1/4">
             <div class="w-full text-center">
                 <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
@@ -815,4 +815,32 @@ function isSwipeLeft() {
 function isMobile() {
     return window.innerWidth < 640;
 }
-    
+
+
+
+/**********************************************
+ * 
+ * Intersection Observer for transparent navbar
+ * 
+ *********************************************/
+
+function initHeader() {
+    if (
+        "IntersectionObserver" in window &&
+        "IntersectionObserverEntry" in window &&
+        "intersectionRatio" in window.IntersectionObserverEntry.prototype
+    ) {
+        let observer = new IntersectionObserver(entries => {
+            if (entries[0].boundingClientRect.y < 0) {
+                // header not at top
+                document.getElementById("navbar").classList.add("bg-slate-950");
+                document.getElementById("navbar").classList.remove("bg-transparent");
+            } else {
+                // header at top 
+                document.getElementById("navbar").classList.add("bg-transparent");
+                document.getElementById("navbar").classList.remove("bg-slate-950");
+            }
+        });
+        observer.observe(document.querySelector("#top-of-site-pixel-anchor"));
+    }
+}

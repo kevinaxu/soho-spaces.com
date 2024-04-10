@@ -36,6 +36,7 @@
         ];
         var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
         var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
+
         
         document.body.append(fromHTML(generateNavbarDesktopHTML()));
         document.body.append(fromHTML(heroVideo(heroVideoUrl)));
@@ -47,53 +48,13 @@
         document.body.append(fromHTML(footer()));
 
 
-        /*
-        const title = 'Moody Romantic Bedroom';
-        const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
-        var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
-        var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
-        const photoGridImages = [
-            '../assets/bedroom/bed.jpeg',
-            '../assets/bedroom/bed.jpeg',
-            '../assets/bedroom/bed_3.jpeg',
-            '../assets/bedroom/nook.jpeg',
-            '../assets/den/6.jpeg',
-            '../assets/den/7.jpeg',
-            '../assets/accent_wall/umbrella.jpeg',
-            '../assets/accent_wall/console_left.jpeg',
-            '../assets/bedroom/bed.jpeg',
-            '../assets/accent_wall/featured.jpeg',
-            '../assets/accent_wall/phoenix.jpeg',
-            '../assets/accent_wall/tiger.jpeg',
-        ];
-
-        // document.body.append(fromHTML(navbar()));
-        document.body.append(fromHTML(heroImage('../assets/accent_wall/umbrella.jpeg')));
-        document.body.append(fromHTML(textTitle()));
-        document.body.append(fromHTML(textBeforeAfter()));
-        createBeforeAfterComponent(IMG_BEFORE, IMG_AFTER);
-
-        document.body.append(fromHTML(textStory()));
-        createPhotoGridComponent(photoGridImages);
-
-        document.body.append(fromHTML(footer()));
-        */
-
-
-        /*
-        function textCTA() {
-            return `
-            <div class="px-4 mt-8 md:px-0 md:mx-auto md:max-w-4xl">
-                <div class="py-4">
-                    <h1 class="text-3xl font-bold text-gray-900 italic inline align-bottom pr-2">project details</h1>
-                </div>
-                <ul class="px-8 list-disc">
-                    <li class="lowercase">Location: New York, NY</li>
-                    <li class="lowercase">Size: 500 sq ft</li>
-                    <li class="lowercase">Style: Dark Academia</li>
-                </ul>
-            </div>`;
-        }*/
+        const isNavbarTransparent = true;
+        if (isNavbarTransparent) {
+            document.body.append(fromHTML(
+                `<div id="top-of-site-pixel-anchor" class="absolute w-px h-px top-[44rem] left-0"></div>`
+            ));
+            initHeader();
+        }
 
     </script>
 

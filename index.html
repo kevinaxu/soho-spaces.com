@@ -8,6 +8,7 @@
 
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <script type="text/javascript" src="./scripts/carousel.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway|Poiret+One|Comfortaa|Homemade+Apple|Yomogi" rel="stylesheet" type="text/css">
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,9 +21,10 @@
 </head>
 
 <body id="section-body" class="bg-stone-100" style="font-family: 'Comfortaa'">
+
     <!-- Nav Bar -->
     <!-- Same as generateNavbarDesktopHTML() -->
-    <div class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
+    <div id="navbar" class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
         <div class="mt-5 hidden text-xs md:flex md:w-1/4">
             <div class="w-full text-center">
                 <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
@@ -45,7 +47,6 @@
             </div>
         </div>
     </div>
-      
 
     <!-- Hero Video Container -->
     <div class="lg:h-auto">
@@ -210,5 +211,15 @@
             <p class="text-sm text-gray-700 dark:text-gray-400">&copy; 2019 Soho Spaces / All Rights Reserved</p>
         </div>
     </div>
+
+    <script >
+        const isNavbarTransparent = true;
+        if (isNavbarTransparent) {
+            document.body.append(fromHTML(
+                `<div id="top-of-site-pixel-anchor" class="absolute w-px h-px top-[44rem] left-0"></div>`
+            ));
+            initHeader();
+        }
+    </script>
 </body>
   

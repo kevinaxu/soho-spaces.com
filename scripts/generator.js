@@ -34,22 +34,3 @@ function isMobile() {
     }
     return window.innerWidth < 640;
 }
-
-function thumbnailsDesktop(photos) {
-    return `
-    <div class="thumbnails modal-open my-4">
-        <div class="flex">
-            <div class="lg:mr-8">
-                <img class="h-36 w-36 max-w-full rounded-lg object-cover" src="${photos[0]}" alt="">
-            </div>
-            <div class="lg:mr-8">
-                <img class="h-36 w-36 max-w-full rounded-lg object-cover" src="${photos[1]}" alt="">
-            </div>
-            <div class="lg:mr-8">
-                <img class="h-36 w-36 max-w-full rounded-lg object-cover" src="${photos[2]}" alt="">
-            </div>
-        </div>
-    </div>`
-}
-
-
