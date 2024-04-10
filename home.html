@@ -12,21 +12,43 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="scripts/generator.js" type="text/javascript"></script>
     <style>
-        * { outline: 1px solid red; }
+        /* * { outline: 1px solid red; }
         @media (min-width: 640px) { * { outline: 1px solid green; } }
-        @media (min-width: 1024px) { * { outline: 1px solid blue; } }
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
     </style>
 </head>
 
 <body class="bg-stone-100" style="font-family: 'Comfortaa'">
 
 
+    <!-- Nav Bar -->
+    <div class="fixed z-20 w-full flex h-12 bg-slate-950 text-slate-100">
+        <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
+            <div class="w-full text-center">
+                <a href="../" class="h-full block px-3">ABOUT</a>
+            </div>
+            <div class="w-full text-center">
+                <a href="../" class="h-full block px-3">PORTFOLIO</a>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 mt-1">
+            <div class="w-full text-center text-3xl">
+                <a href="../" class="h-full block px-3" style="font-family: 'Poiret One'">soho spaces</a>
+            </div>
+        </div>
+        <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
+            <div class="w-full text-center">
+                <a href="../" class="h-full block px-3">SERVICES</a>
+            </div>
+            <div class="w-full text-center">
+                <a href="../" class="h-full block px-3">CONTACT</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Video Container -->
-    <div class="h-96 lg:h-auto">
-        <video id="hero-video" autoplay loop muted playsinline class="object-cover h-full w-full"
-            style="object-position:20%">
-            <source src='../assets/bedroom/bedroom_video.mp4' type="video/mp4">
-        </video>
+    <div class="lg:h-auto">
+        <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-center" src='../assets/bedroom/bedroom_video.mp4' type="video/mp4"></video>
     </div>
 
     <div class="w-full bg-stone-100 hidden md:block h-12"></div>
@@ -36,12 +58,10 @@
         <div class="flex flex-col items-center justify-center md:flex-row">
             <div class="basis-1/2 md:basis-2/3 flex flex-col h-full w-full">
                 <div class="py-24 md:py-0 bg-stone-100 text-black basis-1/2">
-                    <div class="m-8">
+                    <div class="md:pl-8 m-8 md:w-3/4">
                         <div class="inline text-7xl md:pr-4" style="font-family: 'Yomogi'">相補</div>
                         <div class="inline text-6xl" style="font-family: 'Poiret One'">sōho</div>
-                    </div>
-                    <div class="m-8">
-                        <div class="text-2xl">
+                        <div class="mt-8 text-2xl">
                             [n.] [Japanese] complementarity;
                             the bringing together of seemingly
                             contradictory elements in order to
@@ -50,7 +70,7 @@
                     </div>
                 </div>
                 <div class="py-24 md:py-0 bg-slate-950 text-white basis-1/2">
-                    <div class="m-8 text-4xl/relaxed">
+                    <div class="md:pl-8 m-8 md:w-3/4 text-4xl/relaxed">
                         <div class="md:pr-4">your space should tell your</div>
                         <div class="" style="font-family: 'Homemade Apple'">story</div>
                     </div>
