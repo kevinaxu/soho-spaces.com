@@ -668,26 +668,26 @@ function textStory() {
 
 function generateNavbarDesktopHTML() {
     return `
-    <div class="fixed z-20 w-full flex h-12 bg-slate-950 text-slate-100">
-        <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
+    <div class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
+        <div class="mt-5 hidden text-xs md:flex md:w-1/4">
             <div class="w-full text-center">
-                <a href="/index#section-about-us" class="h-full block px-3">ABOUT</a>
+                <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
             </div>
             <div class="w-full text-center">
-                <a href="/portfolio.html" class="h-full block px-3">PORTFOLIO</a>
+                <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
             </div>
         </div>
-        <div class="w-full md:w-1/2 mt-1">
+        <div class="mt-1 w-full md:w-1/2">
             <div class="w-full text-center text-3xl">
-                <a href="/index" class="h-full block px-3" style="font-family: 'Poiret One'">soho spaces</a>
+                <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
             </div>
         </div>
-        <div class="md:w-1/4 text-xs mt-5 hidden md:flex">
+        <div class="mt-5 hidden text-xs md:flex md:w-1/4">
             <div class="w-full text-center">
-                <a href="/index#section-our-services" class="h-full block px-3">SERVICES</a>
+                <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
             </div>
             <div class="w-full text-center">
-                <a href="/index#section-contact-us" class="h-full block px-3">CONTACT</a>
+                <a href="/#section-contact-us" class="block h-full px-3">CONTACT</a>
             </div>
         </div>
     </div>`;
