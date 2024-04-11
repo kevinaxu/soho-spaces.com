@@ -128,11 +128,17 @@ function createPhotoGridComponent(photos) {
     const modalId       = `modal-${uuid}`;
     const photoGridId   = `photo-grid-${uuid}`;
 
+    // create Mobile photo grid and append to document body
+    // create Desktop photo grid and append to document body
+    // update the Tailwind classes on both of those so that they are hidden on the opposite view
+    // do we need to create two modals? or can we just use the same modal for both views?
+
     // Step 1: Add photo grid, carousel, and modal to the DOM
-    const photoGridHTML  = isMobile() ? 
-        generatePhotoGridMobileHTML(photoGridId, photos) :
-        generatePhotoGridDesktopHTML(photoGridId, photos);
-    
+    // const photoGridHTML  = isMobile() ? 
+    //     generatePhotoGridMobileHTML(photoGridId, photos) :
+    //     generatePhotoGridDesktopHTML(photoGridId, photos);
+    const photoGridHTML = generatePhotoGridHTML(photoGridId, photos);
+
     const carouselHTML   = generateCarouselHTML(carouselId, photos);
     const modalHTML      = generateModalHTML(modalId, carouselHTML);
     document.body.append(fromHTML(photoGridHTML));
@@ -147,9 +153,21 @@ function createPhotoGridComponent(photos) {
     const photoGridElement = document.getElementById(photoGridId);
     const modalElement      = document.getElementById(modalId);
     bindCarouselEventListeners(carouselElement, flowbiteCarousel);
-    bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel);
+    bindPhotoGridEventListeners(photos, photoGridElement, flowbiteModal, flowbiteCarousel);
     bindSwipeGestureEventListeners(carouselElement, flowbiteCarousel);
     bindModalCloseEventListeners(modalElement, flowbiteModal);
+}
+
+function generatePhotoGridHTML(photoGridId, photos) {
+    return `
+    <div id=${photoGridId}>
+        <div class="hidden md:block">
+            ${generatePhotoGridDesktopHTML(photoGridId, photos)}
+        </div>
+        <div class="md:hidden">
+            ${generatePhotoGridMobileHTML(photoGridId, photos)}
+        </div>
+    </div>`;
 }
 
 /**
@@ -187,7 +205,7 @@ function generatePhotoGridMobileHTML(id, photos) {
  */
 function generatePhotoGridWrapperHTML(id, innerHTML) {
     return `
-    <div id="${id}" class="flex justify-center my-4 pb-4 px-4">
+    <div class="flex justify-center my-4 pb-4 px-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             ${innerHTML}
         </div>
@@ -250,11 +268,15 @@ function generatePhotoGridDesktopHTML(id, photos) {
         <section class="pb-4 px-4">
             <div class="flex flex-wrap -mx-4">
                 <div class="md:w-2/5 h-auto pr-4">
-                    <div class="mb-4"><img src="${photos[0]}" alt=""></div>
-                    <div><img src="${photos[1]}" alt=""></div>
+                    <div class="mb-4">
+                        <img class="md:hover:cursor-pointer" src="${photos[0]}" alt="">
+                    </div>
+                    <div>
+                        <img class="md:hover:cursor-pointer" src="${photos[1]}" alt="">
+                    </div>
                 </div>
                 <div class="hidden md:block md:w-3/5">
-                    <img class="md:w-full md:min-h-full md:object-cover" src="${photos[2]}" alt="">
+                    <img class="md:w-full md:min-h-full md:object-cover md:hover:cursor-pointer" src="${photos[2]}" alt="">
                 </div>
             </div>
         </section>
@@ -263,10 +285,10 @@ function generatePhotoGridDesktopHTML(id, photos) {
         <section class="pb-4 px-4">
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="md:w-1/2 pr-2 mb-2 md:mb-0 h-full">
-                    <img class="h-full object-cover w-full" src="${photos[3]}" alt="">
+                    <img class="h-full object-cover w-full md:hover:cursor-pointer" src="${photos[3]}" alt="">
                 </div>
                 <div class="md:w-1/2 pl-2 mb-2 md:mb-0 h-full">
-                    <img class="h-full object-cover" src="${photos[4]}" alt="">
+                    <img class="h-full object-cover md:hover:cursor-pointer" src="${photos[4]}" alt="">
                 </div>
             </div>
         </section>
@@ -275,7 +297,7 @@ function generatePhotoGridDesktopHTML(id, photos) {
         <section class="pb-4 px-4 h-3/4">
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="mb-2 md:mb-0 h-full w-full block">
-                    <img class="w-full object-cover h-full" src="${photos[5]}" alt="">
+                    <img class="w-full object-cover h-full md:hover:cursor-pointer" src="${photos[5]}" alt="">
                 </div>
             </div>
         </section>
@@ -283,12 +305,25 @@ function generatePhotoGridDesktopHTML(id, photos) {
     `;
 }
 
+/**
+ * Binds Image Carousel event listeners to both Photo Grid Mobile / Desktop
+ *
+ * @param {Array} photos - The array of photos.
+ * @param {HTMLElement} photoGridElement - The photo grid element.
+ * @param {Object} flowbiteModal - The Flowbite modal object.
+ * @param {Object} flowbiteCarousel - The Flowbite carousel object.
+ */
+function bindPhotoGridEventListeners(photos, photoGridElement, flowbiteModal, flowbiteCarousel) {
+    const imgElements   = Array.from(photoGridElement.querySelectorAll('img'));
+    const desktopImg    = imgElements.slice(0, photos.length);
+    const mobileImg     = imgElements.slice(photos.length);
 
-function bindPhotoGridEventListeners(photoGridElement, flowbiteModal, flowbiteCarousel) {
-    const photos = photoGridElement.querySelectorAll('img');
     for (let i = 0; i < photos.length; i++) {
-        const photo = photos[i];
-        photo.addEventListener('click', function() {
+        desktopImg[i].addEventListener('click', function() {
+            flowbiteCarousel.slideTo(i);
+            flowbiteModal.show();
+        });
+        mobileImg[i].addEventListener('click', function() {
             flowbiteCarousel.slideTo(i);
             flowbiteModal.show();
         });
