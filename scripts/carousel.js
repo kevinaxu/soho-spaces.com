@@ -585,22 +585,41 @@ function generateCarouselHTML(id, photos) {
  * 
  *********************************************/
 
+function renderPageFromConfig(config) {
+    document.body.append(fromHTML(generateNavbarDesktopHTML()));
+    if (config.enableNavBarTransparentEffect) {
+        document.body.append(fromHTML(generatePixelAnchorHTML()));
+        initializeIntersectionObserver();
+    }
 
-function heroVideo(video_url) {
+    document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl)));
+    document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
+    if (config.beforeImg && config.afterImg) {
+        document.body.append(fromHTML(generateBeforeAfterHeader()));
+        createBeforeAfterComponent(config.beforeImg, config.afterImg);
+    }
+    document.body.append(fromHTML(generateTheStorySection(config.storyText)));
+    createPhotoGridComponent(config.photoGridImages);
+
+    document.body.append(fromHTML(generateFooterHTML()));
+}
+
+
+function generateHeroVideoHTML(video_url) {
     return `
     <div class="lg:h-auto">
         <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-center" src="${video_url}" type="video/mp4"></video>
     </div>`;
 }
 
-function heroImage(image_url) {
+function generateHeroImageHTML(image_url) {
     return `
     <div class="lg:h-auto">
         <img class="object-cover object-center h-full w-full" src="${image_url}" alt="">
     </div>`;
 }
 
-function textTitle(t1, t2) {
+function generateProjectOverviewSection(t1, t2, text) {
     return `
     <div class="px-4 py-8 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
@@ -608,15 +627,13 @@ function textTitle(t1, t2) {
             <div class="text-xl md:text-4xl h-full inline">${t2}</div>
         </div>
         <div class="py-2">
-            <p class="leading-relaxed md:text-lg md:leading-loose">
-                This bedroom is a perfect blend of moody romanticism and modern comfort. The room is bathed in natural light that highlights the rich, dark tones of the furniture and decor. The bed, adorned with plush pillows and a cozy throw, invites relaxation and rest. The room's design is a nod to the Dark Academia aesthetic, with a focus on deep, rich colors, vintage furniture, and an abundance of books. The room's large windows not only provide a stunning view but also fill the room with an abundance of natural light, creating a warm and inviting atmosphere. This is a space where you can unwind, read a good book, and drift off to sleep dreaming of romantic adventures.
-            </p>
+            <p class="leading-relaxed md:text-lg md:leading-loose">${text}</p>
         </div>
     </div>
     `;
 }
 
-function textBeforeAfter() {
+function generateBeforeAfterHeader() {
     return `
     <div class="px-4 py-2 md:px-0 md:mx-auto md:max-w-4xl">
         <div class="py-2 md:py-4">
@@ -634,7 +651,7 @@ function textBeforeAfter() {
     `;
 }
 
-function textStory() {
+function generateTheStorySection(text) {
     return `
     <div class="px-4 py-8 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
@@ -642,7 +659,7 @@ function textStory() {
             <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2" style="font-family: 'Homemade Apple'">story</h1>
         </div>
         <div class="py-2">
-            <p class="leading-relaxed md:text-lg md:leading-loose">This living room draws inspiration from the dark academia aesthetic, a style that is deeply rooted in literature, self-discovery, and a love of learning and knowledge. The room is filled with rich, dark tones, creating a cozy and inviting atmosphere. Antique furniture, a grand bookshelf filled with classic literature, and vintage decor items contribute to the room's old-world charm. The walls are adorned with artwork and memorabilia, adding a personal touch to the space.</p>
+            <p class="leading-relaxed md:text-lg md:leading-loose">${text}</p>
         </div>
     </div>`;
 }
@@ -675,7 +692,7 @@ function generateNavbarDesktopHTML() {
 }
 
 
-function footer() {
+function generateFooterHTML() {
     return `
     <div class="footer mt-8">
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">

@@ -43,11 +43,11 @@
 
         document.body.append(fromHTML(logo()));
         document.body.append(fromHTML(header(title)));
-        document.body.append(fromHTML(heroImage(heroImageUrl)));
+        document.body.append(fromHTML(generateHeroImageHTML(heroImageUrl)));
         createThumbnailsComponent(thumbnailImages);
         document.body.append(fromHTML(header('The Details')));
         createPhotoGridComponent(photoGridImages);        
-        document.body.append(fromHTML(footer()));
+        document.body.append(fromHTML(generateFooterHTML()));
 
     </script>
 </body>

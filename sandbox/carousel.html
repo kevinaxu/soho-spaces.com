@@ -38,11 +38,11 @@
 
         
         document.body.append(fromHTML(generateNavbarDesktopHTML()));
-        document.body.append(fromHTML(heroVideo(heroVideoUrl)));
-        document.body.append(fromHTML(textTitle("moody romantic", "bedroom")));
-        document.body.append(fromHTML(textBeforeAfter()));
+        document.body.append(fromHTML(generateHeroVideoHTML(heroVideoUrl)));
+        document.body.append(fromHTML(generateTitleHeader("moody romantic", "bedroom")));
+        document.body.append(fromHTML(generateBeforeAfterHeader()));
         createPhotoGridComponent(photoGridImages);
-        document.body.append(fromHTML(footer()));
+        document.body.append(fromHTML(generateFooterHTML()));
 
         const isNavbarTransparent = true;
         if (isNavbarTransparent) {

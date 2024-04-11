@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
 <head>
     <title>Soho Spaces: Dark Academia Living Room</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <script type="text/javascript" src="../scripts/generator.js"></script>
     <script type="text/javascript" src="../scripts/carousel.js"></script>
-    <script type="text/javascript" src="../scripts/slider.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Homemade+Apple" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -21,32 +19,28 @@
     </style>
 </head>
 
-<body class="mx-auto max-w-lg px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8" style="font-family: 'Raleway'">
-    
+<body class="bg-stone-100" style="font-family: 'Comfortaa'">
     <script>
-
-        // Definitions ("Front Matter");
-        const title = 'Dark Academia Living Room';
-        const heroVideoUrl = '../assets/den/den.mp4';
-        const photoGridImages = [
-            '../assets/den/1.jpeg',
-            '../assets/den/2.jpeg',
-            '../assets/den/3.jpeg',
-            '../assets/den/4.jpeg',
-        ];
-        const thumbnailImages = [
-            '../assets/den/5.jpeg',
-            '../assets/den/6.jpeg',
-            '../assets/den/7.jpeg'
-        ]
-
-        document.body.append(fromHTML(logo()));
-        document.body.append(fromHTML(header(title)));
-        document.body.append(fromHTMLVideo(heroVideo(heroVideoUrl)));
-        createThumbnailsComponent(thumbnailImages);
-        document.body.append(fromHTML(header('The Details')));
-        createPhotoGridComponent(photoGridImages);        
-        document.body.append(fromHTML(footer()));
-
+        const config = {
+            "title1": "Dark Academia",
+            "title2": "Living Room",
+            "heroVideoUrl": "../assets/den/den.mp4",
+            "projectOverviewText": 
+                "Embrace the allure of the Dark Academia aesthetic with this meticulously designed living room. This space is a bibliophile's dream, featuring a grand library filled with a vast collection of books. The room's design is a nod to the classics, with a rich color palette, antique furniture, and vintage decor. The room is not just aesthetically pleasing but also functional, providing a cozy space for reading, learning, and intellectual discourse. Experience the charm of old-world academia right in your home.",
+            "beforeImg": null,
+            "afterImg": null,
+            "storyText": 
+                "Our client, a connoisseur of the finer things in life, has a deep appreciation for the intellectual and aesthetic pleasures. They enjoy the rich aroma of a good cigar, the feel of a hardback leatherbound book in their hands, and the thrill of a long, engaging discussion about philosophy. Their love for reading is not just a hobby, but a way of life, with their collection boasting a wide range of classic literature and philosophical texts. This living room, with its dark academia aesthetic, is a perfect reflection of their sophisticated tastes and intellectual pursuits. It's a space where they can lose themselves in a good book, engage in stimulating conversations, and simply bask in the ambiance of a room that truly feels like home.",
+            "photoGridImages": [
+                '../assets/den/1.jpeg',
+                '../assets/den/2.jpeg',
+                '../assets/den/3.jpeg',
+                '../assets/den/4.jpeg',
+                '../assets/den/5.jpeg',
+                '../assets/den/6.jpeg',            
+            ],
+            "enableNavBarTransparentEffect": true,
+        };
+        renderPageFromConfig(config);
     </script>
 </body>

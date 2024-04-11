@@ -1,16 +1,15 @@
-
 <head>
     <title>Soho Spaces: Moody Romantic Bedroom</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <script type="text/javascript" src="../scripts/generator.js"></script>
     <script type="text/javascript" src="../scripts/carousel.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Homemade+Apple" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -21,35 +20,25 @@
 </head>
 
 <body class="bg-stone-100" style="font-family: 'Comfortaa'">
-
     <script>
-
-        document.body.append(fromHTML(generateNavbarDesktopHTML()));
-        const title = 'Moody Romantic Bedroom';
-        const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
-        const photoGridImages = [
-            '../assets/bedroom/bed_2.jpeg',
-            '../assets/bedroom/nook_2.jpeg',
-            '../assets/bedroom/sitting_area.jpeg',
-            '../assets/bedroom/nook.jpeg',
-            '../assets/bedroom/dresser.jpeg',
-            '../assets/bedroom/bed_3.jpeg',
-        ];
-        var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
-        var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
-        
-        document.body.append(fromHTML(heroVideo(heroVideoUrl)));
-        document.body.append(fromHTML(textTitle("moody romantic", "bedroom")));
-        document.body.append(fromHTML(textBeforeAfter()));
-        createBeforeAfterComponent(IMG_BEFORE, IMG_AFTER);
-        document.body.append(fromHTML(textStory()));
-        createPhotoGridComponent(photoGridImages);
-        document.body.append(fromHTML(footer()));
-
-        const isNavbarTransparent = true;
-        if (isNavbarTransparent) {
-            document.body.append(fromHTML(generatePixelAnchorHTML()));
-            initializeIntersectionObserver();
-        }
+        const config = {
+            "title1": "Moody Romantic",
+            "title2": "Bedroom",
+            "heroVideoUrl": "../assets/bedroom/bedroom_video.mp4",
+            "projectOverviewText": "This bedroom is a perfect blend of moody romanticism and modern comfort. The room is bathed in natural light that highlights the rich, dark tones of the furniture and decor. The bed, adorned with plush pillows and a cozy throw, invites relaxation and rest. The room's design is a nod to the Dark Academia aesthetic, with a focus on deep, rich colors, vintage furniture, and an abundance of books. The room's large windows not only provide a stunning view but also fill the room with an abundance of natural light, creating a warm and inviting atmosphere. This is a space where you can unwind, read a good book, and drift off to sleep dreaming of romantic adventures.",
+            "beforeImg": "../assets/bedroom/comp1_before.jpeg",
+            "afterImg": "../assets/bedroom/comp1_after.jpeg",
+            "storyText": "This living room draws inspiration from the dark academia aesthetic, a style that is deeply rooted in literature, self-discovery, and a love of learning and knowledge. The room is filled with rich, dark tones, creating a cozy and inviting atmosphere. Antique furniture, a grand bookshelf filled with classic literature, and vintage decor items contribute to the room's old-world charm. The walls are adorned with artwork and memorabilia, adding a personal touch to the space",
+            "photoGridImages": [
+                '../assets/bedroom/bed_2.jpeg',
+                '../assets/bedroom/nook_2.jpeg',
+                '../assets/bedroom/sitting_area.jpeg',
+                '../assets/bedroom/nook.jpeg',
+                '../assets/bedroom/dresser.jpeg',
+                '../assets/bedroom/bed_3.jpeg',
+            ],
+            "enableNavBarTransparentEffect": true,
+        };
+        renderPageFromConfig(config);
     </script>
 </body>
