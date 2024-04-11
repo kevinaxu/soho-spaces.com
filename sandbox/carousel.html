@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
-\    <script type="text/javascript" src="../scripts/carousel.js"></script>
+    <script type="text/javascript" src="../scripts/app.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Homemade+Apple" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/app.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -20,35 +21,65 @@
 
 <body class="bg-stone-100" style="font-family: 'Comfortaa'">
 
+    <!-- Mobile Navbar with Hamburger Menu -->
+    <div id="navbar" class="border-gray-200 bg-slate-950 text-white transition ease">
+        <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
+            </a>
+            <button id="navbar-button" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex h-10 w-10 items-center justify-center p-2 text-sm" aria-controls="navbar-hamburger" aria-expanded="false">
+                <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 1h15M1 7h15M1 13h15"></path>
+                </svg>
+            </button>
+            <div class="hidden w-full" id="navbar-hamburger">
+                <ul class="mt-4 flex flex-col text-md text-center">
+                    <li>
+                        <a href="/#section-about-us" class="block px-3 py-4 uppercase hover:underline" aria-current="page">About</a>
+                    </li>
+                    <li>
+                        <a href="/portfolio.html" class="block px-3 py-4 uppercase hover:underline">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="/#section-our-services" class="block px-3 py-4 uppercase hover:underline">Services</a>
+                    </li>
+                    <li>
+                        <a href="/#section-contact-us" class="block px-3 py-4 uppercase hover:underline">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <script>
 
-        const title = 'Moody Romantic Bedroom';
-        const heroVideoUrl = '../assets/bedroom/bedroom_video.mp4';
-        const photoGridImages = [
-            '../assets/bedroom/bed_2.jpeg',
-            '../assets/bedroom/nook_2.jpeg',
-            '../assets/bedroom/sitting_area.jpeg',
-            '../assets/bedroom/nook.jpeg',
-            '../assets/bedroom/dresser.jpeg',
-            '../assets/bedroom/bed_3.jpeg',
-        ];
-        var IMG_BEFORE = "../assets/bedroom/comp1_before.jpeg";
-        var IMG_AFTER = "../assets/bedroom/comp1_after.jpeg";
+        /**
+         * Initializes a Flowbite Navbar with Hamburger Menu
+         */
+        const $targetEl = document.getElementById("navbar-hamburger");
 
-        
-        document.body.append(fromHTML(generateNavbarDesktopHTML()));
-        document.body.append(fromHTML(generateHeroVideoHTML(heroVideoUrl)));
-        document.body.append(fromHTML(generateTitleHeader("moody romantic", "bedroom")));
-        document.body.append(fromHTML(generateBeforeAfterHeader()));
-        createPhotoGridComponent(photoGridImages);
-        document.body.append(fromHTML(generateFooterHTML()));
+        // optionally set a trigger element (eg. a button, hamburger icon)
+        const $triggerEl = document.getElementById('navbar-button');
 
-        const isNavbarTransparent = true;
-        if (isNavbarTransparent) {
-            document.body.append(fromHTML(generatePixelAnchorHTML()));
-            initializeIntersectionObserver();
-        }
+        // optional options with default values and callback functions
+        const options = {
+            onCollapse: () => {
+                document.getElementById("navbar").classList.remove("bg-slate-950");
+            },
+            onExpand: () => {
+                document.getElementById("navbar").classList.add("bg-slate-950");
+            },
+            // onToggle: () => {   console.log('element has been toggled');    },
+        };
+
+        const instanceOptions = {
+            id: 'targetEl',
+            override: true,
+        };
+        const collapse = new Collapse($targetEl, $triggerEl, options, instanceOptions);
 
     </script>
-
 </body>

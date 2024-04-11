@@ -1,3 +1,32 @@
+/**********************************************
+ * 
+ * Main Entry Point 
+ * 
+ *********************************************/
+
+function renderPageFromConfig(config) {
+    document.body.append(fromHTML(generateNavbarWithHamburgerHTML()));
+    if (config.enableNavBarTransparentEffect) {
+        document.body.append(fromHTML(generatePixelAnchorHTML()));
+        initializeIntersectionObserver();
+    }
+
+    (config.heroVideoUrl) ?
+        document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl))) :
+        document.body.append(fromHTML(generateHeroImageHTML(config.heroImageUrl)));
+
+    document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
+    if (config.beforeImg && config.afterImg) {
+        document.body.append(fromHTML(generateBeforeAfterHeader()));
+        createBeforeAfterComponent(config.beforeImg, config.afterImg);
+    }
+    document.body.append(fromHTML(generateTheStorySection(config.storyText)));
+    createPhotoGridComponent(config.photoGridImages);
+
+    document.body.append(fromHTML(generateFooterHTML()));
+}
+
+
 
 /**********************************************
  * 
@@ -581,32 +610,9 @@ function generateCarouselHTML(id, photos) {
 
 /**********************************************
  * 
- * HTML Templates
+ * HTML Partial Templates
  * 
  *********************************************/
-
-function renderPageFromConfig(config) {
-    document.body.append(fromHTML(generateNavbarDesktopHTML()));
-    if (config.enableNavBarTransparentEffect) {
-        document.body.append(fromHTML(generatePixelAnchorHTML()));
-        initializeIntersectionObserver();
-    }
-
-    (config.heroVideoUrl) ?
-        document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl))) :
-        document.body.append(fromHTML(generateHeroImageHTML(config.heroImageUrl)));
-
-    document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
-    if (config.beforeImg && config.afterImg) {
-        document.body.append(fromHTML(generateBeforeAfterHeader()));
-        createBeforeAfterComponent(config.beforeImg, config.afterImg);
-    }
-    document.body.append(fromHTML(generateTheStorySection(config.storyText)));
-    createPhotoGridComponent(config.photoGridImages);
-
-    document.body.append(fromHTML(generateFooterHTML()));
-}
-
 
 function generateHeroVideoHTML(video_url) {
     return `
@@ -667,7 +673,97 @@ function generateTheStorySection(text) {
     </div>`;
 }
 
-function generateNavbarDesktopHTML() {
+
+function initializeFlowbiteNavbar() {
+    /**
+     * Initializes a Flowbite Navbar with Hamburger Menu
+     */
+    const $targetEl = document.getElementById("navbar-hamburger");
+
+    // optionally set a trigger element (eg. a button, hamburger icon)
+    const $triggerEl = document.getElementById('navbar-button');
+
+    // optional options with default values and callback functions
+    const options = {
+        onCollapse: () => {
+            document.getElementById("navbar").classList.remove("bg-slate-950");
+        },
+        onExpand: () => {
+            document.getElementById("navbar").classList.add("bg-slate-950");
+        },
+        // onToggle: () => {   console.log('element has been toggled');    },
+    };
+
+    const instanceOptions = {
+        id: 'targetEl',
+        override: true,
+    };
+    const collapse = new Collapse($targetEl, $triggerEl, options, instanceOptions);
+}
+
+function generateNavbarWithHamburgerHTML() {
+    return `
+    <div id="navbar">
+
+        <div class="fixed z-20 hidden md:flex h-12 w-full bg-slate-950 text-slate-100">
+            <div class="mt-5 text-xs md:flex md:w-1/4">
+                <div class="w-full text-center">
+                    <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
+                </div>
+                <div class="w-full text-center">
+                    <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
+                </div>
+            </div>
+            <div class="mt-1 w-full md:w-1/2">
+                <div class="w-full text-center text-3xl">
+                    <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
+                </div>
+            </div>
+            <div class="mt-5 text-xs md:flex md:w-1/4">
+                <div class="w-full text-center">
+                    <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
+                </div>
+                <div class="w-full text-center">
+                    <a href="/#section-contact-us" class="block h-full px-3">CONTACT</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden border-gray-200 bg-slate-950 text-white transition ease">
+            <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
+                </a>
+                <button id="navbar-button" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex h-10 w-10 items-center justify-center p-2 text-sm" aria-controls="navbar-hamburger" aria-expanded="false">
+                    <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 1h15M1 7h15M1 13h15"></path>
+                    </svg>
+                </button>
+                <div class="hidden w-full" id="navbar-hamburger">
+                    <ul class="mt-4 flex flex-col text-md text-center">
+                        <li>
+                            <a href="/#section-about-us" class="block px-3 py-4 uppercase hover:underline" aria-current="page">About</a>
+                        </li>
+                        <li>
+                            <a href="/portfolio.html" class="block px-3 py-4 uppercase hover:underline">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="/#section-our-services" class="block px-3 py-4 uppercase hover:underline">Services</a>
+                        </li>
+                        <li>
+                            <a href="/#section-contact-us" class="block px-3 py-4 uppercase hover:underline">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>`;
+}
+
+
+
+
+function generateNavbarHTML() {
     return `
     <div id="navbar" class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
         <div class="mt-5 hidden text-xs md:flex md:w-1/4">
