@@ -824,7 +824,13 @@ function isMobile() {
  * 
  *********************************************/
 
-function initHeader() {
+function generatePixelAnchorHTML() {
+    return `
+        <div id="top-of-site-pixel-anchor" class="absolute w-px h-px top-[36rem] md:top-[44rem] left-0"></div>
+    `;
+}
+
+function initializeIntersectionObserver() {
     if (
         "IntersectionObserver" in window &&
         "IntersectionObserverEntry" in window &&
