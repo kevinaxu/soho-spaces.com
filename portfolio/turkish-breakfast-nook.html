@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <title>Soho Spaces: Turkish Breakfast Nook</title>
+    <title>Soho Spaces: Reverse Oriental Breakfast Nook</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <script type="text/javascript" src="../scripts/generator.js"></script>
     <script type="text/javascript" src="../scripts/carousel.js"></script>
-    <script type="text/javascript" src="../scripts/slider.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Homemade+Apple" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -22,24 +19,27 @@
     </style>
 </head>
 
-<body class="mx-auto max-w-lg px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8" style="font-family: 'Raleway'">
-    
+<body class="bg-stone-100" style="font-family: 'Comfortaa'">
     <script>
-
-        // Definitions ("Front Matter");
-        const title = 'Turkish Breakfast Nook';
-        const heroVideoUrl = '../assets/dining_room/video.mp4';
-        const thumbnailImages = [
-            '../assets/dining_room/chandelier.jpeg',
-            '../assets/dining_room/flowers.jpeg',
-            '../assets/dining_room/nighttime.jpeg'
-        ];
-
-        // document.body.append(fromHTML(logo()));
-        // document.body.append(fromHTML(header(title)));
-        // document.body.append(fromHTMLVideo(generateHeroVideoHTML(heroVideoUrl)));
-        // createThumbnailsComponent(thumbnailImages);
-        // document.body.append(fromHTML(generateFooterHTML()));
-            
+        const config = {
+            "title1": "Reverse Oriental",
+            "title2": "Breakfast Nook",
+            "heroVideoUrl": "../assets/dining_room/video.mp4",
+            "projectOverviewText": "This bedroom is a perfect blend of moody romanticism and modern comfort. The room is bathed in natural light that highlights the rich, dark tones of the furniture and decor. The bed, adorned with plush pillows and a cozy throw, invites relaxation and rest. The room's design is a nod to the Dark Academia aesthetic, with a focus on deep, rich colors, vintage furniture, and an abundance of books. The room's large windows not only provide a stunning view but also fill the room with an abundance of natural light, creating a warm and inviting atmosphere. This is a space where you can unwind, read a good book, and drift off to sleep dreaming of romantic adventures.",
+            "beforeImg": null,
+            "afterImg": null,
+            "storyText": "This living room draws inspiration from the dark academia aesthetic, a style that is deeply rooted in literature, self-discovery, and a love of learning and knowledge. The room is filled with rich, dark tones, creating a cozy and inviting atmosphere. Antique furniture, a grand bookshelf filled with classic literature, and vintage decor items contribute to the room's old-world charm. The walls are adorned with artwork and memorabilia, adding a personal touch to the space",
+            "photoGridImages": [
+                '../assets/dining_room/chandelier.jpeg',
+                '../assets/dining_room/flowers.jpeg',
+                '../assets/dining_room/nighttime.jpeg',
+                '../assets/dining_room/chandelier.jpeg',
+                '../assets/dining_room/flowers.jpeg',
+                '../assets/dining_room/nighttime.jpeg'
+            ],
+            "enableNavBarTransparentEffect": true,
+        };
+        renderPageFromConfig(config);
     </script>
 </body>
+</html>
