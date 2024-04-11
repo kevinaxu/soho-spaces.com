@@ -592,7 +592,10 @@ function renderPageFromConfig(config) {
         initializeIntersectionObserver();
     }
 
-    document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl)));
+    (config.heroVideoUrl) ?
+        document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl))) :
+        document.body.append(fromHTML(generateHeroImageHTML(config.heroImageUrl)));
+
     document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
     if (config.beforeImg && config.afterImg) {
         document.body.append(fromHTML(generateBeforeAfterHeader()));

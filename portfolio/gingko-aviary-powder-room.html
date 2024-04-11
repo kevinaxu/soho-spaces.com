@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <title>Soho Spaces: Gingko Aviary Powder Room</title>
+    <title>Soho Spaces: Metal + Slate Powder Room</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <script type="text/javascript" src="../scripts/generator.js"></script>
     <script type="text/javascript" src="../scripts/carousel.js"></script>
-    <script type="text/javascript" src="../scripts/slider.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Homemade+Apple" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -22,32 +19,29 @@
     </style>
 </head>
 
-<body class="mx-auto max-w-lg px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8" style="font-family: 'Raleway'">
+<body class="bg-stone-100" style="font-family: 'Comfortaa'">
     <script>
-
-        // Definitions ("Front Matter");
-        const title = 'Gingko Aviary Powder Room';
-        const heroVideoUrl = '../assets/powder_room/powder.mp4';
-        const photoGridImages = [
-            '../assets/powder_room/birdcage.jpeg',
-            '../assets/powder_room/mirror_1.jpeg',
-            '../assets/powder_room/powder_1.jpeg',
-            '../assets/powder_room/shelf_1.jpeg'
-        ];
-        const thumbnailImages = [
-            '../assets/powder_room/featured.jpeg',
-            '../assets/powder_room/powder_2.jpeg',
-            '../assets/powder_room/shelf_2.jpeg'
-        ]
-
-        document.body.append(fromHTML(logo()));
-        document.body.append(fromHTML(header(title)));
-        document.body.append(fromHTMLVideo(generateHeroVideoHTML(heroVideoUrl)));
-        createThumbnailsComponent(thumbnailImages);
-        document.body.append(fromHTML(header('The Details')));
-        createPhotoGridComponent(photoGridImages);        
-        document.body.append(fromHTML(generateFooterHTML()));
-
+        const config = {
+            "title1": "Metal + Slate",
+            "title2": "Powder Room",
+            "heroVideoUrl": "../assets/powder_room/powder.mp4",
+            "projectOverviewText":
+                "Step into a world of elegance and sophistication with this stunning powder room. The Gingko Aviary Powder Room is a sanctuary of beauty and tranquility, designed to evoke a sense of calm and relaxation. The room's design is inspired by the natural world, with delicate gingko leaves adorning the walls and a beautiful birdcage serving as a focal point. The room's color palette is soft and soothing, with shades of green, gold, and cream creating a warm and inviting atmosphere. This is a space where you can escape the stresses of the day and indulge in a moment of peace and serenity.",
+            "beforeImg": null,
+            "afterImg": null,
+            "storyText":
+                "Our client, a lover of nature and beauty, wanted a powder room that would reflect their passion for the natural world. They envisioned a space that would be both elegant and serene, a place where they could relax and unwind after a long day. The Gingko Aviary Powder Room was designed with this vision in mind, combining elements of nature with a touch of luxury. The room's design features delicate gingko leaves, a symbol of longevity and endurance, and a beautiful birdcage, a nod to the client's love of birds. The result is a space that is both beautiful and functional, a true oasis of calm and tranquility.",
+            "photoGridImages": [
+                '../assets/powder_room/birdcage.jpeg',
+                '../assets/powder_room/mirror_1.jpeg',
+                '../assets/powder_room/powder_1.jpeg',
+                '../assets/powder_room/shelf_1.jpeg',
+                '../assets/powder_room/featured.jpeg',
+                '../assets/powder_room/powder_2.jpeg'
+            ],
+            "enableNavBarTransparentEffect": true,
+        };
+        renderPageFromConfig(config);
     </script>
-
 </body>
+</html>
