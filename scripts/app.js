@@ -494,9 +494,9 @@ function initializeFlowbiteCarousel(id, photos) {
         defaultPosition: 1,
         interval: 3000,
         indicators: {
-            activeClasses: 'bg-gray-950 dark:bg-gray-800 md:dark:bg-gray-500',
+            activeClasses: 'bg-gray-500',
             inactiveClasses:
-                'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 md:dark:bg-gray-800',
+                'bg-gray-800',
             items: indicators,
         },
 
@@ -531,11 +531,11 @@ function initializeFlowbiteCarousel(id, photos) {
 function generateModalHTML(id, modalContent) {
     return `
     <!-- Main modal -->
-    <div id="${id}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full dark:bg-gray-950">
+    <div id="${id}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full bg-slate-950">
         <div class="relative w-full max-w-2xl max-h-full md:h-full md:max-w-6xl">
 
             <!-- Modal content -->
-            <div class="relative bg-white dark:bg-gray-950">
+            <div class="relative bg-slate-950">
 
                 <!-- Modal close -->
                 <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center p-4 text-black text-sm z-50 md:p-2">
@@ -561,7 +561,7 @@ function generateModalHTML(id, modalContent) {
  */
 function generateCarouselHTML(id, photos) {
     return `
-    <div id="${id}" class="my-4 relative w-full md:px-12 md:top-10 md:my-0">
+    <div id="${id}" class="my-4 relative w-full md:px-12 md:top-10 md:my-0 bg-slate-950">
 
         <!-- Carousel wrapper -->
         <div class="relative overflow-hidden h-[32rem] md:h-5/6 ">
