@@ -537,11 +537,12 @@ let enableTransparency = true;
 let topOfPage = true;
 let MOBILE_BREAKPOINT   = "36rem";
 let DESKTOP_BREAKPOINT  = "44rem";
+let flowbiteCarousel = null;
 
 function createNavbarComponent(transparent = true) {
     enableTransparency = transparent;
     document.body.append(fromHTML(generateNavbarWithHamburgerHTML()));
-    initializeFlowbiteNavbar();
+    flowbiteCarousel = initializeFlowbiteNavbar();
 
     if (enableTransparency) {
         document.body.append(fromHTML(generatePixelAnchorHTML()));
@@ -549,6 +550,10 @@ function createNavbarComponent(transparent = true) {
     } else {
         setNavbarSlate();
     }
+}
+
+function collapseNavbar() {
+    flowbiteCarousel.collapse();
 }
 
 function initializeFlowbiteNavbar() {
@@ -577,6 +582,7 @@ function initializeFlowbiteNavbar() {
         override: true,
     };
     const collapse = new Collapse($targetEl, $triggerEl, options, instanceOptions);
+    return collapse;
 }
 
 function generateNavbarWithHamburgerHTML() {
@@ -611,7 +617,7 @@ function generateNavbarWithHamburgerHTML() {
         <!-- Mobile --> 
         <div class="md:hidden border-gray-200 text-white transition ease">
             <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
                 </a>
                 <button id="navbar-button" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex h-10 w-10 items-center justify-center p-2 text-sm" aria-controls="navbar-hamburger" aria-expanded="false">
@@ -622,16 +628,16 @@ function generateNavbarWithHamburgerHTML() {
                 <div class="hidden w-full" id="navbar-hamburger">
                     <ul class="mt-4 flex flex-col text-md text-center">
                         <li>
-                            <a href="/#section-about-us" class="block px-3 py-4 uppercase hover:underline" aria-current="page">About</a>
+                            <a href="/#section-about-us" class="block px-3 py-4 uppercase hover:underline" aria-current="page" onclick="collapseNavbar()">About</a>
                         </li>
                         <li>
                             <a href="/portfolio.html" class="block px-3 py-4 uppercase hover:underline">Portfolio</a>
                         </li>
                         <li>
-                            <a href="/#section-our-services" class="block px-3 py-4 uppercase hover:underline">Services</a>
+                            <a href="/#section-our-services" class="block px-3 py-4 uppercase hover:underline" onclick="collapseNavbar()">Services</a>
                         </li>
                         <li>
-                            <a href="/#section-contact-us" class="block px-3 py-4 uppercase hover:underline">Contact Us</a>
+                            <a href="/#section-contact-us" class="block px-3 py-4 uppercase hover:underline" onclick="collapseNavbar()">Contact Us</a>
                         </li>
                     </ul>
                 </div>
