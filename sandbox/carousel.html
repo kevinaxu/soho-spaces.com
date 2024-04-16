@@ -21,65 +21,45 @@
 
 <body class="bg-stone-100" style="font-family: 'Comfortaa'">
 
-    <!-- Mobile Navbar with Hamburger Menu
-    <div id="navbar" class="fixed z-20 w-full border-gray-200 bg-slate-950 text-white transition ease">
-        <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
-            </a>
-            <button id="navbar-button" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex h-10 w-10 items-center justify-center p-2 text-sm" aria-controls="navbar-hamburger" aria-expanded="false">
-                <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 1h15M1 7h15M1 13h15"></path>
-                </svg>
-            </button>
-            <div class="hidden w-full" id="navbar-hamburger">
-                <ul class="mt-4 flex flex-col text-md text-center">
-                    <li>
-                        <a href="/#section-about-us" class="block px-3 py-4 uppercase hover:underline" aria-current="page">About</a>
-                    </li>
-                    <li>
-                        <a href="/portfolio.html" class="block px-3 py-4 uppercase hover:underline">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="/#section-our-services" class="block px-3 py-4 uppercase hover:underline">Services</a>
-                    </li>
-                    <li>
-                        <a href="/#section-contact-us" class="block px-3 py-4 uppercase hover:underline">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-
-
     <script>
+        const config = {
+            "title1": "Moody Romantic",
+            "title2": "Bedroom",
+            "heroVideoUrl": "../assets/bedroom/bedroom_video.mp4",
+            "projectOverviewText": "This bedroom is a perfect blend of moody romanticism and modern comfort. The room is bathed in natural light that highlights the rich, dark tones of the furniture and decor. The bed, adorned with plush pillows and a cozy throw, invites relaxation and rest. The room's design is a nod to the Dark Academia aesthetic, with a focus on deep, rich colors, vintage furniture, and an abundance of books. The room's large windows not only provide a stunning view but also fill the room with an abundance of natural light, creating a warm and inviting atmosphere. This is a space where you can unwind, read a good book, and drift off to sleep dreaming of romantic adventures.",
+            "beforeImg": "../assets/bedroom/comp1_before.jpeg",
+            "afterImg": "../assets/bedroom/comp1_after.jpeg",
+            "storyText": "This living room draws inspiration from the dark academia aesthetic, a style that is deeply rooted in literature, self-discovery, and a love of learning and knowledge. The room is filled with rich, dark tones, creating a cozy and inviting atmosphere. Antique furniture, a grand bookshelf filled with classic literature, and vintage decor items contribute to the room's old-world charm. The walls are adorned with artwork and memorabilia, adding a personal touch to the space",
 
-        /**
-         * Initializes a Flowbite Navbar with Hamburger Menu
-         */
-        const $targetEl = document.getElementById("navbar-hamburger");
-
-        // optionally set a trigger element (eg. a button, hamburger icon)
-        const $triggerEl = document.getElementById('navbar-button');
-
-        // optional options with default values and callback functions
-        const options = {
-            onCollapse: () => {
-                document.getElementById("navbar").classList.remove("bg-slate-950");
-            },
-            onExpand: () => {
-                document.getElementById("navbar").classList.add("bg-slate-950");
-            },
-            // onToggle: () => {   console.log('element has been toggled');    },
+            "photoGridImages": [
+                '../assets/bedroom/bed_2.jpeg',
+                '../assets/bedroom/nook_2.jpeg',
+                '../assets/bedroom/sitting_area.jpeg',
+                '../assets/bedroom/nook.jpeg',
+                '../assets/bedroom/dresser.jpeg',
+                '../assets/bedroom/bed_3.jpeg',
+            ],
+            "enableNavBarTransparentEffect": true,
         };
 
-        const instanceOptions = {
-            id: 'targetEl',
-            override: true,
-        };
-        const collapse = new Collapse($targetEl, $triggerEl, options, instanceOptions);
+        createNavbarComponent();
+        if (config.enableNavBarTransparentEffect) {
+            document.body.append(fromHTML(generatePixelAnchorHTML()));
+            initializeIntersectionObserver();
+        }
+
+        document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl)));
+        document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
+        if (config.beforeImg && config.afterImg) {
+            document.body.append(fromHTML(generateBeforeAfterHeader()));
+            createBeforeAfterComponent(config.beforeImg, config.afterImg);
+        }
+        document.body.append(fromHTML(generateTheStorySection(config.storyText)));
+        createPhotoGridComponent(config.photoGridImages);
+
+        document.body.append(fromHTML(generateFooterHTML()));
+
 
     </script>
+
 </body>

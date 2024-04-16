@@ -515,6 +515,186 @@ function initializeFlowbiteCarousel(id, photos) {
     return carousel;
 }
 
+
+
+
+/**********************************************
+ * 
+ * Navbar Component 
+ * 
+ *********************************************/
+
+let topOfPage = true;
+let MOBILE_BREAKPOINT   = "36rem";
+let DESKTOP_BREAKPOINT  = "44rem";
+
+function createNavbarComponent() {
+    document.body.append(fromHTML(generateNavbarWithHamburgerHTML()));
+    initializeFlowbiteNavbar();
+}
+
+function initializeFlowbiteNavbar() {
+    const $targetEl = document.getElementById("navbar-hamburger");
+
+    // optionally set a trigger element (eg. a button, hamburger icon)
+    const $triggerEl = document.getElementById('navbar-button');
+
+    // optional options with default values and callback functions
+    const options = {
+        onCollapse: () => {
+            console.log("collapsed navbar");
+            document.body.classList.remove("overflow-hidden");
+            updateNavbarBackgroundColor();
+        },
+        onExpand: () => {
+            console.log("expanded navbar");
+            document.body.classList.add("overflow-hidden");
+            setNavbarSlate();
+        },
+        // onToggle: () => {   console.log('element has been toggled');    },
+    };
+
+    const instanceOptions = {
+        id: 'targetEl',
+        override: true,
+    };
+    const collapse = new Collapse($targetEl, $triggerEl, options, instanceOptions);
+}
+
+function generateNavbarWithHamburgerHTML() {
+    return `
+    <div id="navbar" class="fixed z-20 w-full bg-transparent">
+
+        <!-- Desktop --> 
+        <div class="hidden md:flex h-12 text-slate-100">
+            <div class="mt-5 text-xs md:flex md:w-1/4">
+                <div class="w-full text-center">
+                    <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
+                </div>
+                <div class="w-full text-center">
+                    <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
+                </div>
+            </div>
+            <div class="mt-1 w-full md:w-1/2">
+                <div class="w-full text-center text-3xl">
+                    <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
+                </div>
+            </div>
+            <div class="mt-5 text-xs md:flex md:w-1/4">
+                <div class="w-full text-center">
+                    <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
+                </div>
+                <div class="w-full text-center">
+                    <a href="/#section-contact-us" class="block h-full px-3">CONTACT</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile --> 
+        <div class="md:hidden border-gray-200 text-white transition ease">
+            <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
+                </a>
+                <button id="navbar-button" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex h-10 w-10 items-center justify-center p-2 text-sm" aria-controls="navbar-hamburger" aria-expanded="false">
+                    <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 1h15M1 7h15M1 13h15"></path>
+                    </svg>
+                </button>
+                <div class="hidden w-full" id="navbar-hamburger">
+                    <ul class="mt-4 flex flex-col text-md text-center">
+                        <li>
+                            <a href="/#section-about-us" class="block px-3 py-4 uppercase hover:underline" aria-current="page">About</a>
+                        </li>
+                        <li>
+                            <a href="/portfolio.html" class="block px-3 py-4 uppercase hover:underline">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="/#section-our-services" class="block px-3 py-4 uppercase hover:underline">Services</a>
+                        </li>
+                        <li>
+                            <a href="/#section-contact-us" class="block px-3 py-4 uppercase hover:underline">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>`;
+}
+
+function generateNavbarHTML() {
+    return `
+    <div id="navbar" class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
+        <div class="mt-5 hidden text-xs md:flex md:w-1/4">
+            <div class="w-full text-center">
+                <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
+            </div>
+            <div class="w-full text-center">
+                <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
+            </div>
+        </div>
+        <div class="mt-1 w-full md:w-1/2">
+            <div class="w-full text-center text-3xl">
+                <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
+            </div>
+        </div>
+        <div class="mt-5 hidden text-xs md:flex md:w-1/4">
+            <div class="w-full text-center">
+                <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
+            </div>
+            <div class="w-full text-center">
+                <a href="/#section-contact-us" class="block h-full px-3">CONTACT</a>
+            </div>
+        </div>
+    </div>`;
+}
+
+function generatePixelAnchorHTML() {
+    return `
+        <div id="top-of-site-pixel-anchor" class="absolute w-px h-px top-[${MOBILE_BREAKPOINT}] md:top-[${DESKTOP_BREAKPOINT}] left-0"></div>
+    `;
+}
+
+function initializeIntersectionObserver() {
+    if (
+        "IntersectionObserver" in window &&
+        "IntersectionObserverEntry" in window &&
+        "intersectionRatio" in window.IntersectionObserverEntry.prototype
+    ) {
+        let observer = new IntersectionObserver(entries => {
+            if (entries[0].boundingClientRect.y < 0) {
+                topOfPage = false;
+                updateNavbarBackgroundColor();
+            } else {
+                topOfPage = true;
+                updateNavbarBackgroundColor();            
+            }
+        });
+        observer.observe(document.querySelector("#top-of-site-pixel-anchor"));
+    }
+}
+
+// if we're on Mobile, the background color is going to depend on where we are on the page AND whether the navbar is expanded or collapsed
+// if the navbar is expanded, the background color is always going to be the same (bg-slate-950)
+// if the navbar is collapsed,
+//      if we're at the top of the page, the navbar will be trasnparent
+//      if we're at further down the page (based on Intersection Observer), the navbar will be bg-slate-950
+// if we're on Desktop, then backgrouhnd color is only determined by position on page
+function updateNavbarBackgroundColor() {
+    if (topOfPage) setNavbarTransparent();
+    else setNavbarSlate();
+}
+
+function setNavbarTransparent() {
+    document.getElementById("navbar").classList.add("bg-transparent");
+    document.getElementById("navbar").classList.remove("bg-slate-950");
+}
+function setNavbarSlate() {
+    document.getElementById("navbar").classList.add("bg-slate-950");
+    document.getElementById("navbar").classList.remove("bg-transparent");
+}
+
+
 /**********************************************
  * 
  * Step 1: HTML Generation Methods
@@ -674,137 +854,6 @@ function generateTheStorySection(text) {
     </div>`;
 }
 
-/**********************************************
- * 
- * Navbar Component 
- * 
- *********************************************/
-
-function createNavbarComponent() {
-    document.body.append(fromHTML(generateNavbarWithHamburgerHTML()));
-    initializeFlowbiteNavbar();
-}
-
-function initializeFlowbiteNavbar() {
-    const $targetEl = document.getElementById("navbar-hamburger");
-
-    // optionally set a trigger element (eg. a button, hamburger icon)
-    const $triggerEl = document.getElementById('navbar-button');
-
-    // optional options with default values and callback functions
-    const options = {
-        onCollapse: () => {
-            console.log("collapsed navbar");
-            // document.getElementById("navbar").classList.remove("bg-slate-950");
-            document.body.classList.remove("overflow-hidden");
-        },
-        onExpand: () => {
-            console.log("expanded navbar");
-            document.body.classList.add("overflow-hidden");
-            // document.getElementById("navbar").classList.add("bg-slate-950");
-        },
-        // onToggle: () => {   console.log('element has been toggled');    },
-    };
-
-    const instanceOptions = {
-        id: 'targetEl',
-        override: true,
-    };
-    const collapse = new Collapse($targetEl, $triggerEl, options, instanceOptions);
-}
-
-function generateNavbarWithHamburgerHTML() {
-    return `
-    <div id="navbar" class="fixed z-20 w-full">
-
-        <!-- Desktop --> 
-        <div class="hidden md:flex h-12 bg-slate-950 text-slate-100">
-            <div class="mt-5 text-xs md:flex md:w-1/4">
-                <div class="w-full text-center">
-                    <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
-                </div>
-                <div class="w-full text-center">
-                    <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
-                </div>
-            </div>
-            <div class="mt-1 w-full md:w-1/2">
-                <div class="w-full text-center text-3xl">
-                    <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
-                </div>
-            </div>
-            <div class="mt-5 text-xs md:flex md:w-1/4">
-                <div class="w-full text-center">
-                    <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
-                </div>
-                <div class="w-full text-center">
-                    <a href="/#section-contact-us" class="block h-full px-3">CONTACT</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile --> 
-        <div class="md:hidden border-gray-200 bg-slate-950 text-white transition ease">
-            <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
-                </a>
-                <button id="navbar-button" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex h-10 w-10 items-center justify-center p-2 text-sm" aria-controls="navbar-hamburger" aria-expanded="false">
-                    <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 1h15M1 7h15M1 13h15"></path>
-                    </svg>
-                </button>
-                <div class="hidden w-full" id="navbar-hamburger">
-                    <ul class="mt-4 flex flex-col text-md text-center">
-                        <li>
-                            <a href="/#section-about-us" class="block px-3 py-4 uppercase hover:underline" aria-current="page">About</a>
-                        </li>
-                        <li>
-                            <a href="/portfolio.html" class="block px-3 py-4 uppercase hover:underline">Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="/#section-our-services" class="block px-3 py-4 uppercase hover:underline">Services</a>
-                        </li>
-                        <li>
-                            <a href="/#section-contact-us" class="block px-3 py-4 uppercase hover:underline">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>`;
-}
-
-
-
-
-function generateNavbarHTML() {
-    return `
-    <div id="navbar" class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
-        <div class="mt-5 hidden text-xs md:flex md:w-1/4">
-            <div class="w-full text-center">
-                <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
-            </div>
-            <div class="w-full text-center">
-                <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
-            </div>
-        </div>
-        <div class="mt-1 w-full md:w-1/2">
-            <div class="w-full text-center text-3xl">
-                <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
-            </div>
-        </div>
-        <div class="mt-5 hidden text-xs md:flex md:w-1/4">
-            <div class="w-full text-center">
-                <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
-            </div>
-            <div class="w-full text-center">
-                <a href="/#section-contact-us" class="block h-full px-3">CONTACT</a>
-            </div>
-        </div>
-    </div>`;
-}
-
-
 function generateFooterHTML() {
     return `
     <div class="footer mt-8">
@@ -927,37 +976,3 @@ function isMobile() {
     return window.innerWidth < 640;
 }
 
-
-
-/**********************************************
- * 
- * Intersection Observer for transparent navbar
- * 
- *********************************************/
-
-function generatePixelAnchorHTML() {
-    return `
-        <div id="top-of-site-pixel-anchor" class="absolute w-px h-px top-[36rem] md:top-[44rem] left-0"></div>
-    `;
-}
-
-function initializeIntersectionObserver() {
-    if (
-        "IntersectionObserver" in window &&
-        "IntersectionObserverEntry" in window &&
-        "intersectionRatio" in window.IntersectionObserverEntry.prototype
-    ) {
-        let observer = new IntersectionObserver(entries => {
-            if (entries[0].boundingClientRect.y < 0) {
-                // header not at top
-                document.getElementById("navbar").classList.add("bg-slate-950");
-                document.getElementById("navbar").classList.remove("bg-transparent");
-            } else {
-                // header at top 
-                document.getElementById("navbar").classList.add("bg-transparent");
-                document.getElementById("navbar").classList.remove("bg-slate-950");
-            }
-        });
-        observer.observe(document.querySelector("#top-of-site-pixel-anchor"));
-    }
-}
