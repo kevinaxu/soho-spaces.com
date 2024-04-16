@@ -5,7 +5,8 @@
  *********************************************/
 
 function renderPageFromConfig(config) {
-    document.body.append(fromHTML(generateNavbarWithHamburgerHTML()));
+    createNavbarComponent();
+
     if (config.enableNavBarTransparentEffect) {
         document.body.append(fromHTML(generatePixelAnchorHTML()));
         initializeIntersectionObserver();
@@ -673,11 +674,18 @@ function generateTheStorySection(text) {
     </div>`;
 }
 
+/**********************************************
+ * 
+ * Navbar Component 
+ * 
+ *********************************************/
+
+function createNavbarComponent() {
+    document.body.append(fromHTML(generateNavbarWithHamburgerHTML()));
+    initializeFlowbiteNavbar();
+}
 
 function initializeFlowbiteNavbar() {
-    /**
-     * Initializes a Flowbite Navbar with Hamburger Menu
-     */
     const $targetEl = document.getElementById("navbar-hamburger");
 
     // optionally set a trigger element (eg. a button, hamburger icon)
@@ -686,10 +694,14 @@ function initializeFlowbiteNavbar() {
     // optional options with default values and callback functions
     const options = {
         onCollapse: () => {
-            document.getElementById("navbar").classList.remove("bg-slate-950");
+            console.log("collapsed navbar");
+            // document.getElementById("navbar").classList.remove("bg-slate-950");
+            document.body.classList.remove("overflow-hidden");
         },
         onExpand: () => {
-            document.getElementById("navbar").classList.add("bg-slate-950");
+            console.log("expanded navbar");
+            document.body.classList.add("overflow-hidden");
+            // document.getElementById("navbar").classList.add("bg-slate-950");
         },
         // onToggle: () => {   console.log('element has been toggled');    },
     };
@@ -703,9 +715,10 @@ function initializeFlowbiteNavbar() {
 
 function generateNavbarWithHamburgerHTML() {
     return `
-    <div id="navbar">
+    <div id="navbar" class="fixed z-20 w-full">
 
-        <div class="fixed z-20 hidden md:flex h-12 w-full bg-slate-950 text-slate-100">
+        <!-- Desktop --> 
+        <div class="hidden md:flex h-12 bg-slate-950 text-slate-100">
             <div class="mt-5 text-xs md:flex md:w-1/4">
                 <div class="w-full text-center">
                     <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
@@ -729,6 +742,7 @@ function generateNavbarWithHamburgerHTML() {
             </div>
         </div>
 
+        <!-- Mobile --> 
         <div class="md:hidden border-gray-200 bg-slate-950 text-white transition ease">
             <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
                 <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
