@@ -16,13 +16,22 @@ function renderPageFromConfig(config) {
         document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl))) :
         document.body.append(fromHTML(generateHeroImageHTML(config.heroImageUrl)));
 
-    document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
+    if (config.title1 && config.title2 && config.projectOverviewText) {
+        document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
+    }
+
     if (config.beforeImg && config.afterImg) {
         document.body.append(fromHTML(generateBeforeAfterHeader()));
         createBeforeAfterComponent(config.beforeImg, config.afterImg);
     }
-    document.body.append(fromHTML(generateTheStorySection(config.storyText)));
-    createPhotoGridComponent(config.photoGridImages);
+
+    if (config.storyText) {
+        document.body.append(fromHTML(generateTheStorySection(config.storyText)));
+    }
+
+    if (config.photoGridImages) {
+        createPhotoGridComponent(config.photoGridImages);
+    }
 
     document.body.append(fromHTML(generateFooterHTML()));
 }
