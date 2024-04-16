@@ -615,7 +615,7 @@ function generateNavbarWithHamburgerHTML() {
         </div>
 
         <!-- Mobile --> 
-        <div class="md:hidden border-gray-200 text-white transition ease">
+        <div class="md:hidden border-gray-200 text-white">
             <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
