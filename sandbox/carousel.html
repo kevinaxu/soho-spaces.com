@@ -42,11 +42,7 @@
             "enableNavBarTransparentEffect": true,
         };
 
-        createNavbarComponent();
-        if (config.enableNavBarTransparentEffect) {
-            document.body.append(fromHTML(generatePixelAnchorHTML()));
-            initializeIntersectionObserver();
-        }
+        createNavbarComponent(config.enableNavBarTransparentEffect);
 
         document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl)));
         document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));

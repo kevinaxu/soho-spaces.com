@@ -524,13 +524,22 @@ function initializeFlowbiteCarousel(id, photos) {
  * 
  *********************************************/
 
+let enableTransparency = true;
 let topOfPage = true;
 let MOBILE_BREAKPOINT   = "36rem";
 let DESKTOP_BREAKPOINT  = "44rem";
 
-function createNavbarComponent() {
+function createNavbarComponent(transparent = true) {
+    enableTransparency = transparent;
     document.body.append(fromHTML(generateNavbarWithHamburgerHTML()));
     initializeFlowbiteNavbar();
+
+    if (enableTransparency) {
+        document.body.append(fromHTML(generatePixelAnchorHTML()));
+        initializeIntersectionObserver();
+    } else {
+        setNavbarSlate();
+    }
 }
 
 function initializeFlowbiteNavbar() {
@@ -681,8 +690,10 @@ function initializeIntersectionObserver() {
 //      if we're at further down the page (based on Intersection Observer), the navbar will be bg-slate-950
 // if we're on Desktop, then backgrouhnd color is only determined by position on page
 function updateNavbarBackgroundColor() {
-    if (topOfPage) setNavbarTransparent();
-    else setNavbarSlate();
+    if (enableTransparency) {
+        if (topOfPage) setNavbarTransparent();
+        else setNavbarSlate();
+    }
 }
 
 function setNavbarTransparent() {
