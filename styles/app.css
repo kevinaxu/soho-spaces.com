@@ -58,7 +58,7 @@
     .inner-block:after,
     .slider-top-right:before,
     .slider-top-right:after {
-        background-color: #fff;
+        background-color: rgb(231 229 228);
         content: '';
         display: block;
         position: absolute;

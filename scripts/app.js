@@ -37,7 +37,6 @@ function renderPageFromConfig(config) {
 }
 
 
-
 /**********************************************
  * 
  * Before / After Comparison Component
@@ -587,11 +586,11 @@ function initializeFlowbiteNavbar() {
 
 function generateNavbarWithHamburgerHTML() {
     return `
-    <div id="navbar" class="fixed z-20 w-full bg-transparent">
+    <div id="navbar" class="fixed z-20 w-full bg-transparent text-stone-200">
 
         <!-- Desktop --> 
-        <div class="hidden md:flex h-12 text-slate-100">
-            <div class="mt-5 text-xs md:flex md:w-1/4">
+        <div class="hidden md:flex h-12">
+            <div class="mt-4 text-md md:flex md:w-1/4">
                 <div class="w-full text-center">
                     <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
                 </div>
@@ -599,12 +598,12 @@ function generateNavbarWithHamburgerHTML() {
                     <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
                 </div>
             </div>
-            <div class="mt-1 w-full md:w-1/2">
-                <div class="w-full text-center text-3xl">
+            <div class="text-4xl w-full md:w-1/2">
+                <div class="w-full text-center">
                     <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
                 </div>
             </div>
-            <div class="mt-5 text-xs md:flex md:w-1/4">
+            <div class="mt-4 text-md md:flex md:w-1/4">
                 <div class="w-full text-center">
                     <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
                 </div>
@@ -615,7 +614,7 @@ function generateNavbarWithHamburgerHTML() {
         </div>
 
         <!-- Mobile --> 
-        <div class="md:hidden border-gray-200 text-white">
+        <div class="md:hidden border-gray-200">
             <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
