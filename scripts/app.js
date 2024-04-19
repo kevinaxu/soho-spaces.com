@@ -590,12 +590,12 @@ function generateNavbarWithHamburgerHTML() {
 
         <!-- Desktop --> 
         <div class="hidden md:flex h-12">
-            <div class="mt-4 text-md md:flex md:w-1/4">
+            <div class="mt-4 text-lg font-medium md:flex md:w-1/4">
                 <div class="w-full text-center">
-                    <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
+                    <a href="/#section-about-us" class="block h-full px-3">about</a>
                 </div>
                 <div class="w-full text-center">
-                    <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
+                    <a href="/portfolio.html" class="block h-full px-3">portfolio</a>
                 </div>
             </div>
             <div class="text-4xl w-full md:w-1/2">
@@ -603,19 +603,19 @@ function generateNavbarWithHamburgerHTML() {
                     <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
                 </div>
             </div>
-            <div class="mt-4 text-md md:flex md:w-1/4">
+            <div class="mt-4 text-lg font-medium md:flex md:w-1/4">
                 <div class="w-full text-center">
-                    <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
+                    <a href="/#section-our-services" class="block h-full px-3">services</a>
                 </div>
                 <div class="w-full text-center">
-                    <a href="/#section-contact-us" class="block h-full px-3">CONTACT</a>
+                    <a href="/#section-contact-us" class="block h-full px-3">contact</a>
                 </div>
             </div>
         </div>
 
         <!-- Mobile --> 
         <div class="md:hidden border-gray-200">
-            <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+            <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between px-4 py-2">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
                 </a>
@@ -881,7 +881,7 @@ function generateTheStorySection(text) {
 
 function generateFooterHTML() {
     return `
-    <div class="bg-stone-500 text-stone-200">
+    <div class="bg-stone-500 text-stone-200" style="font-family: 'Poiret One'">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 md:pt-8 md:pb-4">
             <div class="pb-4 md:flex md:justify-between">
             <div class="mb-8 md:mb-0">
@@ -891,46 +891,46 @@ function generateFooterHTML() {
             </div>
             <div class="grid grid-cols-2 gap-2 sm:gap-8">
                 <div>
-                    <h2 class="mb-6 text-xl font-semibold uppercase" style="font-family: 'Poiret One'">Explore</h2>
-                    <ul class="text-xs">
+                    <h2 class="mb-6 text-2xl font-semibold lowercase" style="font-family: 'Poiret One'">Explore</h2>
+                    <ul class="text-md">
                         <li class="mb-2">
-                            <a href="/portfolio/moody-romantic-bedroom" class="hover:underline">Moody Romantic</a>
+                            <a href="/portfolio/moody-romantic-bedroom" class="lowercase hover:underline">Moody Romantic</a>
                         </li>
                         <li class="mb-2">
-                            <a href="/portfolio/dark-academic-living-room" class="hover:underline">Dark Academia</a>
+                            <a href="/portfolio/dark-academic-living-room" class="lowercase hover:underline">Dark Academia</a>
                         </li>
                         <li class="mb-2">
-                            <a href="/portfolio/dark-academic-living-room" class="hover:underline">Modern Gothic</a>
+                            <a href="/portfolio/dark-academic-living-room" class="lowercase hover:underline">Modern Gothic</a>
                         </li>
                         <li>
-                            <a href="/portfolio/modern-gothic-kitchen" class="hover:underline">Reverse Orientalism</a>
+                            <a href="/portfolio/modern-gothic-kitchen" class="lowercase hover:underline">Reverse Orientalism</a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-xl font-semibold uppercase" style="font-family: 'Poiret One'">Contact Us</h2>
-                    <ul class="text-xs">
+                    <h2 class="mb-6 text-2xl font-semibold lowercase" style="font-family: 'Poiret One'">Contact Us</h2>
+                    <ul class="text-md">
                         <li class="mb-2">
                             <a href="mailto: hello@soho-spaces.com" class="hover:underline">
-                                <i class="fa-regular fa-envelope fa-lg pr-2"></i>
+                                <i class="fa-regular fa-envelope fa-sm pr-2"></i>
                                 hello@soho-spaces.com
                             </a>
                         </li>
                         <li class="mb-2">
                             <a href="tel:404-566-5796" class="hover:underline">
-                                <i class="fa-solid fa-phone fa-lg pr-2"></i>
+                                <i class="fa-solid fa-phone fa-sm pr-2"></i>
                                 404.566.5796
                             </a>
                         </li>
                         <li class="mb-2">
                             <a href="https://instagram.com" class="hover:underline">
-                                <i class="fa-brands fa-instagram fa-lg pr-2"></i>
+                                <i class="fa-brands fa-instagram fa-sm pr-2"></i>
                                 @sohospacesatl
                             </a>
                         </li>
                         <li>
                             <a href="https://pinterest.com/" class="hover:underline">
-                                <i class="fa fa-pinterest-square fa-lg pr-2"></i>
+                                <i class="fa fa-pinterest-square fa-sm pr-2"></i>
                                 @sohospacesatl
                             </a>
                         </li>
