@@ -53,71 +53,7 @@
         document.body.append(fromHTML(generateTheStorySection(config.storyText)));
         createPhotoGridComponent(config.photoGridImages);
 
-        const footerHTML = `
-            <div class="bg-stone-500 text-stone-200">
-                <div class="mx-auto w-full max-w-screen-xl p-4 py-6 md:pt-8 md:pb-4">
-                    <div class="pb-4 md:flex md:justify-between">
-                    <div class="mb-8 md:mb-0">
-                        <a href="https://soho-spaces.com/" class="flex items-center justify-center md:justify-start">
-                            <img class="h-24 md:h-36" src="../assets/soho_logo_white.svg" alt="Soho Spaces Logo" />
-                        </a>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 sm:gap-8">
-                        <div>
-                            <h2 class="mb-6 text-xl font-semibold uppercase" style="font-family: 'Poiret One'">Explore</h2>
-                            <ul class="text-xs">
-                                <li class="mb-2">
-                                    <a href="/portfolio/moody-romantic-bedroom" class="hover:underline">Moody Romantic</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="/portfolio/dark-academic-living-room" class="hover:underline">Dark Academia</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="/portfolio/dark-academic-living-room" class="hover:underline">Modern Gothic</a>
-                                </li>
-                                <li>
-                                    <a href="/portfolio/modern-gothic-kitchen" class="hover:underline">Reverse Orientalism</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h2 class="mb-6 text-xl font-semibold uppercase" style="font-family: 'Poiret One'">Contact Us</h2>
-                            <ul class="text-xs">
-                                <li class="mb-2">
-                                    <a href="mailto: hello@soho-spaces.com" class="hover:underline">
-                                        <i class="fa-regular fa-envelope fa-lg pr-2"></i>
-                                        hello@soho-spaces.com
-                                    </a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="tel:404-566-5796" class="hover:underline">
-                                        <i class="fa-solid fa-phone fa-lg pr-2"></i>
-                                        404.566.5796
-                                    </a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="https://instagram.com" class="hover:underline">
-                                        <i class="fa-brands fa-instagram fa-lg pr-2"></i>
-                                        @sohospacesatl
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://pinterest.com/" class="hover:underline">
-                                        <i class="fa fa-pinterest-square fa-lg pr-2"></i>
-                                        @sohospacesatl
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <hr class="my-4 border-stone-200 sm:mx-auto"/>
-                <div class="flex items-center justify-center sm:justify-between">
-                    <span class="text-sm sm:text-center">© 2020 <a href="https://soho-spaces.com/" class="hover:underline">Soho Spaces</a>. All Rights Reserved.
-                    </span>
-                </div>
-            </div>`;
-        document.body.append(fromHTML(footerHTML));
+        document.body.append(fromHTML(generateFooterHTML()));
 
     </script>
 
