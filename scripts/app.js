@@ -797,7 +797,7 @@ function generateHeroVideoHTML(video_url, mobile_url = null) {
     var video_url = (isMobile() && mobile_url) ? mobile_url : video_url;
     return `
     <div class="lg:h-auto">
-        <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-center" src="${video_url}" type="video/mp4"></video>
+        <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-center" src="${video_url}" type="video/mp4" onloadstart="this.playbackRate=0.5;"></video>
     </div>`;
 }
 
@@ -812,7 +812,7 @@ function generateProjectOverviewSection(t1, t2, text) {
     return `
     <div class="px-4 py-8 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
-            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2 md:pr-4" style="font-family: 'Homemade Apple'">${t1}</h1>
+            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom lowercase pr-2 md:pr-4" style="font-family: 'Homemade Apple'">${t1}</h1>
             <div class="text-xl md:text-4xl h-full inline">${t2}</div>
         </div>
         <div class="py-2">
