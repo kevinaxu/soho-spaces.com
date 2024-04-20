@@ -13,5 +13,8 @@
   },
   "author": "Kevin Xu",
   "license": "ISC",
-  "homepage": "https://github.com/kevinaxu/soho-spaces.com#readme"
+  "homepage": "https://github.com/kevinaxu/soho-spaces.com#readme",
+  "devDependencies": {
+    "sharp": "^0.33.3"
+  }
 }
