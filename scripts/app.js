@@ -886,7 +886,7 @@ function generateFooterHTML() {
             <div class="pb-4 md:flex md:justify-between">
             <div class="mb-8 md:mb-0">
                 <a href="https://soho-spaces.com/" class="flex items-center justify-center md:justify-start">
-                    <img class="h-24 md:h-36" src="../assets/soho_logo_white.svg" alt="Soho Spaces Logo" />
+                    <img class="h-24 md:h-36" src="../assets/assets/soho_logo_white.svg" alt="Soho Spaces Logo"/>
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-2 sm:gap-8">
