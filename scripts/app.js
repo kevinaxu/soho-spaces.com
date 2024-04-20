@@ -897,13 +897,13 @@ function generateFooterHTML() {
                             <a href="/portfolio/moody-romantic-bedroom" class="lowercase hover:underline">Moody Romantic</a>
                         </li>
                         <li class="mb-2">
-                            <a href="/portfolio/dark-academic-living-room" class="lowercase hover:underline">Dark Academia</a>
+                            <a href="/portfolio/dark-academia-living-room" class="lowercase hover:underline">Dark Academia</a>
                         </li>
                         <li class="mb-2">
-                            <a href="/portfolio/dark-academic-living-room" class="lowercase hover:underline">Modern Gothic</a>
+                            <a href="/portfolio/modern-gothic-kitchen" class="lowercase hover:underline">Modern Gothic</a>
                         </li>
                         <li>
-                            <a href="/portfolio/modern-gothic-kitchen" class="lowercase hover:underline">Reverse Orientalism</a>
+                            <a href="/portfolio/east-meets-west" class="lowercase hover:underline">East Meets West</a>
                         </li>
                     </ul>
                 </div>
