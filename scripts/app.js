@@ -13,7 +13,7 @@ function renderPageFromConfig(config) {
     }
 
     (config.heroVideoUrl) ?
-        document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl))) :
+        document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl, config.heroVideoMobileUrl))) :
         document.body.append(fromHTML(generateHeroImageHTML(config.heroImageUrl)));
 
     if (config.title1 && config.title2 && config.projectOverviewText) {
@@ -592,30 +592,30 @@ function generateNavbarWithHamburgerHTML() {
         <div class="hidden md:flex h-12">
             <div class="mt-4 text-lg font-medium md:flex md:w-1/4">
                 <div class="w-full text-center">
-                    <a href="/#section-about-us" class="block h-full px-3">about</a>
+                    <a href="/#section-about-us" class="block h-full px-3 hover:underline">about</a>
                 </div>
                 <div class="w-full text-center">
-                    <a href="/portfolio.html" class="block h-full px-3">portfolio</a>
+                    <a href="/portfolio.html" class="block h-full px-3 hover:underline">portfolio</a>
                 </div>
             </div>
             <div class="text-4xl w-full md:w-1/2">
                 <div class="w-full text-center">
-                    <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
+                    <a href="/" class="block h-full px-3 hover:underline" style="font-family: 'Poiret One'">soho spaces</a>
                 </div>
             </div>
             <div class="mt-4 text-lg font-medium md:flex md:w-1/4">
                 <div class="w-full text-center">
-                    <a href="/#section-our-services" class="block h-full px-3">services</a>
+                    <a href="/#section-our-services" class="block h-full px-3 hover:underline">services</a>
                 </div>
                 <div class="w-full text-center">
-                    <a href="/#section-contact-us" class="block h-full px-3">contact</a>
+                    <a href="/#section-contact-us" class="block h-full px-3 hover:underline">contact</a>
                 </div>
             </div>
         </div>
 
         <!-- Mobile --> 
         <div class="md:hidden border-gray-200">
-            <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between px-4 py-2">
+            <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between px-4 py-1">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <div class="text-3xl" style="font-family: 'Poiret One'">soho spaces</div>
                 </a>
@@ -625,48 +625,21 @@ function generateNavbarWithHamburgerHTML() {
                     </svg>
                 </button>
                 <div class="hidden w-full" id="navbar-hamburger">
-                    <ul class="mt-4 flex flex-col text-md text-center">
+                    <ul class="mt-4 flex flex-col text-lg font-medium text-center">
                         <li>
-                            <a href="/#section-about-us" class="block px-3 py-4 uppercase hover:underline" aria-current="page" onclick="collapseNavbar()">About</a>
+                            <a href="/#section-about-us" class="block px-3 py-2 hover:underline" aria-current="page" onclick="collapseNavbar()">about</a>
                         </li>
                         <li>
-                            <a href="/portfolio.html" class="block px-3 py-4 uppercase hover:underline">Portfolio</a>
+                            <a href="/portfolio.html" class="block px-3 py-2 hover:underline">portfolio</a>
                         </li>
                         <li>
-                            <a href="/#section-our-services" class="block px-3 py-4 uppercase hover:underline" onclick="collapseNavbar()">Services</a>
+                            <a href="/#section-our-services" class="block px-3 py-2 hover:underline" onclick="collapseNavbar()">services</a>
                         </li>
                         <li>
-                            <a href="/#section-contact-us" class="block px-3 py-4 uppercase hover:underline" onclick="collapseNavbar()">Contact Us</a>
+                            <a href="/#section-contact-us" class="block px-3 py-2 hover:underline" onclick="collapseNavbar()">contact</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </div>`;
-}
-
-function generateNavbarHTML() {
-    return `
-    <div id="navbar" class="fixed z-20 flex h-12 w-full bg-slate-950 text-slate-100">
-        <div class="mt-5 hidden text-xs md:flex md:w-1/4">
-            <div class="w-full text-center">
-                <a href="/#section-about-us" class="block h-full px-3">ABOUT</a>
-            </div>
-            <div class="w-full text-center">
-                <a href="/portfolio.html" class="block h-full px-3">PORTFOLIO</a>
-            </div>
-        </div>
-        <div class="mt-1 w-full md:w-1/2">
-            <div class="w-full text-center text-3xl">
-                <a href="/" class="block h-full px-3" style="font-family: 'Poiret One'">soho spaces</a>
-            </div>
-        </div>
-        <div class="mt-5 hidden text-xs md:flex md:w-1/4">
-            <div class="w-full text-center">
-                <a href="/#section-our-services" class="block h-full px-3">SERVICES</a>
-            </div>
-            <div class="w-full text-center">
-                <a href="/#section-contact-us" class="block h-full px-3">CONTACT</a>
             </div>
         </div>
     </div>`;
@@ -820,7 +793,8 @@ function generateCarouselHTML(id, photos) {
  * 
  *********************************************/
 
-function generateHeroVideoHTML(video_url) {
+function generateHeroVideoHTML(video_url, mobile_url = null) {
+    var video_url = (isMobile() && mobile_url) ? mobile_url : video_url;
     return `
     <div class="lg:h-auto">
         <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-center" src="${video_url}" type="video/mp4"></video>
@@ -852,11 +826,11 @@ function generateBeforeAfterHeader() {
     return `
     <div class="px-4 py-2 md:px-0 md:mx-auto md:max-w-4xl">
         <div class="py-2 md:py-4">
-            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2" style="font-family: 'Homemade Apple'">before</h1>
-            <div class="text-xl md:text-4xl h-full inline">+ after</div>
+            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2">before +</h1>
+            <div class="text-xl md:text-4xl h-full inline" style="font-family: 'Homemade Apple'">after</div>
         </div>
-        <div class="flex justify-between items-center">
-            <p class="leading-relaxed md:text-lg">slide to see transformation</p>
+        <div class="flex items-center">
+            <p class="pr-4 leading-relaxed md:text-lg">slide to see transformation</p>
             <svg class="align-middle" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
                 <path d="m21.883 12-7.527 6.235L15 19l9-7.521L15 4l-.645.764L21.884 11H0v1h21.883z"/>
                 <script/>
@@ -889,8 +863,8 @@ function generateFooterHTML() {
                     <img class="h-24 md:h-36" src="../assets/assets/soho_logo_white.svg" alt="Soho Spaces Logo"/>
                 </a>
             </div>
-            <div class="grid grid-cols-2 gap-2 sm:gap-8">
-                <div>
+            <div class="grid grid-cols-5 gap-4 md:grid-cols-2 md:gap-8">
+                <div class="col-span-2 md:col-span-1">
                     <h2 class="mb-6 text-2xl font-semibold lowercase" style="font-family: 'Poiret One'">Explore</h2>
                     <ul class="text-md">
                         <li class="mb-2">
@@ -907,7 +881,7 @@ function generateFooterHTML() {
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div class="col-span-3 md:col-span-1">
                     <h2 class="mb-6 text-2xl font-semibold lowercase" style="font-family: 'Poiret One'">Contact Us</h2>
                     <ul class="text-md">
                         <li class="mb-2">
