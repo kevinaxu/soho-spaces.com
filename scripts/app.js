@@ -813,7 +813,7 @@ function generateProjectOverviewSection(t1, t2, text) {
     <div class="px-4 py-8 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
             <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom lowercase pr-2 md:pr-4" style="font-family: 'Homemade Apple'">${t1}</h1>
-            <div class="text-xl md:text-4xl h-full inline">${t2}</div>
+            <div class="text-xl md:text-4xl h-full inline lowercase">${t2}</div>
         </div>
         <div class="py-2">
             <p class="leading-relaxed md:text-lg md:leading-loose">${text}</p>
