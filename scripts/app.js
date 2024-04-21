@@ -855,7 +855,7 @@ function generateTheStorySection(text) {
 
 function generateFooterHTML() {
     return `
-    <div class="bg-stone-500 text-stone-200" style="font-family: 'Poiret One'">
+    <div class="bg-stone-500 text-stone-200 mt-8 md:mt-16" style="font-family: 'Poiret One'">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 md:pt-8 md:pb-4">
             <div class="pb-4 md:flex md:justify-between">
             <div class="mb-8 md:mb-0">
