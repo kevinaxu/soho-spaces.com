@@ -303,30 +303,30 @@ function generatePhotoGridDesktopHTML(id, photos) {
     <div id="${id}" class="md:mx-auto md:max-w-4xl">
 
         <!-- 2 Col with Vertical Photos-->
-        <section class="pb-4 px-4">
-            <div class="flex flex-wrap -mx-4">
-                <div class="md:w-2/5 h-auto pr-4">
-                    <div class="mb-4">
-                        <img class="md:hover:cursor-pointer" src="${photos[0]}" alt="">
+        <section class="pb-4 px-4 h-3/4">
+            <div class="flex flex-wrap -mx-4 h-full">
+                <div class="md:w-2/5 h-full pr-4">
+                    <div class="h-1/2 pb-2">
+                        <img class="h-full w-full object-cover md:hover:cursor-pointer" src="${photos[0]}" alt="">
                     </div>
-                    <div>
-                        <img class="md:hover:cursor-pointer" src="${photos[1]}" alt="">
+                    <div class="h-1/2 pt-2">
+                        <img class="h-full w-full object-cover md:hover:cursor-pointer" src="${photos[1]}" alt="">
                     </div>
                 </div>
-                <div class="hidden md:block md:w-3/5">
-                    <img class="md:w-full md:min-h-full md:object-cover md:hover:cursor-pointer" src="${photos[2]}" alt="">
+                <div class="hidden md:block md:w-3/5 h-full">
+                    <img class="h-full md:w-full md:min-h-full md:object-cover md:hover:cursor-pointer" src="${photos[2]}" alt="">
                 </div>
             </div>
         </section>
 
         <!-- Two Photo -->
-        <section class="pb-4 px-4">
+        <section class="pb-4 px-4 h-3/4">
             <div class="flex flex-wrap -mx-4 h-full">
-                <div class="md:w-1/2 pr-2 mb-2 md:mb-0 h-full">
-                    <img class="h-full object-cover w-full md:hover:cursor-pointer" src="${photos[3]}" alt="">
+                <div class="h-full md:w-1/2 pr-2 mb-2 md:mb-0">
+                    <img width="1200" height="1800" class="object-cover h-full w-full md:hover:cursor-pointer" src="${photos[3]}" alt="">
                 </div>
-                <div class="md:w-1/2 pl-2 mb-2 md:mb-0 h-full">
-                    <img class="h-full object-cover md:hover:cursor-pointer" src="${photos[4]}" alt="">
+                <div class="h-full md:w-1/2 pl-2 mb-2 md:mb-0">
+                    <img width="1200" height="1800" class="object-cover h-full w-full md:hover:cursor-pointer" src="${photos[4]}" alt="">
                 </div>
             </div>
         </section>

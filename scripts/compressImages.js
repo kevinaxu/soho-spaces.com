@@ -5,7 +5,7 @@ const path = require('path');
 
 
 const compressionOptions = {    // JPG - compression options 
-    quality: 100                 // Adjust the quality as needed (0-100)
+    quality: 90                 // Adjust the quality as needed (0-100)
 };
 const conversionOptions = {        // WebP - conversion options
     quality: 80                 // Adjust the quality as needed (0-100)
