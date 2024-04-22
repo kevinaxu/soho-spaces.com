@@ -14,7 +14,7 @@ function renderPageFromConfig(config) {
 
     (config.heroVideoUrl) ?
         document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl, config.heroVideoMobileUrl))) :
-        document.body.append(fromHTML(generateHeroImageHTML(config.heroImageUrl)));
+        document.body.append(fromHTML(generateHeroImageHTML(config.heroImageUrl, config.heroImageMobileUrl)));
 
     if (config.title1 && config.title2 && config.projectOverviewText) {
         document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
@@ -76,10 +76,10 @@ function generateBeforeAfterHTML(id, beforeImage, afterImage) {
         <div class="image-container md:h-[44rem]">
             <div id="${id}" class="before-after-slider">
                 <div class="before-image">
-                    <img class="slider-image" src=${beforeImage} alt=""/>
+                    <img class="slider-image" src=${beforeImage} loading="lazy" alt=""/>
                 </div>
                 <div class="after-image">
-                    <img class="slider-image" src=${afterImage} alt=""/>
+                    <img class="slider-image" src=${afterImage} loading="lazy" alt=""/>
                 </div>
                 <div class="resizer"></div>
             </div>
@@ -254,14 +254,14 @@ function generatePhotoGridWrapperHTML(id, innerHTML) {
 function generatePhotoGrid6HTML(photos) {
     return `
         <div class="grid gap-4 overflow-auto">
-            <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt=""></div>
-            <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt=""></div>
-            <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt=""></div>
+            <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" loading="lazy" alt=""></div>
+            <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" loading="lazy" alt=""></div>
+            <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" loading="lazy" alt=""></div>
         </div>
         <div class="grid gap-4">
-            <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt=""></div>
-            <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[4]}" alt=""></div>
-            <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[5]}" alt=""></div>
+            <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" loading="lazy" alt=""></div>
+            <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[4]}" loading="lazy" alt=""></div>
+            <div><img class="h-32 w-52 max-w-full rounded-lg object-cover" src="${photos[5]}" loading="lazy" alt=""></div>
         </div>
     `;
 }
@@ -309,14 +309,14 @@ function generatePhotoGrid6DesktopHTML(photos) {
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="md:w-2/5 h-full pr-4">
                     <div class="h-1/2 pb-2">
-                        <img class="h-full w-full object-cover md:hover:cursor-pointer" src="${photos[0]}" alt="">
+                        <img class="h-full w-full object-cover md:hover:cursor-pointer" src="${photos[0]}" loading="lazy" alt="">
                     </div>
                     <div class="h-1/2 pt-2">
-                        <img class="h-full w-full object-cover md:hover:cursor-pointer" src="${photos[1]}" alt="">
+                        <img class="h-full w-full object-cover md:hover:cursor-pointer" src="${photos[1]}" loading="lazy" alt="">
                     </div>
                 </div>
                 <div class="hidden md:block md:w-3/5 h-full">
-                    <img class="h-full md:w-full md:min-h-full md:object-cover md:hover:cursor-pointer" src="${photos[2]}" alt="">
+                    <img class="h-full md:w-full md:min-h-full md:object-cover md:hover:cursor-pointer" src="${photos[2]}" loading="lazy" alt="">
                 </div>
             </div>
         </section>
@@ -325,10 +325,10 @@ function generatePhotoGrid6DesktopHTML(photos) {
         <section class="pb-4 px-4 h-3/4">
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="h-full md:w-1/2 pr-2 mb-2 md:mb-0">
-                    <img width="1200" height="1800" class="object-cover h-full w-full md:hover:cursor-pointer" src="${photos[3]}" alt="">
+                    <img width="1200" height="1800" class="object-cover h-full w-full md:hover:cursor-pointer" src="${photos[3]}" loading="lazy" alt="">
                 </div>
                 <div class="h-full md:w-1/2 pl-2 mb-2 md:mb-0">
-                    <img width="1200" height="1800" class="object-cover h-full w-full md:hover:cursor-pointer" src="${photos[4]}" alt="">
+                    <img width="1200" height="1800" class="object-cover h-full w-full md:hover:cursor-pointer" src="${photos[4]}" loading="lazy" alt="">
                 </div>
             </div>
         </section>
@@ -337,7 +337,7 @@ function generatePhotoGrid6DesktopHTML(photos) {
         <section class="pb-4 px-4 h-3/4">
             <div class="flex flex-wrap -mx-4 h-full">
                 <div class="mb-2 md:mb-0 h-full w-full block">
-                    <img class="w-full object-cover h-full md:hover:cursor-pointer" src="${photos[5]}" alt="">
+                    <img class="w-full object-cover h-full md:hover:cursor-pointer" src="${photos[5]}" loading="lazy" alt="">
                 </div>
             </div>
         </section>
@@ -802,7 +802,8 @@ function generateHeroVideoHTML(video_url, mobile_url = null) {
     </div>`;
 }
 
-function generateHeroImageHTML(image_url) {
+function generateHeroImageHTML(image_url, mobile_url = null) {
+    var image_url = (isMobile() && mobile_url) ? mobile_url : image_url;
     return `
     <div class="lg:h-auto">
         <img class="object-cover object-center h-full w-full" src="${image_url}" alt="">
@@ -814,6 +815,7 @@ function generateProjectOverviewSection(t1, t2, text) {
     <div class="px-4 py-8 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
             <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom lowercase pr-2 md:pr-4" style="font-family: 'Homemade Apple'">${t1}</h1>
+            <span class="md:hidden"><br></span>
             <div class="text-xl md:text-4xl h-full inline lowercase">${t2}</div>
         </div>
         <div class="py-2">

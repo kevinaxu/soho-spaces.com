@@ -169,17 +169,13 @@
 
 .resizer:after {
     background: white;
-    font-family: "Font Awesome 5 Free";
-    content: '\f337';
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' width='20' height='20' viewBox='0 0 512 512'%3E%3Cpath d='M504.3 273.6c4.9-4.5 7.7-10.9 7.7-17.6s-2.8-13-7.7-17.6l-112-104c-7-6.5-17.2-8.2-25.9-4.4s-14.4 12.5-14.4 22l0 56-192 0 0-56c0-9.5-5.7-18.2-14.4-22s-18.9-2.1-25.9 4.4l-112 104C2.8 243 0 249.3 0 256s2.8 13 7.7 17.6l112 104c7 6.5 17.2 8.2 25.9 4.4s14.4-12.5 14.4-22l0-56 192 0 0 56c0 9.5 5.7 18.2 14.4 22s18.9 2.1 25.9-4.4l112-104z'/%3E%3C/svg%3E");
     font-weight: 900;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: gray;
     position: absolute;
     margin: 0 0 0 -8px;
-    width: 20px;
-    height: 20px;
     border-radius: 50%;
     border: 3px solid white;
 }
