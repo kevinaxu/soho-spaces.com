@@ -210,7 +210,7 @@ function generatePhotoGridHTML(photoGridId, photos) {
 
 /**
  * Generates the HTML for a photo grid
- * Supports any mulitple of 4 or 6 photos
+ * Supports any mulitple of 6 photos
  *
  * @param {string} id - The ID of the container element.
  * @param {string[]} photos - An array of photo URLs.
@@ -223,13 +223,8 @@ function generatePhotoGridMobileHTML(id, photos) {
             HTML += generatePhotoGrid6HTML(photos.slice(i * 6, i * 6 + 6));
         }
         return generatePhotoGridWrapperHTML(id, HTML);
-    } else if (photos.length % 4 === 0) {
-        for (var i = 0; i < (photos.length / 4); i++) {
-            HTML += generatePhotoGrid4HTML(photos.slice(i * 4, i * 4 + 4));
-        }
-        return generatePhotoGridWrapperHTML(id, HTML);
     } else {
-        alert("Photo Grid supports only multiples of 4 or 6 photos");
+        alert("Photo Grid supports only multiples of 6 photos");
         return "<div></div>";
     }
 }
@@ -248,25 +243,6 @@ function generatePhotoGridWrapperHTML(id, innerHTML) {
             ${innerHTML}
         </div>
     </div>`;
-}
-
-/**
- * Generates the HTML for a photo grid with 4 photos
- *
- * @param {string[]} photos - An array of photo URLs.
- * @returns {string} The generated HTML for the photo grid.
- */
-function generatePhotoGrid4HTML(photos) {
-    return `
-        <div class="grid gap-4 overflow-auto">
-            <div><img class="h-56 w-52 max-w-full rounded-lg object-cover" src="${photos[0]}" alt=""></div>
-            <div><img class="h-36 w-52 max-w-full rounded-lg object-cover" src="${photos[1]}" alt=""></div>
-        </div>
-        <div class="grid gap-4">
-            <div><img class="h-44 w-52 max-w-full rounded-lg object-cover" src="${photos[2]}" alt=""></div>
-            <div><img class="h-48 w-52 max-w-full rounded-lg object-cover" src="${photos[3]}" alt=""></div>
-        </div>
-    `;
 }
 
 /**
@@ -290,7 +266,6 @@ function generatePhotoGrid6HTML(photos) {
     `;
 }
 
-
 /**
  * Generates the HTML for a photo grid on desktop view.
  * 
@@ -299,9 +274,36 @@ function generatePhotoGrid6HTML(photos) {
  * @returns {string} The generated HTML.
  */
 function generatePhotoGridDesktopHTML(id, photos) {
+    var HTML = "";
+    const chunkSize = 6;
+    for (let i = 0; i < photos.length; i += chunkSize) {
+        let photosSubset = photos.slice(i, i + chunkSize);
+        HTML += generatePhotoGrid6DesktopHTML(photosSubset);
+    }
+    return generatePhotoGridWrapperDesktopHTML(id, HTML);
+}
+
+/**
+ * Generates the HTML for the desktop version of the photo grid wrapper.
+ *
+ * @param {string} id - The ID of the wrapper element.
+ * @param {string} innerHTML - The inner HTML content of the wrapper element.
+ * @returns {string} The generated HTML for the desktop photo grid wrapper.
+ */
+function generatePhotoGridWrapperDesktopHTML(id, innerHTML) {
     return `
     <div id="${id}" class="md:mx-auto md:max-w-4xl">
+        ${innerHTML}
+    </div>`;
+}
 
+/**
+ * Generates the HTML for a photo grid layout on desktop devices.
+ * @param {string[]} photos - An array of photo URLs.
+ * @returns {string} The generated HTML for the photo grid layout.
+ */
+function generatePhotoGrid6DesktopHTML(photos) {
+    return `
         <!-- 2 Col with Vertical Photos-->
         <section class="pb-4 px-4 h-3/4">
             <div class="flex flex-wrap -mx-4 h-full">
@@ -339,7 +341,6 @@ function generatePhotoGridDesktopHTML(id, photos) {
                 </div>
             </div>
         </section>
-    </div>
     `;
 }
 
