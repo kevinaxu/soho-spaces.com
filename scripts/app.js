@@ -880,7 +880,7 @@ function generateFooterHTML() {
                             <a href="/portfolio/modern-gothic-kitchen" class="lowercase hover:underline">Modern Gothic</a>
                         </li>
                         <li>
-                            <a href="/portfolio/east-meets-west" class="lowercase hover:underline">East Meets West</a>
+                            <a href="/portfolio/east-meets-west-entryway" class="lowercase hover:underline">East Meets West</a>
                         </li>
                     </ul>
                 </div>
