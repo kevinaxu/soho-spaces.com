@@ -24,6 +24,9 @@ function renderPageFromConfig(config) {
         document.body.append(fromHTML(generateBeforeAfterHeader()));
         createBeforeAfterComponent(config.beforeImg, config.afterImg);
     }
+    if (config.beforeImg2 && config.afterImg2) {
+        createBeforeAfterComponent(config.beforeImg2, config.afterImg2);
+    }
 
     if (config.photoGridImages) {
         document.body.append(fromHTML(generateTheDetailsHeader()));
