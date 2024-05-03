@@ -26,6 +26,7 @@ function renderPageFromConfig(config) {
     }
 
     if (config.photoGridImages) {
+        document.body.append(fromHTML(generateTheDetailsHeader()));
         createPhotoGridComponent(config.photoGridImages);
     }
 
@@ -72,7 +73,7 @@ function createBeforeAfterComponent(beforeImage, afterImage) {
  */
 function generateBeforeAfterHTML(id, beforeImage, afterImage) {
     return `
-    <div class="slider-container px-4 md:px-0 md:mx-auto md:max-w-4xl">
+    <div class="slider-container px-4 md:px-0 pb-4 md:mx-auto md:max-w-4xl">
         <div class="image-container md:h-[44rem]">
             <div id="${id}" class="before-after-slider">
                 <div class="before-image">
@@ -199,7 +200,7 @@ function createPhotoGridComponent(photos) {
 function generatePhotoGridHTML(photoGridId, photos) {
     return `
     <div id=${photoGridId}>
-        <div class="hidden md:block">
+        <div class="hidden md:block pb-8">
             ${generatePhotoGridDesktopHTML(photoGridId, photos)}
         </div>
         <div class="md:hidden">
@@ -825,6 +826,16 @@ function generateProjectOverviewSection(t1, t2, text) {
     `;
 }
 
+function generateTheDetailsHeader() {
+    return `
+    <div class="px-4 pt-8 md:pb-2 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
+        <div class="py-2">
+            <div class="text-xl md:text-4xl pr-2 h-full inline">the</div>
+            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2" style="font-family: 'Homemade Apple'">details</h1>
+        </div>
+    </div>`;
+}
+
 function generateBeforeAfterHeader() {
     return `
     <div class="px-4 py-2 md:px-0 md:mx-auto md:max-w-4xl">
@@ -845,7 +856,7 @@ function generateBeforeAfterHeader() {
 
 function generateTheStorySection(text) {
     return `
-    <div class="px-4 py-8 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
+    <div class="px-4 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
             <div class="text-xl md:text-4xl pr-2 h-full inline">the</div>
             <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2" style="font-family: 'Homemade Apple'">story</h1>
