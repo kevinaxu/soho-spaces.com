@@ -25,12 +25,12 @@ function renderPageFromConfig(config) {
         createBeforeAfterComponent(config.beforeImg, config.afterImg);
     }
 
-    if (config.storyText) {
-        document.body.append(fromHTML(generateTheStorySection(config.storyText)));
-    }
-
     if (config.photoGridImages) {
         createPhotoGridComponent(config.photoGridImages);
+    }
+
+    if (config.storyText) {
+        document.body.append(fromHTML(generateTheStorySection(config.storyText)));
     }
 
     document.body.append(fromHTML(generateFooterHTML()));
