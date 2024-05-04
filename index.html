@@ -35,10 +35,9 @@
 
     <script>
         createNavbarComponent();
-        document.body.append(fromHTML(generateHeroVideoHTML(
-            "/assets/assets/home/IMG_9386.mp4",
-            "/assets/assets/home/hero_video_portrait.mp4"
-        )));
+        (isMobile()) ?
+            document.body.append(fromHTML(generateHeroHTML("/assets/assets/home/hero_video_portrait.mp4"))) :
+            document.body.append(fromHTML(generateHeroHTML("/assets/assets/home/IMG_9386.mp4",)));
     </script>
 
     <!-- 2-Column Layout - Mobile Left Section flows UP  -->
