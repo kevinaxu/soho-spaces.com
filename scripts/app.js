@@ -12,9 +12,11 @@ function renderPageFromConfig(config) {
         initializeIntersectionObserver();
     }
 
-    (config.heroVideoUrl) ?
-        document.body.append(fromHTML(generateHeroVideoHTML(config.heroVideoUrl, config.heroVideoMobileUrl))) :
-        document.body.append(fromHTML(generateHeroImageHTML(config.heroImageUrl, config.heroImageMobileUrl)));
+    if (config.heroMedia) {
+        (isMobile()) ?
+            document.body.append(fromHTML(generateHeroHTML(config.heroMedia.mobile))) :
+            document.body.append(fromHTML(generateHeroHTML(config.heroMedia.desktop)));
+    }
 
     if (config.title1 && config.title2 && config.projectOverviewText) {
         document.body.append(fromHTML(generateProjectOverviewSection(config.title1, config.title2, config.projectOverviewText)));
@@ -798,16 +800,24 @@ function generateCarouselHTML(id, photos) {
  * 
  *********************************************/
 
-function generateHeroVideoHTML(video_url, mobile_url = null) {
-    var video_url = (isMobile() && mobile_url) ? mobile_url : video_url;
+function generateHeroHTML(url) {
+    if (url.includes(".mp4")) {
+        return generateHeroVideoHTML(url); 
+    } else if (url.includes(".jpeg") || url.includes(".jpg") || url.includes(".png")) {
+        return generateHeroImageHTML(url);
+    } else {
+        return `<div></div>`;
+    }
+}
+
+function generateHeroVideoHTML(video_url) {
     return `
     <div class="lg:h-auto">
         <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-center" src="${video_url}" type="video/mp4" onloadstart="this.playbackRate=0.5;"></video>
     </div>`;
 }
 
-function generateHeroImageHTML(image_url, mobile_url = null) {
-    var image_url = (isMobile() && mobile_url) ? mobile_url : image_url;
+function generateHeroImageHTML(image_url) {
     return `
     <div class="lg:h-auto">
         <img class="object-cover object-center h-full w-full" src="${image_url}" alt="">
