@@ -813,7 +813,7 @@ function generateHeroHTML(url) {
 function generateHeroVideoHTML(video_url) {
     return `
     <div class="lg:h-auto">
-        <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-center" src="${video_url}" type="video/mp4" onloadstart="this.playbackRate=0.5;"></video>
+        <video id="hero-video" autoplay loop  muted playsinline class="h-screen w-full object-cover object-top" src="${video_url}" type="video/mp4" onloadstart="this.playbackRate=0.5;"></video>
     </div>`;
 }
 
