@@ -869,7 +869,7 @@ function generateBeforeAfterHeader() {
 
 function generateTheStorySection(text) {
     return `
-    <div class="px-4 md:px-0 md:mt-8 md:mx-auto md:max-w-4xl">
+    <div class="px-4 md:px-0 pb-16 md:mt-8 md:mx-auto md:max-w-4xl">
         <div class="py-2">
             <div class="text-xl md:text-4xl pr-2 h-full inline">the</div>
             <h1 class="text-2xl md:text-4xl font-bold text-gray-900 italic inline align-bottom pr-2" style="font-family: 'Homemade Apple'">story</h1>
@@ -882,7 +882,7 @@ function generateTheStorySection(text) {
 
 function generateFooterHTML() {
     return `
-    <div class="bg-stone-500 text-stone-200 mt-8 md:mt-16" style="font-family: 'Poiret One'">
+    <div class="bg-stone-500 text-stone-200 pt-8 md:pt-16" style="font-family: 'Poiret One'">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 md:pt-8 md:pb-4">
             <div class="pb-4 md:flex md:justify-between">
             <div class="mb-8 md:mb-0">
