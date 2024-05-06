@@ -31,7 +31,7 @@
     </style>
 </head>
 
-<body id="section-body" class="bg-stone-200" style="font-family: 'Comfortaa'">
+<body id="section-body" class="bg-stone-300 text-slate-950" style="font-family: 'Comfortaa'">
 
     <script>
         createNavbarComponent();
@@ -40,41 +40,57 @@
             document.body.append(fromHTML(generateHeroHTML("/assets/assets/dark-academia/hero_video.mp4",)));
     </script>
 
-    <!-- 2-Column Layout - Mobile Left Section flows UP  -->
-    <!-- "your space should tell your story" -->
-    <div class="hidden w-full bg-stone-200 md:block md:h-12"></div>
-    <div class="flex h-3/4">
-        <div class="flex flex-col items-center justify-center bg-slate-950 md:flex-row">
-            <div class="flex h-full w-full basis-1/2 flex-col md:basis-3/5">
-                <div class="basis-1/2 bg-stone-200 py-16 text-black md:py-0">
-                    <div class="m-8 md:mt-0 text-center md:w-3/4 md:pl-8">
-                        <div class="text-8xl md:pr-4" style="font-family: 'Yomogi'">相補</div>
-                        <div class="text-7xl pt-4 font-semibold" style="font-family: 'Poiret One'">soho</div>
-                        <div class="text-2xl pt-4">[sō-ho] • <span class="italic">Japanese</span></div>
-                        <div class="mt-8 text-md">(n.) complementarity; the bringing together of seemingly contradictory elements in order to achieve absoluteness. </div>    
-                    </div>
-                </div>
-                <div class="basis-1/2 bg-slate-950 py-24 text-stone-200 md:py-0">
-                    <div class="m-8 md:mt-16 text-center text-4xl/loose md:w-3/4 md:pl-8">
-                        <div class="md:pr-4">your <span style="font-family: 'Homemade Apple'">space</span><br/> should tell your</div>
-                        <div class="text-6xl pt-4" style="font-family: 'Homemade Apple'">story</div>
+    <!-- 2-Column Layout - Mobile Left Section flows DOWN  -->
+    <!-- "Soho - Definition" -->
+    <div id="section-soho-definition" class="flex h-3/4 md:my-16 my-8 md:h-3/4">
+        <div class="flex flex-col items-center md:items-start justify-center md:flex-row">
+            <div class="mx-16 md:mx-0 md:pl-16 w-full basis-1/2">
+                <div class="basis-1/2">
+                    <div class="m-8 md:mx-8 text-center">
+                        <div class="text-8xl md:text-9xl mb-8" style="font-family: 'Yomogi'">相補</div>
+                        <div class="text-7xl md:text-8xl pt-4 font-semibold" style="font-family: 'Poiret One'">soho</div>
+                        <div class="text-3xl md:text-4xl pt-4">[sō-ho] • <span class="italic">Japanese</span></div>
+                        <div class="mt-8 text-lg md:text-xl">(n.) complementarity; the bringing together of seemingly contradictory elements in order to achieve absoluteness. </div>    
                     </div>
                 </div>
             </div>
-            <div class="m-8 basis-1/2 md:m-0 md:mx-auto md:h-full md:w-full md:basis-2/5">
-                <a href="/portfolio/modern-gothic-kitchen.html">
-
-                    <div class="container-block md:h-full">
-                        <img class="object-cover md:h-full" width="600" height="900" src="../assets/assets/dark-academia/IMG_0008.jpeg" alt=""/>
-                        <div class="inner-block">
-                            <div class="slider-top-right"></div>
-                        </div>
-                    </div>
-                </a>
+            <div class="w-full basis-1/2 py-8 md:py-0">
+                <div class="mx-8 my-8 md:my-0">
+                    <img class="md:max-h-[40rem] rounded-[2.5rem] object-cover mx-auto" src="../assets/assets/dark-academia/IMG_0008.jpeg" alt="">
+                </div>
             </div>
         </div>
     </div>
-    <div class="hidden w-full bg-slate-950 md:block md:h-12"></div>
+
+
+    <!-- 2-Column Layout - Mobile Left Section flows UP  -->
+    <!-- "Your Space Should Tell Your Story" -->
+    <div class="bg-[url('/assets/assets/moody-romantic/IMG_0008.jpeg')] bg-cover md:bg-bottom bg-center">
+        <a href="/portfolio/moody-romantic-bedroom">
+            <div class="wrap h-[40rem] md:h-[44rem] w-full">
+                <div class="pt-52 md:h-full md:grid md:grid-cols-10 md:pt-0 md:text-stone-200">
+                    <div class="col-span-6 col-start-1 row-span-full hidden self-center md:block">
+                    </div>
+                    <div class="col-span-6 text-stone-200 row-span-full self-center py-4 md:px-8 px-4 m-4 md:m-0 bg-slate-950">
+                        <div class="text-2xl md:text-4xl">
+                            <div class="mb-2 md:mt-2 md:pr-4" style="font-family: 'Homemade Apple'">your space should</div>
+                            <div class="mb-4">tell your story</div>
+                        </div>
+                        <div class="text-md mt-8 flex items-center">
+                            <div class="inline pr-4 underline">view our portfolio</div>
+                            <div class="inline fill-white md:fill-stone-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill-rule="evenodd" clip-rule="evenodd">
+                                    <path d="m21.883 12-7.527 6.235L15 19l9-7.521L15 4l-.645.764L21.884 11H0v1h21.883z" />
+                                    <script />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
 
     <!-- 2-Column Layout - Mobile Left Section flows DOWN  -->
     <!-- "meet the sohail sisters" -->
