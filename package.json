@@ -1,7 +1,7 @@
 {
   "name": "soho-spaces.com",
-  "version": "0.1.0",
-  "description": "Portfolio site for Soho Spaces Interior Designs",
+  "version": "1.0.0",
+  "description": "Soho Spaces is full-service interior design firm based in Atlanta, Georgia.",
   "main": "index.html",
   "dependencies": {
     "heic-convert": "^2.1.0",

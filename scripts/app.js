@@ -158,8 +158,6 @@ function bindBeforeAfterEventListeners(beforeAfterElement) {
     }
 }
 
-
-
 /**********************************************
  * 
  * Photo Grid Component (supports any mulitple of 4 or 6 photos)
@@ -1020,4 +1018,3 @@ function isSwipeLeft() {
 function isMobile() {
     return window.innerWidth < 640;
 }
-
