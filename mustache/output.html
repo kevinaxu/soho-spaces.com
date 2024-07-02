@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home | Soho Spaces</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="Soho Spaces is full-service interior design firm based in Atlanta, Georgia.">
+    <meta property="og:title" content="Welcome Home | Soho Spaces, a full-service interior design firm based in Atlanta, GA">
+    <meta property="og:type" content="article"/>
+    <meta property="og:author" content="Kevin Xu"/>
+    <meta property="og:description" content="Soho Spaces is full-service interior design firm based in Atlanta, Georgia">
+    <meta property="og:url" content="https://soho-spaces.com/">
+    <meta property="og:image" content="https://soho-spaces.com/assets/dark-academia/IMG_0020.jpeg">
+    <meta property="og:image:width" content="600"/>
+    <meta property="og:image:height" content="800"/>
+
+    <link rel="icon" type="image/png" href="/assets/soho_logo_white.svg">
+    <script type="text/javascript" src="./scripts/app.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" defer/>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Homemade+Apple|Yomogi" rel="stylesheet" type="text/css">
+    <link href="styles/app.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/dfc62377d2.js" crossorigin="anonymous" defer></script>    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * { outline: 1px solid red; }
+        @media (min-width: 640px) { * { outline: 1px solid green; } }
+        @media (min-width: 1024px) { * { outline: 1px solid blue; } }
+    </style>
+</head>
+
+<body id="section-body" class="bg-stone-300 text-gray-900" style="font-family: 'Comfortaa'">
+
+    <script>
+        createNavbarComponent();
+        (isMobile()) ?
+            document.body.append(fromHTML(generateHeroHTML("/assets/home/hero_video_portrait.mp4"))) :
+            document.body.append(fromHTML(generateHeroHTML("/assets/dark-academia/hero_video.mp4",)));
+    </script>
+
+    <!-- 2-Column Layout - Mobile Left Section flows DOWN  -->
+    <!-- "Soho - Definition" -->
+    <div id="section-soho-definition" class="flex h-3/4 md:my-20 my-8 md:h-3/4">
+        <div class="flex flex-col items-center md:items-start justify-center md:flex-row">
+            <div class="mx-16 md:mx-0 md:pl-16 w-full basis-1/2">
+                <div class="basis-1/2">
+                    <div class="m-8 md:mx-8 text-center">
+                        <div class="text-8xl md:text-9xl mb-8" style="font-family: 'Yomogi'">相補</div>
+                        <div class="text-7xl md:text-8xl pt-4 font-semibold" style="font-family: 'Poiret One'">soho</div>
+                        <div class="text-3xl md:text-4xl pt-4">[sō-ho] • <span class="italic">Japanese</span></div>
+                        <div class="mt-8 md:px-8 text-lg/relaxed md:text-xl/relaxed">(n.) complementarity; the bringing together of seemingly contradictory elements in order to achieve absoluteness. </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="w-full basis-1/2 py-8 md:py-0">
+                <div class="mx-8 my-8 md:my-0">
+                    <img class="md:max-h-[40rem] rounded-[2.5rem] object-cover mx-auto" src="/assets/dark-academia/IMG_0008.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-Column Layout - Mobile Left Section flows UP  -->
+    <!-- "Your Space Should Tell Your Story" -->
+    <div class="bg-[url('/assets/moody-romantic/IMG_0008.jpeg')] bg-cover md:bg-bottom bg-center">
+        <a href="/portfolio/moody-romantic-bedroom">
+            <div class="wrap h-[40rem] md:h-[44rem] w-full">
+                <div class="pt-52 md:h-full md:grid md:grid-cols-10 md:pt-0 md:text-stone-200">
+                    <div class="col-span-6 col-start-1 row-span-full hidden self-center md:block">
+                    </div>
+                    <div class="col-span-6 text-stone-200 row-span-full self-center py-4 md:px-8 px-4 m-4 md:m-0 bg-slate-950">
+                        <div class="text-2xl md:text-4xl">
+                            <div class="mb-2 md:mt-2 md:pr-4" style="font-family: 'Homemade Apple'">your space should</div>
+                            <div class="mb-4">tell your story</div>
+                        </div>
+                        <div class="text-md mt-8 flex items-center">
+                            <div class="inline pr-4 underline">see the project</div>
+                            <div class="inline fill-white md:fill-stone-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill-rule="evenodd" clip-rule="evenodd">
+                                    <path d="m21.883 12-7.527 6.235L15 19l9-7.521L15 4l-.645.764L21.884 11H0v1h21.883z" />
+                                    <script />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- 2-Column Layout - Mobile Left Section flows DOWN  -->
+    <!-- "meet the sohail sisters" -->
+    <div id="section-about-us" class="flex h-3/4 md:my-20 my-8 md:h-3/4">
+        <div class="flex flex-col items-center md:items-start justify-center md:flex-row">
+            <div class="w-full basis-1/2 py-8 md:py-0">
+                <div class="mx-8 my-8 md:my-0">
+                    <img class="md:max-h-[40rem] rounded-[2.5rem] object-cover mx-auto" src="/assets/home/sohail_sisters.jpeg" alt="">
+                </div>
+            </div>
+            <div class="mx-16 md:mx-0 md:pr-16 w-full basis-1/2">
+                <div class="basis-1/2">
+                    <div class="m-8 md:mx-8">
+                        <div class="text-2xl inline md:pr-2" style="font-family: 'Homemade Apple'">meet the</div>
+                        <div class="text-2xl inline">sohail sisters</div>
+                        <p class="m-auto my-8 text-lg/relaxed md:text-xl/relaxed">
+                            We believe good design is about creating a feeling.
+                            Whenever we design a place for ourselves, we first ask: how do I want to feel in this space?
+                            We love traveling, reading, and immersing ourselves in different cultures, so we frequently
+                            try to recreate a vibe or memory from somewhere we've been.
+                            Our goal is to do the same for you—to transport you to a feeling or place that will bring you comfort,
+                            but in a way that is authentic, intentional, and unique to you.
+                        </p>
+                        <p class="m-auto mt-8 text-lg/relaxed md:text-xl/relaxed">
+                            Because ultimately, we're not just designers, we're storytellers. We weave function, comfort, and mementos
+                            you've collected throughout your life to create a sense of place…and a space that is a reflection of who you are,
+                            where you've been, and what you love.
+                        </p>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-Column Layout - Mobile Left Section flows UP  -->
+    <!-- "View Our Portfolio" -->
+    <div class="md:mt-12 bg-[url('/assets/dark-academia/IMG_0006.jpeg')] bg-cover bg-right">
+        <a href="/portfolio.html">
+            <div class="wrap h-[40rem] md:h-[44rem] w-full">
+                <div class="pt-52 md:h-full md:grid md:grid-cols-10 md:pt-0 md:text-stone-200">
+                    <div class="col-span-6 col-start-1 row-span-full hidden self-center md:block">
+                    </div>
+                    <div class="col-span-6 text-stone-200 row-span-full self-center py-4 md:px-8 px-4 m-4 md:m-0 bg-slate-950">
+                        <div class="text-2xl md:text-4xl">
+                            <div class="mb-2 md:mt-2 md:pr-4">blending styles</div>
+                            <div class="mb-4" style="font-family: 'Homemade Apple'">+ telling stories</div>
+                        </div>
+                        <div class="text-md mt-8 flex items-center">
+                            <div class="inline pr-4 underline">view our portfolio</div>
+                            <div class="inline fill-white md:fill-stone-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill-rule="evenodd" clip-rule="evenodd">
+                                    <path d="m21.883 12-7.527 6.235L15 19l9-7.521L15 4l-.645.764L21.884 11H0v1h21.883z" />
+                                    <script />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- 2-Column Layout - Mobile Left Section flows UP  -->
+    <!-- "Our Specialties" -->
+    <div id="section-our-services" class="flex h-3/4 md:my-20 my-8 md:h-3/4">
+        <div class="flex flex-col items-center md:items-start justify-center md:flex-row">
+            <div class="mx-16 md:mx-0 md:pl-16 w-full basis-1/2">
+                <div class="mx-8 my-4">
+                    <div class="inline text-2xl md:text-4xl pr-2">our</div>
+                    <div class="inline text-2xl md:text-4xl" style="font-family: 'Homemade Apple'">specialities</div>
+                    <p class="m-auto my-8 text-lg/relaxed md:text-xl/relaxed">From single room refreshes to full scale 
+                        remodels, we've worked with all kinds of 
+                        budgets. We specialize in the following 
+                        residential + commercial projects:
+                    </p>
+                </div>
+                <div class="mx-8 md:grid md:grid-cols-2 gap-4 md:gap-8">
+                    <div>
+                        <p class="text-md pb-2 font-semibold md:text-xl/relaxed">residential</p>
+                        <ul class="leading-7 md:text-md md:mb-0 md:col-span-1 mb-8 ">
+                            <li>full home renovations</li>
+                            <li>single room refresh</li>
+                            <li>exterior refresh</li>
+                            <li>kitchen + bath remodels</li>
+                            <li>new builds</li>
+                            <li>showhome staging</li>
+                            <li>home flips</li>
+                            <li>pre-market updates</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-md pb-2 font-semibold md:text-xl/relaxed">commercial</p>
+                        <ul class="leading-7 md:text-md md:col-span-1">
+                            <li>corporate lobbies</li>
+                            <li>chief executive offices</li>
+                            <li>conference rooms</li>
+                            <li>apartment buildings</li>
+                            <li>boutique hotels</li>
+                            <li>airbnbs</li>
+                            <li>investment properties</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full basis-1/2 py-8 md:py-0">
+                <div class="mx-2 md:mx-8 my-8 md:my-0">
+                    <img class="md:max-h-[40rem] rounded-[2.5rem] object-cover mx-auto" src="/assets/services.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-Column Layout - Mobile Left Section flows UP  -->
+    <!-- "Contact Us" -->
+    <div id="section-contact-us" class="md:mt-12 bg-[url('/assets/east-meets-west/umbrella_landscape.jpeg')] bg-cover">
+        <div class="wrap h-[40rem] md:h-[44rem] w-full">
+            <div class="pt-52 md:h-full md:grid md:grid-cols-10 md:pt-0 md:text-stone-200">
+                <div
+                    class="col-span-6 col-start-1 row-span-full hidden self-center md:block">
+                </div>
+                <div class="col-span-6 text-stone-200 row-span-full self-center py-4 md:px-8 px-4 m-4 md:m-0 bg-slate-950">
+                    <div class="text-2xl md:text-4xl">
+                        <div class="mb-2 md:mt-2 md:pr-4" style="font-family: 'Homemade Apple'">every unique space</div>
+                        <div class="mb-4">starts with an idea</div>
+                    </div>
+                    <a href="mailto: sohospacesatl@gmail.com">
+                        <div class="text-md mt-8 flex items-center">
+                            <div class="inline pr-4 underline">let's discover yours</div>
+                            <div class="inline fill-white md:fill-stone-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill-rule="evenodd" clip-rule="evenodd">
+                                    <path
+                                        d="m21.883 12-7.527 6.235L15 19l9-7.521L15 4l-.645.764L21.884 11H0v1h21.883z" />
+                                    <script />
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-stone-500 text-stone-200 pt-8 md:pt-16" style="font-family: 'Poiret One'">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 md:pt-8 md:pb-4">
+            <div class="pb-4 md:flex md:justify-between">
+            <div class="mb-8 md:mb-0">
+                <a href="https://soho-spaces.com/" class="flex items-center justify-center md:justify-start">
+                    <img class="h-24 md:h-36" src="/assets/soho_logo_white.svg" alt="Soho Spaces Logo"/>
+                </a>
+            </div>
+            <div class="grid grid-cols-5 gap-4 md:grid-cols-2 md:gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <h2 class="mb-6 text-2xl font-semibold lowercase" style="font-family: 'Poiret One'">Explore</h2>
+                    <ul class="text-md">
+                        <li class="mb-2">
+                            <a href="/portfolio/moody-romantic-bedroom" class="lowercase hover:underline">Moody Romantic</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/portfolio/dark-academia-living-room" class="lowercase hover:underline">Dark Academia</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/portfolio/modern-gothic-kitchen" class="lowercase hover:underline">Modern Gothic</a>
+                        </li>
+                        <li>
+                            <a href="/portfolio/east-meets-west-entryway" class="lowercase hover:underline">East Meets West</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-span-3 md:col-span-1">
+                    <h2 class="mb-6 text-2xl font-semibold lowercase" style="font-family: 'Poiret One'">Contact Us</h2>
+                    <ul class="text-md">
+                        <li class="mb-2">
+                            <a href="mailto: hello@soho-spaces.com" class="hover:underline">
+                                <i class="fa-regular fa-envelope fa-sm pr-2"></i>
+                                hello@soho-spaces.com
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="tel:404-566-5796" class="hover:underline">
+                                <i class="fa-solid fa-phone fa-sm pr-2"></i>
+                                404.566.5796
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="https://instagram.com" class="hover:underline">
+                                <i class="fa-brands fa-instagram fa-sm pr-2"></i>
+                                @sohospacesatl
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://pinterest.com/" class="hover:underline">
+                                <i class="fa fa-pinterest-square fa-sm pr-2"></i>
+                                @sohospacesatl
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4 border-stone-200 sm:mx-auto"/>
+        <div class="flex items-center justify-center sm:justify-between">
+            <span class="text-sm sm:text-center">© 2020 <a href="https://soho-spaces.com/" class="hover:underline">Soho Spaces</a>. All Rights Reserved.
+            </span>
+        </div>
+    </div></body>
+  
