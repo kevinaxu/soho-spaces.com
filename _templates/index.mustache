@@ -1,38 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home | Soho Spaces</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta name="description" content="Soho Spaces is full-service interior design firm based in Atlanta, Georgia.">
-    <meta property="og:title" content="Welcome Home | Soho Spaces, a full-service interior design firm based in Atlanta, GA">
-    <meta property="og:type" content="article"/>
-    <meta property="og:author" content="Kevin Xu"/>
-    <meta property="og:description" content="Soho Spaces is full-service interior design firm based in Atlanta, Georgia">
-    <meta property="og:url" content="https://soho-spaces.com/">
-    <meta property="og:image" content="https://soho-spaces.com/assets/dark-academia/IMG_0020.jpeg">
-    <meta property="og:image:width" content="600"/>
-    <meta property="og:image:height" content="800"/>
-
-    <link rel="icon" type="image/png" href="/assets/soho_logo_white.svg">
-    <script type="text/javascript" src="./scripts/app.js"></script>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" defer/>
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Homemade+Apple|Yomogi" rel="stylesheet" type="text/css">
-    <link href="styles/app.css" rel="stylesheet" type="text/css">
-    <script src="https://kit.fontawesome.com/dfc62377d2.js" crossorigin="anonymous" defer></script>    
-    <script src="https://cdn.tailwindcss.com"></script>
-
+    {{> head}}
 </head>
 
 <body id="section-body" class="bg-stone-300 text-gray-900" style="font-family: 'Comfortaa'">
+    {{> navbar}}
 
-    <script>
-        createNavbarComponent();
-        (isMobile()) ?
-            document.body.append(fromHTML(generateHeroHTML("/assets/home/hero_video_portrait.mp4"))) :
-            document.body.append(fromHTML(generateHeroHTML("/assets/dark-academia/hero_video.mp4",)));
-    </script>
+    {{> heroMedia}}
 
     <!-- 2-Column Layout - Mobile Left Section flows DOWN  -->
     <!-- "Soho - Definition" -->
@@ -228,67 +203,6 @@
         </div>
     </div>
 
-    <div class="bg-stone-500 text-stone-200 pt-8 md:pt-16" style="font-family: 'Poiret One'">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 md:pt-8 md:pb-4">
-            <div class="pb-4 md:flex md:justify-between">
-            <div class="mb-8 md:mb-0">
-                <a href="https://soho-spaces.com/" class="flex items-center justify-center md:justify-start">
-                    <img class="h-24 md:h-36" src="/assets/soho_logo_white.svg" alt="Soho Spaces Logo"/>
-                </a>
-            </div>
-            <div class="grid grid-cols-5 gap-4 md:grid-cols-2 md:gap-8">
-                <div class="col-span-2 md:col-span-1">
-                    <h2 class="mb-6 text-2xl font-semibold lowercase" style="font-family: 'Poiret One'">Explore</h2>
-                    <ul class="text-md">
-                        <li class="mb-2">
-                            <a href="/portfolio/moody-romantic-bedroom" class="lowercase hover:underline">Moody Romantic</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="/portfolio/dark-academia-living-room" class="lowercase hover:underline">Dark Academia</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="/portfolio/modern-gothic-kitchen" class="lowercase hover:underline">Modern Gothic</a>
-                        </li>
-                        <li>
-                            <a href="/portfolio/east-meets-west-entryway" class="lowercase hover:underline">East Meets West</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-span-3 md:col-span-1">
-                    <h2 class="mb-6 text-2xl font-semibold lowercase" style="font-family: 'Poiret One'">Contact Us</h2>
-                    <ul class="text-md">
-                        <li class="mb-2">
-                            <a href="mailto: hello@soho-spaces.com" class="hover:underline">
-                                <i class="fa-regular fa-envelope fa-sm pr-2"></i>
-                                hello@soho-spaces.com
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="tel:404-566-5796" class="hover:underline">
-                                <i class="fa-solid fa-phone fa-sm pr-2"></i>
-                                404.566.5796
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="https://instagram.com" class="hover:underline">
-                                <i class="fa-brands fa-instagram fa-sm pr-2"></i>
-                                @sohospacesatl
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://pinterest.com/" class="hover:underline">
-                                <i class="fa fa-pinterest-square fa-sm pr-2"></i>
-                                @sohospacesatl
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <hr class="my-4 border-stone-200 sm:mx-auto"/>
-        <div class="flex items-center justify-center sm:justify-between">
-            <span class="text-sm sm:text-center">© 2020 <a href="https://soho-spaces.com/" class="hover:underline">Soho Spaces</a>. All Rights Reserved.
-            </span>
-        </div>
-    </div></body>
+    {{> footer}}
+</body>
   
