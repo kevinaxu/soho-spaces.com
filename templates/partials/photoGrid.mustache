@@ -1,0 +1,14 @@
+<div class="js-photo-grid">
+    <div class="hidden md:block pb-8">
+        <div class="md:mx-auto md:max-w-4xl">
+            {{> photoGridDesktop}}
+        </div>
+    </div>
+    <div class="md:hidden">
+        <div class="flex justify-center my-4 pb-4 px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {{> photoGridMobile}}
+            </div>
+        </div>
+    </div>
+</div>

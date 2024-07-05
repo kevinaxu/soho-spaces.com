@@ -1,0 +1,70 @@
+{
+    "title": "Muted Mediterranean Breakfast Nook",
+    "url": "https://soho-spaces.com/portfolio/muted-mediterranean-breakfast-nook",
+    "content": {
+        "title1": "Muted Mediterranean",
+        "title2": "Breakfast Nook",
+        "intro": {
+            "paragraphs": [
+                "Mervé preferred the minimalism and muted colors of mid-century modern and industrial design, and her home was a reflection of this. Featuring mostly shades of grey and dark metals, it didn't feel very feminine. So when she told us that she wanted a breakfast nook that would reflect her Middle-Eastern roots and allow her to display her Turkish tea set, we were excited to blend all three different styles. We knew the typical bold colors that characterize Turkish decor wouldn't work with her space, so we opted for a muted version that incorporates pieces from across the Mediterranean. Full story below."
+            ]
+        },
+        "story": {
+            "paragraphs": [
+                "Mervé didn't think the colorful and ornate interior design that she grew up with in Turkey would work for her new place in the states. She'd fallen in love with a grey concrete table featuring a matte black iron base, a mix of the industrial and mid-century modern styles. So we designed the rest of the space around this table: we opted for dark metals and additional stoneware in shades of grey to match the rest of her home, but softened them with feminine fabrics and intricate oriental detailing.",
+                "We procured the antique brass chandelier from an artisan in Morocco, a sharp contrast against the concrete table, but one that juxtaposed beautifully above it. For a touch of femininity and a pop of color, we placed a hand-spun wool and silk Turkish rug beneath the table. Its bold geometric pattern in shades of faded pink and black complemented the iron base while adding warmth to the surrounding grey tones. To tie these pieces together, we found the perfect set of dining chairs that were marketed as “a reimagination of mid-century design.” Their curved rattan backs and linen upholstery were a nod to materials used across the Mediterranean coast, while their black stiletto wood frames and brass caps fit seamlessly with the rest of the aesthetic.",
+                "The devil is in the details, and with the main pieces secured we sought to add additional depth, warmth, and texture to the Muted Mediterranean aesthetic. We used linen curtains on brass rods, a deep stone grey silk runner from Pakistan, and whimsical pussy willow branches to soften the space further. We incorporated several types of stoneware in different shades of grey-Kali marble candlesticks from India, a terracotta serving tray from Egypt, Kanto dinnerware from Portugal, and an industrial ceramic vase. To complete the look, we placed modern brass candlesticks from India and Merve's intricate gold Turkish tea set on the table. It was still modern and edgy as ever, but now that it was balanced with Mediterranean elements, it took on a completely different light."
+            ]
+        }
+    },
+    "images": [
+        "/assets/muted-mediterranean/IMG_0018.jpeg",
+        "/assets/muted-mediterranean/IMG_0010.jpeg",
+        "/assets/muted-mediterranean/IMG_0011.jpeg",
+        "/assets/muted-mediterranean/IMG_0020.jpeg",
+        "/assets/muted-mediterranean/IMG_9483.jpeg",
+        "/assets/muted-mediterranean/IMG_9287.jpeg",
+        "/assets/muted-mediterranean/IMG_3696.jpeg",
+        "/assets/muted-mediterranean/IMG_0017.jpeg",
+        "/assets/muted-mediterranean/IMG_9586.jpeg",
+        "/assets/muted-mediterranean/IMG_0013.jpeg",
+        "/assets/muted-mediterranean/IMG_0007.jpeg",
+        "/assets/muted-mediterranean/IMG_0006.jpeg",
+        "/assets/muted-mediterranean/IMG_9281.jpeg",
+        "/assets/muted-mediterranean/IMG_9303.jpeg",
+        "/assets/muted-mediterranean/IMG_9299.jpeg",
+        "/assets/muted-mediterranean/IMG_3699.jpeg",
+        "/assets/muted-mediterranean/IMG_9276.jpeg",
+        "/assets/muted-mediterranean/IMG_0015.jpeg"
+    ],
+    "navBar": {
+        "enableTransparency": true
+    },
+    "heroMedia": {
+        "desktop": {
+            "url": "/assets/muted-mediterranean/IMG_0017.jpeg",
+            "isVideo": false
+        },
+        "mobile": {
+            "url": "/assets/muted-mediterranean/IMG_3699.jpeg",
+            "isVideo": false
+        }
+    },
+    "beforeAfter": {
+        "before": {
+            "url": "/assets/muted-mediterranean/IMG_3266_2x.jpeg"
+        },
+        "after": {
+            "url": "/assets/muted-mediterranean/IMG_3696.jpeg"
+        }
+    },
+    "previewCard": {
+        "image": "https://soho-spaces.com/assets/muted-mediterranean/IMG_0011.jpeg",
+        "height": "800",
+        "width": "600"
+    },
+    "config": {
+        "published": true,
+        "debug": false
+    }
+}

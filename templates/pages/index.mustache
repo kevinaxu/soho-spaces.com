@@ -1,44 +1,12 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Home | Soho Spaces</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta name="description" content="Soho Spaces is full-service interior design firm based in Atlanta, Georgia.">
-    <meta property="og:title" content="Welcome Home | Soho Spaces, a full-service interior design firm based in Atlanta, GA">
-    <meta property="og:type" content="article"/>
-    <meta property="og:author" content="Kevin Xu"/>
-    <meta property="og:description" content="Soho Spaces is full-service interior design firm based in Atlanta, Georgia">
-    <meta property="og:url" content="https://soho-spaces.com/">
-    <meta property="og:image" content="https://soho-spaces.com/assets/dark-academia/IMG_0020.jpeg">
-    <meta property="og:image:width" content="600"/>
-    <meta property="og:image:height" content="800"/>
-
-    <link rel="icon" type="image/png" href="/assets/soho_logo_white.svg">
-    <script type="text/javascript" src="./scripts/app.js"></script>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" defer/>
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Homemade+Apple|Yomogi" rel="stylesheet" type="text/css">
-    <link href="styles/app.css" rel="stylesheet" type="text/css">
-    <script src="https://kit.fontawesome.com/dfc62377d2.js" crossorigin="anonymous" defer></script>    
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        /* * { outline: 1px solid red; }
-        @media (min-width: 640px) { * { outline: 1px solid green; } }
-        @media (min-width: 1024px) { * { outline: 1px solid blue; } } */
-    </style>
+    {{> head}}
 </head>
 
 <body id="section-body" class="bg-stone-300 text-gray-900" style="font-family: 'Comfortaa'">
+    {{> navbar}}
 
-    <script>
-        createNavbarComponent();
-        (isMobile()) ?
-            document.body.append(fromHTML(generateHeroHTML("/assets/home/hero_video_portrait.mp4"))) :
-            document.body.append(fromHTML(generateHeroHTML("/assets/dark-academia/hero_video.mp4",)));
-    </script>
+    {{> heroMedia}}
 
     <!-- 2-Column Layout - Mobile Left Section flows DOWN  -->
     <!-- "Soho - Definition" -->
@@ -135,7 +103,7 @@
                     <div class="col-span-6 text-stone-200 row-span-full self-center py-4 md:px-8 px-4 m-4 md:m-0 bg-slate-950">
                         <div class="text-2xl md:text-4xl">
                             <div class="mb-2 md:mt-2 md:pr-4">blending styles</div>
-                            <div class="mb-4" style="font-family: 'Homemade Apple'"">+ telling stories</div>
+                            <div class="mb-4" style="font-family: 'Homemade Apple'>+ telling stories</div>
                         </div>
                         <div class="text-md mt-8 flex items-center">
                             <div class="inline pr-4 underline">view our portfolio</div>
@@ -203,55 +171,6 @@
         </div>
     </div>
 
-
-    <!-- <div id="section-our-services" class="flex h-3/4 md:my-16 md:h-3/4">
-        <div class="flex flex-col items-center md:items-start justify-center md:flex-row">
-            <div class="mx-16 md:mx-0 md:pl-16 w-full basis-1/2 pt-8 md:basis-3/5">
-                <div class="mx-8 my-4">
-                    <div class="inline text-2xl md:text-4xl pr-2">our</div>
-                    <div class="inline text-2xl md:text-4xl" style="font-family: 'Homemade Apple'">specialities</div>
-                    <p class="m-auto my-8 text-md md:text-xl">From single room refreshes to full scale 
-                        remodels, we've worked with all kinds of 
-                        budgets. We specialize in the following 
-                        residential + commercial projects:
-                    </p>
-                </div>
-                <div class="mx-8 md:grid md:grid-cols-2 gap-4 md:gap-8">
-                    <div>
-                        <p class="text-md pb-2 font-semibold md:text-xl">residential</p>
-                        <ul class="mb-8 text-sm leading-6 md:text-md md:mb-0 md:col-span-1">
-                            <li>full home renovations</li>
-                            <li>single room refresh</li>
-                            <li>exterior refresh</li>
-                            <li>kitchen + bath remodels</li>
-                            <li>new builds</li>
-                            <li>showhome staging</li>
-                            <li>home flips</li>
-                            <li>pre-market updates</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="text-md pb-2 font-semibold md:text-xl">commercial</p>
-                        <ul class="text-sm leading-6 md:text-md md:col-span-1 text-lg">
-                            <li>corporate lobbies</li>
-                            <li>chief executive offices</li>
-                            <li>conference rooms</li>
-                            <li>apartment buildings</li>
-                            <li>boutique hotels</li>
-                            <li>airbnbs</li>
-                            <li>investment properties</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="mx-16 w-full basis-1/2 py-8 md:basis-3/5">
-                <div class="mx-8 my-8 md:my-0 md:float-end">
-                    <img class="h-[26rem] md:h-[40rem]" src="/assets/our_specialties.png" alt="" />
-                </div>
-            </div>
-        </div>
-    </div> -->
-
     <!-- 2-Column Layout - Mobile Left Section flows UP  -->
     <!-- "Contact Us" -->
     <div id="section-contact-us" class="md:mt-12 bg-[url('/assets/east-meets-west/umbrella_landscape.jpeg')] bg-cover">
@@ -283,8 +202,6 @@
         </div>
     </div>
 
-    <script>
-        document.body.append(fromHTML(generateFooterHTML()));
-    </script>
+    {{> footer}}
 </body>
   

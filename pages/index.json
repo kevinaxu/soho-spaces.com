@@ -1,0 +1,26 @@
+{
+    "title": "Welcome Home",
+    "url": "https://soho-spaces.com/",
+    "navBar": {
+        "enableTransparency": true
+    },
+    "heroMedia": {
+        "desktop": {
+            "url": "/assets/dark-academia/hero_video.mp4",
+            "isVideo": true
+        },
+        "mobile": {
+            "url": "/assets/home/hero_video_portrait.mp4",
+            "isVideo": true
+        }
+    },
+    "previewCard": {
+        "image": "https://soho-spaces.com/assets/dark-academia/IMG_0020.jpeg",
+        "height": "800",
+        "width": "600"
+    },
+    "config": {
+        "published": true,
+        "debug": false
+    }
+}

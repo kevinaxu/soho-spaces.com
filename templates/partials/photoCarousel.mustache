@@ -1,0 +1,26 @@
+<div class="js-photo-carousel my-4 relative w-full md:px-12 md:top-10 md:my-0 bg-slate-950">
+
+    <!-- Carousel wrapper -->
+    <div class="relative overflow-hidden h-[32rem] md:h-5/6 ">
+        {{> photoCarouselItem}}
+    </div>
+
+    <!-- Slider indicators -->
+    <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse md:-bottom-10">
+        {{> photoCarouselIndicator}}
+    </div>
+
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-id="data-carousel-prev">
+        <svg class="w-4 text-gray-300 rtl:rotate-180 md:w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 1 1 5l4 4"/>
+        </svg>
+        <span class="sr-only">Previous</span>
+    </button>
+        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-id="data-carousel-next">
+        <svg class="w-4 text-gray-300 rtl:rotate-180 md:w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 9 4-4-4-4"/>
+        </svg>
+        <span class="sr-only">Next</span>
+    </button>
+</div>`;

@@ -1,0 +1,25 @@
+<div id="hero-media">
+    <!-- Desktop -->
+    <div class="hidden md:block">
+        {{#heroMedia.desktop}}
+            {{#isVideo}}
+                {{> heroVideo}}
+            {{/isVideo}}
+            {{^isVideo}}
+                {{> heroImage}}
+            {{/isVideo}}
+        {{/heroMedia.desktop}}
+    </div>
+
+    <!-- Mobile -->
+    <div class="md:hidden">
+        {{#heroMedia.mobile}}
+            {{#isVideo}}
+                {{> heroVideo}}
+            {{/isVideo}}
+            {{^isVideo}}
+                {{> heroImage}}
+            {{/isVideo}}
+        {{/heroMedia.mobile}}
+    </div>
+</div>
