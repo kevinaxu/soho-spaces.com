@@ -1,0 +1,40 @@
+{{#photoGridImages}}
+
+<!-- 2 Col with Vertical Photos-->
+<section class="pb-4 px-4 h-3/4">
+    <div class="flex flex-wrap -mx-4 h-full">
+        <div class="md:w-2/5 h-full pr-4">
+            <div class="h-1/2 pb-2">
+                <img class="h-full w-full object-cover md:hover:cursor-pointer" src="{{{ 0 }}}" loading="lazy" alt="">
+            </div>
+            <div class="h-1/2 pt-2">
+                <img class="h-full w-full object-cover md:hover:cursor-pointer" src="{{{ 1 }}}" loading="lazy" alt="">
+            </div>
+        </div>
+        <div class="hidden md:block md:w-3/5 h-full">
+            <img class="h-full md:w-full md:min-h-full md:object-cover md:hover:cursor-pointer" src="{{{ 2 }}}" loading="lazy" alt="">
+        </div>
+    </div>
+</section>
+
+<!-- Two Photo -->
+<section class="pb-4 px-4 h-3/4">
+    <div class="flex flex-wrap -mx-4 h-full">
+        <div class="h-full md:w-1/2 pr-2 mb-2 md:mb-0">
+            <img width="1200" height="1800" class="object-cover h-full w-full md:hover:cursor-pointer" src="{{{ 3 }}}" loading="lazy" alt="">
+        </div>
+        <div class="h-full md:w-1/2 pl-2 mb-2 md:mb-0">
+            <img width="1200" height="1800" class="object-cover h-full w-full md:hover:cursor-pointer" src="{{{ 4 }}}" loading="lazy" alt="">
+        </div>
+    </div>
+</section>
+
+<!-- Large Photo -->
+<section class="pb-4 px-4 h-3/4">
+    <div class="flex flex-wrap -mx-4 h-full">
+        <div class="mb-2 md:mb-0 h-full w-full block">
+            <img class="w-full object-cover h-full md:hover:cursor-pointer" src="{{{ 5 }}}" loading="lazy" alt="">
+        </div>
+    </div>
+</section>
+{{/photoGridImages}}

@@ -1,0 +1,18 @@
+<div class="js-photo-carousel-modal hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full bg-slate-950" tabindex="-1" aria-hidden="true">
+    <div class="relative w-full max-w-2xl max-h-full md:h-full md:max-w-6xl">
+
+        <!-- Modal content -->
+        <div class="relative bg-slate-950">
+
+            <!-- Modal close -->
+            <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center p-4 text-black text-sm z-50 md:p-2">
+                <svg class="fill-current text-gray-300 w-4 h-4 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+                </svg>
+            </div>
+
+            {{> photoCarousel}}
+        </div>
+    </div>
+</div>
