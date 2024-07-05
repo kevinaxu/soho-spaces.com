@@ -1,4 +1,4 @@
-const SiteGenerator = require('./_src/SiteGenerator');
+const SiteGenerator = require('./src/SiteGenerator');
 
 const siteGenerator = SiteGenerator.loadFromConfigFile("config.json")
 siteGenerator
