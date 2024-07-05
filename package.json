@@ -4,13 +4,16 @@
   "description": "Soho Spaces is a full-service interior design firm based in Atlanta, Georgia.",
   "main": "index.html",
   "dependencies": {
+    "fs-extra": "^11.2.0",
     "heic-convert": "^2.1.0",
-    "jimp": "^0.22.12",
     "mustache": "^4.2.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevinaxu/soho-spaces.com.git"
+  },
+  "scripts": {
+    "generate": "node generate.js"
   },
   "author": "Kevin Xu",
   "license": "ISC",
