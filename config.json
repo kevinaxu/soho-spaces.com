@@ -25,6 +25,31 @@
             "template": "portfolio-page.mustache",
             "outputPath": "portfolio/dark-academia-living-room.html",
             "partials": ["head", "navbar", "heroMedia", "heroImage", "heroVideo", "beforeAfter", "photoGrid", "photoGridDesktop", "photoGridMobile", "photoCarousel", "photoCarouselIndicator", "photoCarouselItem", "photoCarouselModal", "footer"]
+        },
+        "modern-gothic.json": {
+            "template": "portfolio-page.mustache",
+            "outputPath": "portfolio/modern-gothic-kitchen.html",
+            "partials": ["head", "navbar", "heroMedia", "heroImage", "heroVideo", "beforeAfter", "photoGrid", "photoGridDesktop", "photoGridMobile", "photoCarousel", "photoCarouselIndicator", "photoCarouselItem", "photoCarouselModal", "footer"]
+        },
+        "moody-romantic.json": {
+            "template": "portfolio-page.mustache",
+            "outputPath": "portfolio/moody-romantic-bedroom.html",
+            "partials": ["head", "navbar", "heroMedia", "heroImage", "heroVideo", "beforeAfter", "photoGrid", "photoGridDesktop", "photoGridMobile", "photoCarousel", "photoCarouselIndicator", "photoCarouselItem", "photoCarouselModal", "footer"]
+        },
+        "muted-mediterranean.json": {
+            "template": "portfolio-page.mustache",
+            "outputPath": "portfolio/muted-mediterranean-breakfast-nook.html",
+            "partials": ["head", "navbar", "heroMedia", "heroImage", "heroVideo", "beforeAfter", "photoGrid", "photoGridDesktop", "photoGridMobile", "photoCarousel", "photoCarouselIndicator", "photoCarouselItem", "photoCarouselModal", "footer"]
+        },
+        "east-meets-west.json": {
+            "template": "portfolio-page.mustache",
+            "outputPath": "portfolio/east-meets-west-entryway.html",
+            "partials": ["head", "navbar", "heroMedia", "heroImage", "heroVideo", "beforeAfter", "photoGrid", "photoGridDesktop", "photoGridMobile", "photoCarousel", "photoCarouselIndicator", "photoCarouselItem", "photoCarouselModal", "footer"]
+        },
+        "gingkos-and-greys.json": {
+            "template": "portfolio-page.mustache",
+            "outputPath": "portfolio/gingkos-and-greys-powder-room.html",
+            "partials": ["head", "navbar", "heroMedia", "heroImage", "heroVideo", "beforeAfter", "photoGrid", "photoGridDesktop", "photoGridMobile", "photoCarousel", "photoCarouselIndicator", "photoCarouselItem", "photoCarouselModal", "footer"]
         }
     },
     "dryRun": false
