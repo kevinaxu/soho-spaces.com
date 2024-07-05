@@ -1,0 +1,198 @@
+
+
+/**********************************************
+ * 
+ * "Trim" Image Effect on Hover (only on desktop)
+ * 
+ *********************************************/
+
+ @media (min-width: 1024px) {
+    .container-block {
+        position: relative;	
+        &::before {
+            bottom: 0;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        &:hover {
+            .inner-block:before,
+            .slider-top-right:after {
+                height: 100%;
+            }
+            .inner-block:after,
+            .slider-top-right:before {
+                width: 100%;
+            }
+        }
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+    
+    .block-content {
+        position: absolute;
+        bottom: 10%;
+        left: 10%;
+        padding: 0 1rem;
+    }
+    
+    .slider-top-right:before,
+    .inner-block:after {
+        height: 1.5px;
+        transition: width .75s ease;
+        width: 0%;
+    }
+    
+    .slider-top-right:after,
+    .inner-block:before {
+        height: 0%;
+        transition: height .75s ease;
+        width: 1.5px;
+    }
+    
+    .inner-block:before,
+    .inner-block:after,
+    .slider-top-right:before,
+    .slider-top-right:after {
+        background-color: rgb(231 229 228);
+        content: '';
+        display: block;
+        position: absolute;
+    }
+    
+    .inner-block {
+        font-size: 0.5em;
+        width: 95%;
+        height: 95%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        &:before {
+            bottom: 0;
+            left: 0;
+        }
+        &:after {
+            bottom: 0;
+            right: 0;
+        }
+    }
+    
+    .slider-top-right {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        &:before {
+            top: 0;
+            left: 0;
+        }
+        &:after {
+            top: 0;
+            right: 0;
+        }
+    }
+}
+
+
+
+/**********************************************
+ * 
+ * Before / After Images Slider
+ * 
+ *********************************************/
+ 
+ .line {
+    width: 100px;
+    height: 1px;
+    margin: 20px auto 40px auto;
+    border-bottom: 1px solid rgb(190, 101, 101);
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    max-width: none;                /* Remove max-width default set by Tailwind */
+    display: block;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.image-container {
+    height: 384px;                  /* h-96 in tailwind */
+    width: 100%;
+    display: block;
+    margin: 0 auto
+}
+
+.before-after-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.after-image {
+    display: block;
+    height: 100%;
+}
+
+.before-image {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.resizer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 4px;
+    background: white;
+    /*Stop vertical scrolling on touch*/
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+}
+
+.resizer:after {
+    background: white;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' width='20' height='20' viewBox='0 0 512 512'%3E%3Cpath d='M504.3 273.6c4.9-4.5 7.7-10.9 7.7-17.6s-2.8-13-7.7-17.6l-112-104c-7-6.5-17.2-8.2-25.9-4.4s-14.4 12.5-14.4 22l0 56-192 0 0-56c0-9.5-5.7-18.2-14.4-22s-18.9-2.1-25.9 4.4l-112 104C2.8 243 0 249.3 0 256s2.8 13 7.7 17.6l112 104c7 6.5 17.2 8.2 25.9 4.4s14.4-12.5 14.4-22l0-56 192 0 0 56c0 9.5 5.7 18.2 14.4 22s18.9 2.1 25.9-4.4l112-104z'/%3E%3C/svg%3E");
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: 0 0 0 -8px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+@media (min-width: 1024px) {        /* Desktop changes */ 
+    .slider-image {
+        border-radius: 0;           /* No rounded edges  */ 
+    }
+    .image-container {              /* Larger component size */ 
+        /* height: 44rem; */
+    }
+    .resizer {                      /* Thicker line */ 
+        width: 8px;
+    }
+    .resizer:after {                /* Larger arrow icon */ 
+        margin: 0 0 0 -11px;
+        width: 30px;
+        height: 30px;
+    }    
+}
