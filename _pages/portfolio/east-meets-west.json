@@ -1,0 +1,58 @@
+{
+    "title": "East Meets West Entryway",
+    "url": "https://soho-spaces.com/portfolio/east-meets-west-entryway",
+    "content": {
+        "title1": "East Meets West",
+        "title2": "Entryway",
+        "intro": {
+            "paragraphs": [
+                "This hallway is a perfect blend of contemporary western and traditional Asian design. As bright red tones and ornate patterns are auspicious in eastern cultures, we wanted to balance the bright bold hues by using modern, minimalist pieces. Here, the Thai umbrellas from Kevins travels are the feature - creating a unique ambiance without sacrificing space."
+            ]
+        },
+        "story": {
+            "paragraphs": [
+                "Kevin loves to entertain - frequently hosting large gatherings, game nights, and potlucks. Unfortunately, the formal dining room has become an unnecessary nuisance, blocking the entryway and disrupting the Feng Shui of his home. He needed our help opening up the space so that his friends could gather around the kitchen without stumbling over large furniture.",
+                "The room already had great elements, like wainscoting, which just needed a pop of color to stand out. As most of the walls in the space are a light, neutral greige, we wanted to add a bold accent that complemented his home without introducing new colors. The slate gray paint (used in his powder room) provided a perfect backdrop to his contemporary black sideboard. We chose an arched brass mirror as its delicate curvature balanced the masculine black and gray while also reflecting light and creating the illusion of depth.",
+                "In Bangkok, Kevin came across Maggie Choo's, a bank vault converted to an underground bar. From the ceiling hung dozens of hand-painted umbrellas, a handicraft of northern Thailand. Kevin loved the vibe of the space and purchased several umbrellas in hopes of recreating the feeling back home. We decided to replace the light feature with these umbrellas to introduce an artistic, whimsical element and remind him of his travels east."
+            ]
+        }
+    },
+    "images": [
+        "/assets/east-meets-west/IMG_3912.jpeg",
+        "/assets/east-meets-west/IMG_9480.jpeg",
+        "/assets/east-meets-west/IMG_9474.jpeg",
+        "/assets/east-meets-west/IMG_0005.jpeg",
+        "/assets/east-meets-west/IMG_0008.jpeg",
+        "/assets/east-meets-west/IMG_3913.jpeg"
+    ],
+    "navBar": {
+        "enableTransparency": true
+    },
+    "heroMedia": {
+        "desktop": {
+            "url": "/assets/east-meets-west/IMG_0002_landscape.jpeg",
+            "isVideo": false
+        },
+        "mobile": {
+            "url": "/assets/east-meets-west/IMG_0005.jpeg",
+            "isVideo": false
+        }
+    },
+    "beforeAfter": {
+        "before": {
+            "url": "/assets/east-meets-west/IMG_3262_2x.jpeg"
+        },
+        "after": {
+            "url": "/assets/east-meets-west/IMG_4006.jpeg"
+        }
+    },
+    "previewCard": {
+        "image": "https://soho-spaces.com/assets/east-meets-west/umbrella.jpeg",
+        "height": "800",
+        "width": "600"
+    },
+    "config": {
+        "published": true,
+        "debug": false
+    }
+}

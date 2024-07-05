@@ -1,0 +1,64 @@
+{
+    "title": "Moody Romantic Bedroom",
+    "url": "https://soho-spaces.com/portfolio/moody-romantic-bedroom",
+    "content": {
+        "title1": "Moody Romantic",
+        "title2": "Bedroom",
+        "intro": {
+            "paragraphs": [
+                "The moody romantic style we created for Emily balances elements of French country and modern minimalism. Though seemingly contradictory styles, the delicate millwork, distressed woods, and aged metals typical of French country provide soft touches and create a romantic look, while solid prints, clean lines, and organic furniture are necessary to maintain a minimalist aesthetic. To make her space feel moody, we used a dark color palette, low lighting, and luxe fabrics."
+            ]
+        },
+        "story": {
+            "paragraphs": [
+                "As a WFH-er, Emily wanted us to create a sanctuary where the only focus is rest, relaxation, and romance. And though she has beautifully designed her home with Scandinavian elements, she challenged us to take her out of her comfort zone — to create a space where colors are in and neutrals are out.",
+                "The moody, sophisticated atmosphere Emily wanted required a balance of cool and earthy tones. We opted to change her walls and ceilings from a light mint green to a medium grey-green color, which beautifully transitions between natural green and blue hues throughout the day and keeps the room feeling open and airy. European picture frame wall mouldings provide timeless character without sacrificing the minimalism and clean lines Emily prefers. To bring warmth to her space, we replaced the linen sheets with luxurious clay bedding, added low amber pendant lights, and scattered delicate brass accents throughout.",
+                "Relaxation to Emily means curling up with a good book and cup of tea, so we transformed her bay windows into the coziest of reading nooks. The blinds were replaced with soft, layered curtains to maintain privacy without sacrificing natural light, and a round plush chair was used to maximize space without sacrificing comfort or style."
+            ]
+        }
+    },
+    "images": [
+        "/assets/moody-romantic/IMG_0017.jpeg",
+        "/assets/moody-romantic/IMG_0012.jpeg",
+        "/assets/moody-romantic/IMG_0007.jpeg",
+        "/assets/moody-romantic/IMG_0018.jpeg",
+        "/assets/moody-romantic/IMG_0014.jpeg",
+        "/assets/moody-romantic/IMG_0015.jpeg",
+        "/assets/moody-romantic/IMG_0011.jpeg",
+        "/assets/moody-romantic/IMG_0004.jpeg",
+        "/assets/moody-romantic/IMG_0010.jpeg",
+        "/assets/moody-romantic/IMG_0009.jpeg",
+        "/assets/moody-romantic/night_stand.jpeg",
+        "/assets/moody-romantic/IMG_0008.jpeg"
+    ],
+    "navBar": {
+        "enableTransparency": true
+    },
+    "heroMedia": {
+        "desktop": {
+            "url": "/assets/moody-romantic/IMG_0015.jpeg",
+            "isVideo": false
+        },
+        "mobile": {
+            "url": "/assets/moody-romantic/IMG_0015.jpeg",
+            "isVideo": false
+        }
+    },
+    "beforeAfter": {
+        "before": {
+            "url": "/assets/moody-romantic/comp1_before.jpeg"
+        },
+        "after": {
+            "url": "/assets/moody-romantic/comp1_after.jpeg"
+        }
+    },
+    "previewCard": {
+        "image": "https://soho-spaces.com/assets/moody-romantic/IMG_0008.jpeg",
+        "height": "630",
+        "width": "1200"
+    },
+    "config": {
+        "published": true,
+        "debug": false
+    }
+}

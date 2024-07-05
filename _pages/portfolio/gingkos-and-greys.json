@@ -1,0 +1,57 @@
+{
+    "title": "Gingkos + Greys Powder Room",
+    "url": "https://soho-spaces.com/portfolio/gingkos-and-greys-powder-room",
+    "content": {
+        "title1": "Gingkos + Greys",
+        "title2": "Powder Room",
+        "intro": {
+            "paragraphs": [
+                "Though the ginkgo and gray powder room has its own unique aesthetic, it draws inspiration from various design styles. The gold details on the wall and fixtures are common characteristics of Art Deco while nature-inspired motifs, specifically the gingko, are widely used in Asian art and design due to their cultural significance. Since Kevin wanted us to incorporate brass pieces he's collected during his travels in Asia - including the kingfisher towel bar, deer hook, and watercolor — we wanted to make sure the colors, design, and style we chose for the bathroom highlighted these treasures."
+            ]
+        },
+        "story": {
+            "paragraphs": [
+                "Kevin was not a fan of the sky blue powder room he inherited and needed our help transforming the space into one that aligns with his style: sophisticated, worldly… and masculine. As powder rooms are typically smaller spaces, the first instinct is to steer clear of darker colors and bold fixtures; however, darker colors can have the opposite effect depending on the room and lighting. Since this particular room is blessed with abundant natural light, we opted for a slate gray to create depth in the space and a board and batten feature wall to add character and flair without overwhelming the room. Maximizing storage is essential for city living, so we installed a built-in linen cabinet and shelves to display art pieces and plants.",
+                "Kevin is particularly fond of the Ginkgo Biloba tree - not only for its beauty but as it's the oldest living tree in existence, commonly referred to as a 'living fossil'. The ginkgo is featured throughout Kevin's home, and we were able to continue incorporating this theme in the half bath by adding a hand painted black and gold wall mural."
+            ]
+        }
+    },
+    "images": [
+        "/assets/gingkos-and-greys/IMG_0002.jpeg",
+        "/assets/gingkos-and-greys/IMG_0967.jpeg",
+        "/assets/gingkos-and-greys/IMG_0004.jpeg",
+        "/assets/gingkos-and-greys/IMG_0003.jpeg",
+        "/assets/gingkos-and-greys/IMG_0006.jpeg",
+        "/assets/gingkos-and-greys/IMG_0005.jpeg"
+    ],
+    "navBar": {
+        "enableTransparency": true
+    },
+    "heroMedia": {
+        "desktop": {
+            "url": "/assets/gingkos-and-greys/IMG_0967.jpeg",
+            "isVideo": false
+        },
+        "mobile": {
+            "url": "/assets/gingkos-and-greys/hero_image_mobile.jpeg",
+            "isVideo": false
+        }
+    },
+    "beforeAfter": {
+        "before": {
+            "url": "/assets/gingkos-and-greys/IMG_3274_2x.jpeg"
+        },
+        "after": {
+            "url": "/assets/gingkos-and-greys/IMG_6961.jpeg"
+        }
+    },
+    "previewCard": {
+        "image": "https://soho-spaces.com/assets/gingkos-and-greys/IMG_0967.jpeg",
+        "height": "630",
+        "width": "1200"
+    },
+    "config": {
+        "published": true,
+        "debug": false
+    }
+}
