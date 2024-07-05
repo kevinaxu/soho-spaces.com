@@ -1,0 +1,48 @@
+{
+    "title": "Portfolio",
+    "pages": [
+        {
+            "name": "modern gothic",
+            "featured_image_src": "/assets/modern-gothic/IMG_0964.jpeg",
+            "page_path": "./portfolio/modern-gothic-kitchen",
+            "image_position": "object-top"
+        },
+        {
+            "name": "dark academia",
+            "featured_image_src": "/assets/dark-academia/IMG_0020.jpeg",
+            "page_path": "./portfolio/dark-academia-living-room",
+            "image_position": "object-center"
+        },
+        {
+            "name": "moody romantic",
+            "featured_image_src": "/assets/moody-romantic/IMG_0008.jpeg",
+            "page_path": "./portfolio/moody-romantic-bedroom",
+            "image_position": "object-center"
+        },
+        {
+            "name": "muted mediterranean",
+            "featured_image_src": "/assets/muted-mediterranean/IMG_3696.jpeg",
+            "page_path": "./portfolio/muted-mediterranean-breakfast-nook",
+            "image_position": "object-center"
+        },
+        {
+            "name": "east meets west",
+            "featured_image_src": "/assets/east-meets-west/umbrella.jpeg",
+            "page_path": "./portfolio/east-meets-west-entryway",
+            "image_position": "object-center"
+        },
+        {
+            "name": "gingkos + greys",
+            "featured_image_src": "/assets/gingkos-and-greys/IMG_0967.jpeg",
+            "page_path": "./portfolio/gingkos-and-greys-powder-room",
+            "image_position": "object-left"
+        }
+    ],
+    "navBar": {
+        "enableTransparency": false
+    },
+    "config": {
+        "published": true,
+        "debug": false
+    }
+}

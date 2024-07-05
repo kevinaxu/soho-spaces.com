@@ -1,0 +1,10 @@
+{
+    "title": "404 Not Found",
+    "navBar": {
+        "enableTransparency": false
+    },
+    "config": {
+        "published": true,
+        "debug": false
+    }
+}
