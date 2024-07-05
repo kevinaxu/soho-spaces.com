@@ -2,40 +2,6 @@ const fs = require('fs-extra');
 const path = require('path');
 const mustache = require('mustache');
 
-/*
-const config = {
-    "siteData": "_pages",
-    "siteDirectory": "_site",
-    "siteTemplates": {
-        "page": "_templates/pages",
-        "partial": "_templates/partials"
-    },
-    "mapping": {
-        "index.json": {
-            "template": "index.mustache",
-            "outputPath": "index.html",
-            "partials": ["head", "navbar", "heroMedia", "heroImage", "heroVideo", "footer"]
-        },
-        "portfolio.json": {
-            "template": "portfolio.mustache",
-            "outputPath": "portfolio.html",
-            "partials": ["head", "navbar", "portfolioGrid", "portfolioItem", "footer"]
-        },
-        "404.json": {
-            "template": "404.mustache",
-            "outputPath": "404.html",
-            "partials": ["head", "navbar", "footer"]
-        },
-        "dark-academia.json": {
-            "template": "portfolio-page.mustache",
-            "outputPath": "portfolio/dark-academia-living-room.html",
-            "partials": ["head", "navbar", "heroMedia", "heroImage", "heroVideo", "beforeAfter", "photoGrid", "photoGridDesktop", "photoGridMobile", "photoCarousel", "photoCarouselIndicator", "photoCarouselItem", "photoCarouselModal", "footer"]
-        }
-    },
-    "dryRun": false
-}
-*/
-
 // TODO: 
 // - don't load/reload partials every single time 
 // - change prefix of the site depending on production or local 
@@ -220,7 +186,7 @@ class SiteGenerator {
         }
 
         // copy static files 
-        this._copyDirectoryContents("_public", "_site/", {
+        this._copyDirectoryContents("public", "_site/", {
             filter: (src, dest) => {
                 const basename = path.basename(src);
                 return basename !== 'og' && basename !== 'sharp';

@@ -1,9 +1,9 @@
 {
-    "siteData": "_pages",
+    "siteData": "pages",
     "siteDirectory": "_site",
     "siteTemplates": {
-        "page": "_templates/pages",
-        "partial": "_templates/partials"
+        "page": "templates/pages",
+        "partial": "templates/partials"
     },
     "mapping": {
         "index.json": {
