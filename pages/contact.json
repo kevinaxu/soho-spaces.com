@@ -1,0 +1,11 @@
+{
+    "title": "Contact Us",
+    "url": "https://soho-spaces.com/contact.html",
+    "navBar": {
+        "enableTransparency": false
+    },
+    "config": {
+        "published": true,
+        "debug": false
+    }
+}
