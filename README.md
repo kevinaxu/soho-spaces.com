@@ -84,7 +84,7 @@ Build process includes the following steps:
 - Load all templates, partials,  post data 
 - Copy over all data from `/public`, ignoring any subdirectories matching `config.ignore[]`
 - Write files to `/site`
-- Output stats
+- Print stats
 
 
 
