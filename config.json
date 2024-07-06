@@ -21,6 +21,11 @@
             "outputPath": "contact.html",
             "partials": ["head", "navbar", "footer"]
         },
+        "contact-success.json": {
+            "template": "contact-success.mustache",
+            "outputPath": "success.html",
+            "partials": ["head", "navbar", "footer"]
+        },
         "404.json": {
             "template": "404.mustache",
             "outputPath": "404.html",
