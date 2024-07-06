@@ -1,6 +1,9 @@
 
 function initializeCarousel() {
     const carouselElement   = document.getElementsByClassName('js-photo-carousel')[0];
+    if (!carouselElement) {
+        return; 
+    }
     const photoGridElement  = document.getElementsByClassName('js-photo-grid')[0];
     const modalElement      = document.getElementsByClassName('js-photo-carousel-modal')[0];
 
@@ -311,6 +314,9 @@ function setNavbarSlate() {
  */
 function initializeBeforeAfterComponent() {
     const beforeAfterElement    = document.getElementsByClassName("before-after-slider")[0]
+    if (!beforeAfterElement) {
+        return; 
+    }
     const beforeImageContainer  = beforeAfterElement.getElementsByClassName('before-image')[0];
     const beforeImageElement    = beforeImageContainer.getElementsByTagName('img')[0];
     const resizerElement        = beforeAfterElement.getElementsByClassName('resizer')[0];

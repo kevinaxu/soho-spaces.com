@@ -138,15 +138,21 @@ class SiteGenerator {
     render() {
         this.pageHTML = [] 
         for (const page of this.pageData) {
-            this.pageHTML.push(
-                this._renderPage(page.filePath, page.data)
-            );
+            const html = this._renderPage(page.filePath, page.data);
+            if (html) {
+                this.pageHTML.push(html);
+            }
         }
         return this; 
     }
 
     _renderPage(pageName, pageData) {
         const pageMapping = this.config.mapping[pageName];
+        if (!pageMapping) {
+            console.log("No mapping found, skipping...", pageName);
+            return null;
+        }
+
         if (pageMapping.template === "portfolio-page.mustache") {
             pageData = this._preprocessPortfolioPageData(pageData);
         }
