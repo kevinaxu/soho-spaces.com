@@ -4,4 +4,5 @@ node_modules/
 package-lock.json
 **/og/
 **/sharp/
-_site
+_site/
+lib/
